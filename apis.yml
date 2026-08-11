@@ -951,6 +951,8 @@ apis:
   - type: Overlay
     url: overlays/done-url-uptime-checker-overlay.yaml
 common:
+- type: MCPServer
+  url: mcp/done-mcp.yml
 - type: DeveloperPortal
   url: https://underscoredone.com
 - type: Documentation
