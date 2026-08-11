@@ -1,0 +1,53 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — _done Bulk QR Code Generator
+  version: 1.0.0
+extends: openapi/done-qr-code-generator-openapi.yml
+x-generated: '2026-08-11'
+x-method: generated
+x-source: openapi/_original/done-qr-code-generator-openapi.json
+x-note: 'Non-destructive. Captures API Evangelist enhancements only: catalog provenance, a canonical resource tag
+  in place of the SEO keyword tag list (keywords preserved under x-keywords), and a service-namespaced canonical
+  operationId. The provider spec is never mutated.'
+actions:
+- target: $.info
+  description: Record API Evangelist provenance and the catalog identity of this service.
+  update:
+    x-api-evangelist:
+      provider: _done
+      slug: done
+      catalog: https://apis.io/provider/done/
+      harvested: '2026-08-11'
+      source: https://qr-code-generator.underscoredone.com/openapi.json
+      payment_protocol: x402
+      price_usd: 0.01
+- target: $.paths["/generate"].post
+  description: Collapse 14 SEO keyword tags to one canonical resource tag "qr code". The original keyword list is
+    preserved as x-keywords so nothing is lost.
+  update:
+    tags:
+    - qr code
+    x-keywords:
+    - qr code
+    - qr code generator
+    - qr
+    - generate qr
+    - text to qr code
+    - qr code image
+    - url to qr
+    - wifi qr code
+    - bulk qr codes
+    - qr png
+    - create qr code
+    - qr code api
+    - vcard qr
+    - make qr code
+- target: $.paths["/generate"].post
+  description: Namespace the operationId by service — operationIds collide across the 26 _done specs.
+  update:
+    x-canonical-operation-id: qr_code_generator_generate_generate_post
+- target: $.tags
+  description: Reduce the 14-entry SEO tag list to one canonical resource tag.
+  update:
+  - name: qr code
+    description: Bulk QR Code Generator

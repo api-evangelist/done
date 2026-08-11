@@ -1,0 +1,52 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — _done HTTP Status Code Checker
+  version: 1.0.0
+extends: openapi/done-http-status-checker-openapi.yml
+x-generated: '2026-08-11'
+x-method: generated
+x-source: openapi/_original/done-http-status-checker-openapi.json
+x-note: 'Non-destructive. Captures API Evangelist enhancements only: catalog provenance, a canonical resource tag
+  in place of the SEO keyword tag list (keywords preserved under x-keywords), and a service-namespaced canonical
+  operationId. The provider spec is never mutated.'
+actions:
+- target: $.info
+  description: Record API Evangelist provenance and the catalog identity of this service.
+  update:
+    x-api-evangelist:
+      provider: _done
+      slug: done
+      catalog: https://apis.io/provider/done/
+      harvested: '2026-08-11'
+      source: https://http-status-checker.underscoredone.com/openapi.json
+      payment_protocol: x402
+      price_usd: 0.01
+- target: $.paths["/check"].post
+  description: Collapse 13 SEO keyword tags to one canonical resource tag "http status code". The original keyword
+    list is preserved as x-keywords so nothing is lost.
+  update:
+    tags:
+    - http status code
+    x-keywords:
+    - http status code
+    - status code checker
+    - is url 404
+    - check status code
+    - broken link checker
+    - 404 checker
+    - redirect checker
+    - dead link detector
+    - url status
+    - website status
+    - 500 error checker
+    - uptime
+    - link validation
+- target: $.paths["/check"].post
+  description: Namespace the operationId by service — operationIds collide across the 26 _done specs.
+  update:
+    x-canonical-operation-id: http_status_checker_check_urls_check_post
+- target: $.tags
+  description: Reduce the 13-entry SEO tag list to one canonical resource tag.
+  update:
+  - name: http status code
+    description: HTTP Status Code Checker

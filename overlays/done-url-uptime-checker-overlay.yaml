@@ -1,0 +1,54 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — _done URL Uptime Checker
+  version: 1.0.0
+extends: openapi/done-url-uptime-checker-openapi.yml
+x-generated: '2026-08-11'
+x-method: generated
+x-source: openapi/_original/done-url-uptime-checker-openapi.json
+x-note: 'Non-destructive. Captures API Evangelist enhancements only: catalog provenance, a canonical resource tag
+  in place of the SEO keyword tag list (keywords preserved under x-keywords), and a service-namespaced canonical
+  operationId. The provider spec is never mutated.'
+actions:
+- target: $.info
+  description: Record API Evangelist provenance and the catalog identity of this service.
+  update:
+    x-api-evangelist:
+      provider: _done
+      slug: done
+      catalog: https://apis.io/provider/done/
+      harvested: '2026-08-11'
+      source: https://url-uptime-checker.underscoredone.com/openapi.json
+      payment_protocol: x402
+      price_usd: 0.01
+- target: $.paths["/check"].post
+  description: Collapse 15 SEO keyword tags to one canonical resource tag "website uptime". The original keyword
+    list is preserved as x-keywords so nothing is lost.
+  update:
+    tags:
+    - website uptime
+    x-keywords:
+    - website uptime
+    - uptime
+    - is site down
+    - url uptime
+    - uptime checker
+    - website monitoring
+    - is website reachable
+    - site availability
+    - uptime monitor
+    - website health
+    - ping url
+    - response time check
+    - site up or down
+    - heartbeat check
+    - sla monitoring
+- target: $.paths["/check"].post
+  description: Namespace the operationId by service — operationIds collide across the 26 _done specs.
+  update:
+    x-canonical-operation-id: url_uptime_checker_handler_check_post
+- target: $.tags
+  description: Reduce the 15-entry SEO tag list to one canonical resource tag.
+  update:
+  - name: website uptime
+    description: URL Uptime Checker

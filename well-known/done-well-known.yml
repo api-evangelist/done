@@ -1,0 +1,79 @@
+generated: '2026-08-11'
+method: probed
+source: live probes of /.well-known/ and root discovery paths on _done hosts
+summary: >-
+  _done serves ONE real well-known document: /.well-known/x402.json, an x402 payment-resource
+  manifest listing all 26 pay-per-call endpoints with price, network, asset, payTo address,
+  OpenAPI URL and info page. The legacy A2A path /.well-known/agent.json returns 200 but its
+  body is byte-identical to x402.json — it is the SAME x402 manifest re-served, NOT an A2A
+  AgentCard, so no AgentCard pointer is emitted. No security.txt, no OIDC/OAuth metadata,
+  no api-catalog, no ai-plugin.json.
+hosts:
+  - host: https://underscoredone.com
+    documents:
+      - path: /.well-known/x402.json
+        status: 200
+        content_type: application/json
+        file: done-x402.json
+        note: Real document — x402 v1.0 resource manifest, 26 payment-gated endpoints.
+      - path: /.well-known/agent.json
+        status: 200
+        content_type: application/json
+        file: null
+        note: >-
+          200 but NOT an AgentCard — body is byte-identical to /.well-known/x402.json
+          (provider/site/resources shape; no protocolVersion, no capabilities, no skills).
+          Recorded as a miss for the A2A check; not saved as an agent card.
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /apis.json
+        status: 404
+      - path: /llms.txt
+        status: 200
+        content_type: text/plain
+        file: ../llms/done-llms.txt
+      - path: /openapi.json
+        status: 200
+        content_type: application/json
+        note: >-
+          Aggregate "_done Gateway" OpenAPI 3.1.0 — valid document but paths is EMPTY {}.
+          The real contracts are the 26 per-service specs on the service subdomains.
+      - path: /sitemap.xml
+        status: 200
+      - path: /robots.txt
+        status: 200
+        note: Allows all agents; advertises the sitemap and llms.txt in a comment.
+  - host: https://asn-lookup.underscoredone.com
+    note: Representative service subdomain — same result on json-suite and ocr.
+    documents:
+      - path: /.well-known/x402.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 404
+      - path: /openapi.json
+        status: 200
+        note: The real per-service OpenAPI 3.1.0 contract.
+wildcard_dns_warning: >-
+  *.underscoredone.com resolves and serves the marketing homepage for ANY label — verified with
+  https://zzz-not-real-abc123.underscoredone.com/ (200, 45,567 bytes, identical to the homepage).
+  status.underscoredone.com and mcp.underscoredone.com are therefore FALSE POSITIVES: both return
+  200 with the homepage, neither is a status page nor an MCP server. Any future probe of this
+  provider must compare bodies, not status codes.

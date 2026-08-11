@@ -1,0 +1,77 @@
+generated: '2026-08-11'
+method: generated
+source: >-
+  openapi/_original/*.json (26 provider-published OpenAPI 3.1.0 specs) +
+  https://underscoredone.com/llms.txt + conventions/done-conventions.yml + errors/done-problem-types.yml
+summary: >-
+  Six packaged Agent Skills for the _done pay-per-call utility catalog. Every operationId cited is
+  verified present in the provider's own spec. Skill one is the universal x402 payment flow that
+  the other five depend on; the remaining five bundle the 26 single-operation services into the
+  multi-call jobs an agent actually runs.
+skill_count: 6
+skills:
+  - name: done-pay-a-402-call
+    file: done-pay-a-402-call.md
+    summary: The universal x402 payment handshake — unpaid POST, 402 challenge, signed USDC retry.
+    services: ['asn-lookup (worked example; the flow applies to all 26)']
+    operations: [handler_lookup_post]
+    paid_calls: 1
+  - name: done-domain-intelligence-sweep
+    file: done-domain-intelligence-sweep.md
+    summary: Registration status, age/expiry, DNS + WHOIS, and the ASN behind the address.
+    services: [domain-availability-checker, domain-age-checker, dns-whois-lookup, asn-lookup]
+    operations: [check_check_post, handler_lookup_post, handler_lookup_post, handler_lookup_post]
+    paid_calls: 4
+  - name: done-email-deliverability-audit
+    file: done-email-deliverability-audit.md
+    summary: DMARC policy then BIMI/VMC — sequenced so a BIMI pass is read against enforcement.
+    services: [dmarc-lookup, bimi-checker]
+    operations: [handler_dmarc_lookup_post, handler_check_post]
+    paid_calls: 2
+  - name: done-web-page-audit
+    file: done-web-page-audit.md
+    summary: Sitemap enumeration, status/redirects, SEO fields, response headers, rendered screenshot.
+    services: [sitemap-url-extractor, http-status-checker, seo-data-extractor, http-header-checker, screenshots]
+    operations: [handler_extract_post, check_urls_check_post, handler_extract_post, handler_check_post, handler_capture_post]
+    paid_calls: 5
+  - name: done-verify-webhook-signature
+    file: done-verify-webhook-signature.md
+    summary: Constant-time HMAC verification, then validate/query the JSON body — in that order.
+    services: [hash-hmac, json-suite]
+    operations: [handler_hash_post, handler_json_post]
+    paid_calls: 2
+  - name: done-network-exposure-probe
+    file: done-network-exposure-probe.md
+    summary: TCP port scan, CORS grant, security headers — with an explicit authorisation gate.
+    services: [port-scanner, cors-header-checker, http-header-checker]
+    operations: [scan_scan_post, handler_check_post, handler_check_post]
+    paid_calls: 3
+services_not_yet_covered:
+  services:
+    - cpi-report-us
+    - curl-http-request
+    - directory-submission-lite
+    - ens-resolver
+    - hackernews-data
+    - leetspeak-translator
+    - mortgage-amortization
+    - ocr
+    - qr-code-generator
+    - shopify-ai-rank-checker
+  note: >-
+    These are single-call utilities with no natural multi-step flow; calling them is
+    done-pay-a-402-call plus the body in their own spec. directory-submission-lite is
+    deliberately excluded — POST /submit places a PAID ORDER and is the only side-effecting,
+    non-retry-safe operation in the catalog.
+authoring_rules_applied:
+  - Every operationId is grepped from the provider's own spec; none invented.
+  - >-
+    Operations are addressed by host + path as well as operationId, because operationIds COLLIDE
+    across the 26 specs (handler_lookup_post x3, handler_check_post x4, handler_extract_post x2).
+  - Every skill states the x402 payment cost and the absence of an idempotency key.
+  - Every skill states the real error contract (400/402/422, `detail` envelope, no error codes).
+cross_links:
+  conventions: conventions/done-conventions.yml
+  errors: errors/done-problem-types.yml
+  agentic_access: agentic-access/done-agentic-access.yml
+  mcp: mcp/done-mcp.yml

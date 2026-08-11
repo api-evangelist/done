@@ -1,0 +1,109 @@
+generated: '2026-08-11'
+method: searched
+source: https://underscoredone.com/llms.txt + https://underscoredone.com/.well-known/x402.json + https://underscoredone.com/asn_lookup/
+  + live 402 challenge from POST https://asn-lookup.underscoredone.com/lookup + openapi/_original/*.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: siwx
+  type: apiKey
+  in: header
+  parameter: SIGN-IN-WITH-X
+  description: CAIP-122 wallet signature for repeat access after payment
+  sources:
+  - openapi/done-asn-lookup-openapi.yml
+  - openapi/done-bimi-checker-openapi.yml
+  - openapi/done-cors-header-checker-openapi.yml
+  - openapi/done-cpi-report-us-openapi.yml
+  - openapi/done-curl-http-request-openapi.yml
+  - openapi/done-directory-submission-lite-openapi.yml
+  - openapi/done-dmarc-lookup-openapi.yml
+  - openapi/done-dns-whois-lookup-openapi.yml
+  - openapi/done-domain-age-checker-openapi.yml
+  - openapi/done-domain-availability-checker-openapi.yml
+  - openapi/done-ens-resolver-openapi.yml
+  - openapi/done-hackernews-data-openapi.yml
+  - openapi/done-hash-hmac-openapi.yml
+  - openapi/done-http-header-checker-openapi.yml
+  - openapi/done-http-status-checker-openapi.yml
+  - openapi/done-json-suite-openapi.yml
+  - openapi/done-leetspeak-translator-openapi.yml
+  - openapi/done-mortgage-amortization-openapi.yml
+  - openapi/done-ocr-openapi.yml
+  - openapi/done-port-scanner-openapi.yml
+  - openapi/done-qr-code-generator-openapi.yml
+  - openapi/done-screenshots-openapi.yml
+  - openapi/done-seo-data-extractor-openapi.yml
+  - openapi/done-shopify-ai-rank-checker-openapi.yml
+  - openapi/done-sitemap-url-extractor-openapi.yml
+  - openapi/done-url-uptime-checker-openapi.yml
+summary_text: '_done has no conventional authentication. There are no accounts, no signup, no API keys and no OAuth.
+  Authorisation IS payment: an unpaid POST to any of the 27 operations returns HTTP 402 with an x402 challenge,
+  and the caller re-sends the identical request carrying a signed USDC transfer authorization in an X-PAYMENT header.
+  The only securityScheme declared in the specs, `siwx`, is an OPTIONAL session-continuation mechanism layered on
+  top of that, and it is undocumented beyond its one-line description.'
+model: payment-as-authorization (x402)
+api_keys:
+  supported: false
+  note: Provider states "no accounts, no API keys, no subscriptions" in llms.txt.
+oauth2:
+  supported: false
+  note: No oauth2 securityScheme in any spec; /.well-known/oauth-authorization-server and /.well-known/openid-configuration
+    both 404.
+payment_authorization:
+  protocol: x402
+  version: 2
+  challenge_header_observed: payment-required
+  challenge_header_declared: X-Payment-Response
+  header_naming_defect: The OpenAPI declares the 402 challenge header as X-Payment-Response; the live service sends
+    it as payment-required. A client that reads only the documented name will never see the challenge.
+  payment_header: X-PAYMENT
+  challenge_encoding: base64-encoded JSON
+  facilitator: https://api.cdp.coinbase.com/platform/v2/x402
+  max_timeout_seconds: 300
+  amount_usd: 0.01
+  rails:
+  - network: eip155:8453
+    chain: Base Mainnet
+    asset: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913'
+    asset_name: USD Coin
+    pay_to: '0xE9740820225B3918b4ddd1292C7cA4Ca0e2C2F08'
+    signature: EIP-3009 transferWithAuthorization (inferred from the EIP-712 domain in extra{name,version})
+  - network: solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp
+    chain: Solana Mainnet
+    asset: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+    pay_to: 8ugAWAXDB8V18kiUrGZTq1oMvU3C6Fxs8hfC6rvzQT3b
+  discovery: https://underscoredone.com/.well-known/x402.json
+  x_evidence:
+    url: https://asn-lookup.underscoredone.com/lookup
+    method: POST
+    http_status: 402
+    fetched: '2026-08-11'
+session_continuation:
+  scheme: siwx
+  header: SIGN-IN-WITH-X
+  standard: CAIP-122 (Sign-In With X)
+  declared_in: components.securitySchemes of all 26 specs
+  applied_to_operations: false
+  documented: false
+  gaps:
+  - No message format, nonce, domain-binding or expiry is published.
+  - No 401 or 403 response is declared on any operation, so the failure mode is undefined.
+  - The scheme is declared but never referenced by a `security` requirement on any operation.
+gaps:
+- No terms of service or privacy policy is published (/terms and /privacy both 404), so there is no contract governing
+  the payment.
+- No /.well-known/security.txt (404) and no vulnerability-disclosure channel.
+- No refund or failure policy for a call that is paid and then errors.
+- No idempotency key, so a timed-out paid call cannot be safely replayed — see conventions/done-conventions.yml.
+cross_links:
+  scopes: null
+  conventions: conventions/done-conventions.yml
+  conformance: conformance/done-conformance.yml
+  errors: errors/done-problem-types.yml
+  plans: plans/done-plans-pricing.yml
+  well_known: well-known/done-well-known.yml
+scopes_note: No OAuth scopes exist — derive-oauth-scopes.py found 0 oauth2 schemes. scopes/ is intentionally absent.

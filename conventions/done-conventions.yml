@@ -1,0 +1,127 @@
+generated: '2026-08-11'
+method: searched
+source: https://underscoredone.com/llms.txt + https://underscoredone.com/asn_lookup/ + openapi/_original/*.json + live 402 probe
+summary: >-
+  _done is a fleet of 26 single-operation utility APIs published on one uniform template. Every
+  service is POST-only, JSON-in/JSON-out, one path, no query parameters, no pagination, no
+  versioning in the URL, and no accounts. The one cross-cutting mechanic is x402: an unpaid call
+  returns HTTP 402 with a signed-payment challenge in a response header; you re-send the identical
+  request with an X-PAYMENT header. There is NO documented idempotency key, so a retry after a
+  network failure is a second $0.01 charge with no dedupe guarantee.
+shape:
+  transport: HTTPS only (TLS 1.3 observed on every host)
+  http_methods: [POST]
+  request_media_type: application/json
+  response_media_type: application/json
+  operations_per_service: 1 (2 for directory-submission-lite)
+  paths_per_service: 1 (2 for directory-submission-lite)
+  query_parameters: none — every input travels in the JSON request body
+authentication:
+  style: payment-first, keyless
+  documented_scheme:
+    name: siwx
+    type: apiKey
+    in: header
+    parameter: SIGN-IN-WITH-X
+    description: CAIP-122 wallet signature for repeat access after payment
+  payment_header: X-PAYMENT (request) / payment-required (challenge response, observed live)
+  api_keys: none — the provider states "no accounts, no API keys, no subscriptions"
+  see: authentication/done-authentication.yml
+idempotency:
+  documented: false
+  header: null
+  notes: >-
+    NO idempotency-key mechanism is documented in llms.txt, on any service page, or in any of the
+    26 OpenAPI specs. This matters more here than on a free API: because every call is a settled
+    on-chain micropayment, an ambiguous timeout leaves the caller unable to tell whether the
+    $0.01 was captured. Do not assume replay-safety. Operations are read-only lookups except
+    directory-submission-lite POST /submit, which PLACES AN ORDER and is therefore the one
+    genuinely unsafe-to-retry operation in the catalog.
+pagination:
+  supported: false
+  notes: >-
+    No cursor, page, offset or limit parameter exists on any operation. Bulk services instead cap
+    input arrays inline — dns-whois-lookup and domain-availability-checker accept up to 10 domains,
+    http-status-checker up to 10 URLs, qr-code-generator a caller-supplied list.
+field_selection:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  documented: false
+  observed_headers: [x-railway-request-id, cf-ray, x-hikari-trace, x-railway-edge]
+  notes: >-
+    Infrastructure-emitted only (Railway behind Cloudflare) — not documented as a support
+    correlation ID and not mentioned anywhere in the docs. Do not rely on it as a contract.
+versioning:
+  scheme: document + payload version, no URL or header version
+  url_versioning: false
+  header_versioning: false
+  spec_version: info.version = 1.0.0 on all 26 specs
+  payload_version: >-
+    Responses carry an `api_version` field (default "1.0.0") inside the body — the only
+    version signal a client can actually observe at runtime.
+  see: lifecycle/done-lifecycle.yml
+error_envelope:
+  format: fastapi-detail (NOT RFC 9457)
+  field: detail
+  statuses: [400, 402, 422]
+  see: errors/done-problem-types.yml
+rate_limit_signaling:
+  documented: false
+  headers_observed: none
+  notes: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header was present on the live 402 response, and
+    no limits are documented. The economic throttle is the price, not a quota.
+  see: rate-limits/done-rate-limits.yml
+payment_protocol:
+  name: x402
+  version: 2 (x402Version in the live challenge; the specs also carry a top-level x402Version 2)
+  flow:
+    - POST the JSON request with no payment header.
+    - Receive 402 with a base64 `payment-required` header carrying the challenge.
+    - Decode, pick one of the `accepts[]` rails, sign a USDC transfer authorization.
+    - Retry the identical request with the X-PAYMENT header; receive 200 with the result.
+  price: $0.01 USD per request (amount 10000, 6-decimal USDC)
+  rails:
+    - network: 'eip155:8453'
+      chain: Base Mainnet
+      asset: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913'
+      asset_name: USD Coin
+    - network: 'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp'
+      chain: Solana Mainnet
+      asset: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+  facilitator: https://api.cdp.coinbase.com/platform/v2/x402
+  max_timeout_seconds: 300
+  discovery: https://underscoredone.com/.well-known/x402.json
+agent_annotations:
+  notes: >-
+    Every spec carries agent-directed vendor extensions that most providers do not publish:
+    info.x-ai-instructions and x-guidance (repeated per-operation), x-keywords, x-category,
+    x-pricing, x-402, x-payment-info, x-agentcash-auth, and a top-level x-payment-accepts.
+    The live 402 challenge additionally embeds an x402 `bazaar` extension containing a JSON
+    Schema 2020-12 description of the request body plus a worked response example.
+  extensions: [x-ai-instructions, x-guidance, x-keywords, x-category, x-pricing, x-provider, x-provider-url, x-402, x-payment-info, x-payment-accepts, x-agentcash-auth, x-openapi-url, x-logo]
+known_defects:
+  - >-
+    operationIds are unique WITHIN a spec but COLLIDE ACROSS the fleet — handler_lookup_post
+    appears in asn-lookup, dns-whois-lookup and domain-age-checker; handler_check_post in four
+    services. Any tool that merges the 26 specs into one namespace (an MCP forge, an SDK
+    generator, an agent tool registry) will silently clobber operations.
+  - >-
+    The aggregate https://underscoredone.com/openapi.json advertised in llms.txt is a valid
+    OpenAPI 3.1.0 document with an EMPTY paths object — it names the gateway but describes
+    nothing. The real contracts are the 26 per-service specs.
+  - >-
+    Operation tags are SEO keyword lists (15 tags on one operation, e.g. "who owns this ip"),
+    not a resource taxonomy. See overlays/ for the canonical-tag overlay.
+  - >-
+    *.underscoredone.com is a wildcard that serves the marketing homepage for any label, so
+    status./mcp./anything. all return 200. Presence cannot be inferred from a status code here.
+cross_links:
+  errors: errors/done-problem-types.yml
+  lifecycle: lifecycle/done-lifecycle.yml
+  authentication: authentication/done-authentication.yml
+  rate_limits: rate-limits/done-rate-limits.yml
+  plans: plans/done-plans-pricing.yml
+  well_known: well-known/done-well-known.yml

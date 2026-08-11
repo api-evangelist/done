@@ -1,0 +1,1892 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/_original/*.json ($ref graph + components.schemas across all 26 specs)
+summary: _done has no shared domain model. It is 26 INDEPENDENT single-call services, each with its own self-contained
+  Request/Response pair and no identifiers that cross service boundaries — there are no resource IDs, no id-prefix
+  scheme, no foreign keys, and therefore no entity-relationship graph in the usual sense. The only structure shared
+  across all 26 specs is the FastAPI validation-error pair (HTTPValidationError -> ValidationError), which is framework
+  boilerplate, not domain modelling.
+has_cross_entity_relationships: false
+id_scheme: null
+id_prefixes: []
+relationships: []
+universal_schemas:
+- name: Request
+  present_in: 26
+  note: Per-service input object; field names differ per service.
+- name: Response
+  present_in: 26
+  note: Per-service output object; every one carries an api_version string.
+- name: HTTPValidationError
+  present_in: 26
+  note: FastAPI boilerplate; has_many ValidationError via detail[].
+- name: ValidationError
+  present_in: 26
+  note: FastAPI boilerplate; {loc[], msg, type, input?, ctx?}.
+only_real_relationship:
+  from: HTTPValidationError
+  to: ValidationError
+  kind: has_many
+  via: detail
+  note: Present in all 26 specs; the sole $ref edge between components.schemas anywhere in the catalog.
+stateful_surface:
+  service: directory-submission-lite
+  note: 'The one service with state across calls: POST /submit returns a confirmation number that POST /status takes
+    back. This is the only correlated identifier in the entire _done catalog and it is not modelled as an entity
+    — it is a bare field on two unrelated Request/Response objects.'
+  operations:
+  - handler_submit_post
+  - status_handler_status_post
+service_count: 26
+services:
+- service: asn-lookup
+  title: ASN Lookup
+  spec: openapi/_original/done-asn-lookup-openapi.json
+  entity_count: 4
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 1
+    required:
+    - query
+    fields:
+    - query
+    refs: []
+  - name: Response
+    type: object
+    field_count: 8
+    required:
+    - query
+    - asn
+    - holder
+    fields:
+    - api_version
+    - query
+    - asn
+    - holder
+    - country
+    - registry
+    - prefix
+    - allocated
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: bimi-checker
+  title: BIMI Checker
+  spec: openapi/_original/done-bimi-checker-openapi.json
+  entity_count: 6
+  entities:
+  - name: DomainCheckDetail
+    type: object
+    field_count: 4
+    required:
+    - bimi_record_found
+    - dmarc_strict
+    fields:
+    - bimi_record_found
+    - svg_valid
+    - vmc_valid
+    - dmarc_strict
+    refs: []
+  - name: DomainResult
+    type: object
+    field_count: 5
+    required:
+    - domain
+    - selector
+    - valid
+    - issues
+    - checks
+    fields:
+    - domain
+    - selector
+    - valid
+    - issues
+    - checks
+    refs:
+    - DomainCheckDetail
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 3
+    required:
+    - domains
+    fields:
+    - domains
+    - selector
+    - check_vmc
+    refs: []
+  - name: Response
+    type: object
+    field_count: 3
+    required:
+    - checked
+    - results
+    fields:
+    - api_version
+    - checked
+    - results
+    refs:
+    - DomainResult
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: cors-header-checker
+  title: CORS Header Checker
+  spec: openapi/_original/done-cors-header-checker-openapi.json
+  entity_count: 4
+  entities:
+  - name: CheckRequest
+    type: object
+    field_count: 2
+    required:
+    - url
+    fields:
+    - url
+    - origin
+    refs: []
+  - name: CheckResponse
+    type: object
+    field_count: 8
+    required:
+    - url
+    - origin_tested
+    - cors_enabled
+    - origin_allowed
+    - headers
+    fields:
+    - api_version
+    - url
+    - origin_tested
+    - status
+    - cors_enabled
+    - origin_allowed
+    - headers
+    - error
+    refs: []
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: cpi-report-us
+  title: US CPI Data & Inflation Report
+  spec: openapi/_original/done-cpi-report-us-openapi.json
+  entity_count: 5
+  entities:
+  - name: CpiRecord
+    type: object
+    field_count: 5
+    required:
+    - reference_period
+    - headline_index
+    - core_index
+    fields:
+    - reference_period
+    - headline_index
+    - core_index
+    - headline_yoy_pct
+    - core_yoy_pct
+    refs: []
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 3
+    required: []
+    fields:
+    - period
+    - start
+    - end
+    refs: []
+  - name: Response
+    type: object
+    field_count: 9
+    required: []
+    fields:
+    - api_version
+    - reference_period
+    - headline_index
+    - core_index
+    - headline_yoy_pct
+    - core_yoy_pct
+    - summary
+    - data
+    - count
+    refs:
+    - CpiRecord
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: curl-http-request
+  title: Curl HTTP Request
+  spec: openapi/_original/done-curl-http-request-openapi.json
+  entity_count: 4
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 2
+    required:
+    - url
+    fields:
+    - url
+    - method
+    refs: []
+  - name: Response
+    type: object
+    field_count: 9
+    required:
+    - url
+    - method
+    - statusCode
+    - headers
+    - body
+    - durationMs
+    - redirectChain
+    fields:
+    - api_version
+    - url
+    - method
+    - statusCode
+    - headers
+    - body
+    - durationMs
+    - redirectChain
+    - error
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: directory-submission-lite
+  title: Directory Submission Lite
+  spec: openapi/_original/done-directory-submission-lite-openapi.json
+  entity_count: 8
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: OrderData
+    type: object
+    field_count: 7
+    required:
+    - ok
+    - submissionid
+    - url
+    - status
+    - created_at
+    - status_url
+    - message
+    fields:
+    - ok
+    - submissionid
+    - url
+    - status
+    - created_at
+    - status_url
+    - message
+    refs: []
+  - name: Request
+    type: object
+    field_count: 1
+    required:
+    - url
+    fields:
+    - url
+    refs: []
+  - name: Response
+    type: object
+    field_count: 2
+    required:
+    - data
+    fields:
+    - api_version
+    - data
+    refs:
+    - OrderData
+  - name: StatusData
+    type: object
+    field_count: 6
+    required:
+    - submissionid
+    - url
+    - status
+    - created_at
+    fields:
+    - submissionid
+    - url
+    - status
+    - created_at
+    - notes
+    - submitted_urls
+    refs: []
+  - name: StatusRequest
+    type: object
+    field_count: 1
+    required:
+    - submissionid
+    fields:
+    - submissionid
+    refs: []
+  - name: StatusResponse
+    type: object
+    field_count: 2
+    required:
+    - data
+    fields:
+    - api_version
+    - data
+    refs:
+    - StatusData
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: dmarc-lookup
+  title: Bulk DMARC Record Lookup
+  spec: openapi/_original/done-dmarc-lookup-openapi.json
+  entity_count: 5
+  entities:
+  - name: DomainResult
+    type: object
+    field_count: 5
+    required:
+    - domain
+    - recordStatus
+    - domainPolicy
+    - reportingEnabled
+    - rawRecord
+    fields:
+    - domain
+    - recordStatus
+    - domainPolicy
+    - reportingEnabled
+    - rawRecord
+    refs: []
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 1
+    required:
+    - domains
+    fields:
+    - domains
+    refs: []
+  - name: Response
+    type: object
+    field_count: 6
+    required:
+    - results
+    - total
+    - valid_count
+    - invalid_count
+    - not_found_count
+    fields:
+    - api_version
+    - results
+    - total
+    - valid_count
+    - invalid_count
+    - not_found_count
+    refs:
+    - DomainResult
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: dns-whois-lookup
+  title: DNS & WHOIS Lookup
+  spec: openapi/_original/done-dns-whois-lookup-openapi.json
+  entity_count: 5
+  entities:
+  - name: DomainResult
+    type: object
+    field_count: 34
+    required:
+    - domain
+    - checkedAt
+    fields:
+    - domain
+    - checkedAt
+    - dns_a
+    - dns_aaaa
+    - dns_mx
+    - dns_cname
+    - dns_txt
+    - dns_ns
+    - dns_ptr
+    - dns_soa
+    - dns_srv
+    - dns_caa
+    - dns_naptr
+    - dns_ds
+    - dns_tlsa
+    - whois_registrar
+    - whois_iana_id
+    - whois_registrar_url
+    - whois_registrar_abuse_email
+    - whois_registrar_abuse_phone
+    - whois_created
+    - whois_expires
+    - whois_updated
+    - whois_status
+    - whois_nameservers
+    - whois_registrant_name
+    - whois_registrant_org
+    - whois_registrant_address
+    - whois_registrant_country
+    - whois_registrant_phone
+    - whois_admin_name
+    - whois_admin_org
+    - whois_admin_email
+    - whois_admin_country
+    refs: []
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 1
+    required:
+    - domains
+    fields:
+    - domains
+    refs: []
+  - name: Response
+    type: object
+    field_count: 2
+    required:
+    - results
+    fields:
+    - api_version
+    - results
+    refs:
+    - DomainResult
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: domain-age-checker
+  title: Domain Age Checker
+  spec: openapi/_original/done-domain-age-checker-openapi.json
+  entity_count: 4
+  entities:
+  - name: DomainLookupRequest
+    type: object
+    field_count: 1
+    required:
+    - domains
+    fields:
+    - domains
+    refs: []
+  - name: DomainLookupResponse
+    type: object
+    field_count: 6
+    required:
+    - results
+    - total
+    - succeeded
+    - failed
+    - processed_at
+    fields:
+    - api_version
+    - results
+    - total
+    - succeeded
+    - failed
+    - processed_at
+    refs: []
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: domain-availability-checker
+  title: Domain Availability Checker
+  spec: openapi/_original/done-domain-availability-checker-openapi.json
+  entity_count: 5
+  entities:
+  - name: CheckRequest
+    type: object
+    field_count: 1
+    required:
+    - domains
+    fields:
+    - domains
+    refs: []
+  - name: CheckResponse
+    type: object
+    field_count: 5
+    required:
+    - count
+    - results
+    - queried_at
+    - disclaimer
+    fields:
+    - api_version
+    - count
+    - results
+    - queried_at
+    - disclaimer
+    refs:
+    - DomainResult
+  - name: DomainResult
+    type: object
+    field_count: 6
+    required:
+    - domain
+    - registered
+    - status
+    - rdap_source
+    - tld_supported
+    - note
+    fields:
+    - domain
+    - registered
+    - status
+    - rdap_source
+    - tld_supported
+    - note
+    refs: []
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: ens-resolver
+  title: ENS Resolver
+  spec: openapi/_original/done-ens-resolver-openapi.json
+  entity_count: 4
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 1
+    required:
+    - query
+    fields:
+    - query
+    refs: []
+  - name: Response
+    type: object
+    field_count: 6
+    required:
+    - query
+    - direction
+    - resolved
+    fields:
+    - api_version
+    - query
+    - direction
+    - name
+    - address
+    - resolved
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: hackernews-data
+  title: Hacker News Data
+  spec: openapi/_original/done-hackernews-data-openapi.json
+  entity_count: 6
+  entities:
+  - name: CommentModel
+    type: object
+    field_count: 6
+    required:
+    - id
+    - author
+    - posted_at
+    - body
+    - reply_count
+    fields:
+    - id
+    - author
+    - posted_at
+    - body
+    - reply_count
+    - replies
+    refs: []
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: ItemModel
+    type: object
+    field_count: 10
+    required:
+    - id
+    - item_type
+    - posted_at
+    - comment_count
+    fields:
+    - id
+    - item_type
+    - category
+    - title
+    - author
+    - url
+    - points
+    - posted_at
+    - comment_count
+    - comments
+    refs:
+    - CommentModel
+  - name: Request
+    type: object
+    field_count: 7
+    required: []
+    fields:
+    - category
+    - date
+    - limit
+    - comment_limit
+    - reply_depth
+    - replies_per_comment
+    - page_token
+    refs: []
+  - name: Response
+    type: object
+    field_count: 9
+    required:
+    - mode
+    - count
+    - results
+    fields:
+    - api_version
+    - mode
+    - category
+    - date
+    - count
+    - scanned
+    - next_page_token
+    - range_complete
+    - results
+    refs:
+    - ItemModel
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: hash-hmac
+  title: Hashing, HMAC & Checksum Suite
+  spec: openapi/_original/done-hash-hmac-openapi.json
+  entity_count: 6
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: HmacConfig
+    type: object
+    field_count: 4
+    required:
+    - mode
+    - algorithm
+    - key
+    fields:
+    - mode
+    - algorithm
+    - key
+    - expected_signature
+    refs: []
+  - name: HmacResult
+    type: object
+    field_count: 4
+    required:
+    - mode
+    - algorithm
+    - computed_signature
+    fields:
+    - mode
+    - algorithm
+    - computed_signature
+    - matches
+    refs: []
+  - name: Request
+    type: object
+    field_count: 5
+    required:
+    - input
+    - algorithms
+    fields:
+    - input
+    - input_encoding
+    - algorithms
+    - output_encoding
+    - hmac
+    refs:
+    - HmacConfig
+  - name: Response
+    type: object
+    field_count: 4
+    required:
+    - input_bytes
+    - digests
+    fields:
+    - api_version
+    - input_bytes
+    - digests
+    - hmac
+    refs:
+    - HmacResult
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: http-header-checker
+  title: HTTP Header Checker
+  spec: openapi/_original/done-http-header-checker-openapi.json
+  entity_count: 5
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: RedirectHop
+    type: object
+    field_count: 2
+    required:
+    - url
+    - status_code
+    fields:
+    - url
+    - status_code
+    refs: []
+  - name: Request
+    type: object
+    field_count: 3
+    required:
+    - url
+    fields:
+    - url
+    - method
+    - follow_redirects
+    refs: []
+  - name: Response
+    type: object
+    field_count: 8
+    required:
+    - url
+    - final_url
+    - status_code
+    - redirect_chain
+    - headers
+    - missing_security_headers
+    - response_time_ms
+    fields:
+    - api_version
+    - url
+    - final_url
+    - status_code
+    - redirect_chain
+    - headers
+    - missing_security_headers
+    - response_time_ms
+    refs:
+    - RedirectHop
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: http-status-checker
+  title: HTTP Status Code Checker
+  spec: openapi/_original/done-http-status-checker-openapi.json
+  entity_count: 5
+  entities:
+  - name: CheckRequest
+    type: object
+    field_count: 1
+    required:
+    - urls
+    fields:
+    - urls
+    refs: []
+  - name: CheckResponse
+    type: object
+    field_count: 2
+    required:
+    - results
+    fields:
+    - api_version
+    - results
+    refs:
+    - URLResult
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: URLResult
+    type: object
+    field_count: 5
+    required:
+    - url
+    - isRedirect
+    - redirectURL
+    - error
+    fields:
+    - url
+    - statusCode
+    - isRedirect
+    - redirectURL
+    - error
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: json-suite
+  title: JSON Validate, Repair, Convert, Query & Diff
+  spec: openapi/_original/done-json-suite-openapi.json
+  entity_count: 4
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 4
+    required:
+    - op
+    fields:
+    - op
+    - data
+    - data_raw
+    - options
+    refs: []
+  - name: Response
+    type: object
+    field_count: 18
+    required:
+    - op
+    fields:
+    - api_version
+    - op
+    - valid
+    - error
+    - line
+    - column
+    - path
+    - result
+    - repaired
+    - fixes_applied
+    - matches
+    - match_count
+    - equal
+    - change_count
+    - patch
+    - stats
+    - schema_valid
+    - schema_errors
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: leetspeak-translator
+  title: Leetspeak Translator
+  spec: openapi/_original/done-leetspeak-translator-openapi.json
+  entity_count: 4
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 3
+    required:
+    - text
+    - direction
+    fields:
+    - text
+    - direction
+    - level
+    refs: []
+  - name: Response
+    type: object
+    field_count: 5
+    required:
+    - original_text
+    - translated_text
+    - direction
+    - level
+    fields:
+    - api_version
+    - original_text
+    - translated_text
+    - direction
+    - level
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: mortgage-amortization
+  title: Mortgage & Loan Amortization Calculator
+  spec: openapi/_original/done-mortgage-amortization-openapi.json
+  entity_count: 10
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: InputsEcho
+    type: object
+    field_count: 4
+    required:
+    - principal
+    - annual_rate_percent
+    - term_months
+    - start_date
+    fields:
+    - principal
+    - annual_rate_percent
+    - term_months
+    - start_date
+    refs: []
+  - name: OneTimePayment
+    type: object
+    field_count: 2
+    required:
+    - month
+    - amount
+    fields:
+    - month
+    - amount
+    refs: []
+  - name: Request
+    type: object
+    field_count: 8
+    required:
+    - principal
+    - annual_rate_percent
+    - term_months
+    - start_date
+    fields:
+    - principal
+    - annual_rate_percent
+    - term_months
+    - start_date
+    - extra_monthly_payment
+    - one_time_payments
+    - summary_only
+    - rounding
+    refs:
+    - OneTimePayment
+  - name: Response
+    type: object
+    field_count: 7
+    required:
+    - inputs_echo
+    - rounding
+    - scheduled_payment
+    - summary
+    fields:
+    - api_version
+    - inputs_echo
+    - rounding
+    - scheduled_payment
+    - summary
+    - with_extra_payments
+    - schedule
+    refs:
+    - InputsEcho
+    - RoundingInfo
+    - ScheduleRow
+    - Summary
+    - WithExtraPayments
+  - name: RoundingInfo
+    type: object
+    field_count: 3
+    required:
+    - mode
+    - decimals
+    - final_payment_adjusted
+    fields:
+    - mode
+    - decimals
+    - final_payment_adjusted
+    refs: []
+  - name: ScheduleRow
+    type: object
+    field_count: 8
+    required:
+    - payment_number
+    - date
+    - payment
+    - scheduled_payment
+    - extra_applied
+    - interest
+    - principal
+    - balance
+    fields:
+    - payment_number
+    - date
+    - payment
+    - scheduled_payment
+    - extra_applied
+    - interest
+    - principal
+    - balance
+    refs: []
+  - name: Summary
+    type: object
+    field_count: 5
+    required:
+    - total_paid
+    - total_interest
+    - final_payment
+    - payoff_date
+    - scheduled_term_months
+    fields:
+    - total_paid
+    - total_interest
+    - final_payment
+    - payoff_date
+    - scheduled_term_months
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+  - name: WithExtraPayments
+    type: object
+    field_count: 7
+    required:
+    - total_paid
+    - total_interest
+    - final_payment
+    - payoff_date
+    - actual_term_months
+    - interest_saved
+    - months_saved
+    fields:
+    - total_paid
+    - total_interest
+    - final_payment
+    - payoff_date
+    - actual_term_months
+    - interest_saved
+    - months_saved
+    refs: []
+- service: ocr
+  title: OCR Text Extractor
+  spec: openapi/_original/done-ocr-openapi.json
+  entity_count: 4
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 3
+    required: []
+    fields:
+    - image_url
+    - image_base64
+    - lang
+    refs: []
+  - name: Response
+    type: object
+    field_count: 6
+    required:
+    - text
+    - word_count
+    - confidence
+    - lang
+    - source
+    fields:
+    - api_version
+    - text
+    - word_count
+    - confidence
+    - lang
+    - source
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: port-scanner
+  title: TCP Port Scanner
+  spec: openapi/_original/done-port-scanner-openapi.json
+  entity_count: 5
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: OpenPort
+    type: object
+    field_count: 5
+    required:
+    - port
+    - protocol
+    - state
+    - service
+    fields:
+    - port
+    - protocol
+    - state
+    - service
+    - version
+    refs: []
+  - name: ScanRequest
+    type: object
+    field_count: 4
+    required:
+    - target
+    fields:
+    - target
+    - ports
+    - scan_type
+    - timeout
+    refs: []
+  - name: ScanResponse
+    type: object
+    field_count: 11
+    required:
+    - target
+    - resolved_ip
+    - scan_type
+    - duration_ms
+    - ports_requested
+    - open_ports
+    fields:
+    - api_version
+    - target
+    - resolved_ip
+    - scan_type
+    - duration_ms
+    - complete
+    - ports_requested
+    - ports_scanned
+    - open_ports
+    - closed_or_filtered_count
+    - warning
+    refs:
+    - OpenPort
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: qr-code-generator
+  title: Bulk QR Code Generator
+  spec: openapi/_original/done-qr-code-generator-openapi.json
+  entity_count: 5
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: QRRequest
+    type: object
+    field_count: 3
+    required:
+    - texts
+    fields:
+    - texts
+    - size
+    - error_correction
+    refs: []
+  - name: QRResponse
+    type: object
+    field_count: 3
+    required:
+    - count
+    - results
+    fields:
+    - api_version
+    - count
+    - results
+    refs:
+    - QRResult
+  - name: QRResult
+    type: object
+    field_count: 2
+    required:
+    - text
+    - qr_base64
+    fields:
+    - text
+    - qr_base64
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: screenshots
+  title: Screenshots
+  spec: openapi/_original/done-screenshots-openapi.json
+  entity_count: 5
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 6
+    required:
+    - url
+    fields:
+    - url
+    - full_page
+    - viewport
+    - wait_until
+    - allow_popups
+    - load_lazy
+    refs:
+    - Viewport
+  - name: Response
+    type: object
+    field_count: 7
+    required:
+    - url
+    - image
+    - format
+    - width
+    - height
+    - captured_at
+    fields:
+    - api_version
+    - url
+    - image
+    - format
+    - width
+    - height
+    - captured_at
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+  - name: Viewport
+    type: object
+    field_count: 2
+    required:
+    - width
+    - height
+    fields:
+    - width
+    - height
+    refs: []
+- service: seo-data-extractor
+  title: SEO Data Extractor
+  spec: openapi/_original/done-seo-data-extractor-openapi.json
+  entity_count: 4
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 2
+    required:
+    - url
+    fields:
+    - url
+    - timeout_seconds
+    refs: []
+  - name: Response
+    type: object
+    field_count: 13
+    required:
+    - url
+    - final_url
+    - status_code
+    - title_tag
+    - meta_description
+    - meta_keywords
+    - meta_robots
+    - canonical_tag
+    - h1_tags
+    - h2_tags
+    - h3_tags
+    - num_links
+    fields:
+    - api_version
+    - url
+    - final_url
+    - status_code
+    - title_tag
+    - meta_description
+    - meta_keywords
+    - meta_robots
+    - canonical_tag
+    - h1_tags
+    - h2_tags
+    - h3_tags
+    - num_links
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: shopify-ai-rank-checker
+  title: Shopify AI Rank Checker
+  spec: openapi/_original/done-shopify-ai-rank-checker-openapi.json
+  entity_count: 6
+  entities:
+  - name: CompetitorEntry
+    type: object
+    field_count: 7
+    required:
+    - position
+    fields:
+    - position
+    - title
+    - price
+    - productUrl
+    - shopName
+    - shopDomain
+    - rating
+    refs: []
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: RankResult
+    type: object
+    field_count: 12
+    required:
+    - keyword
+    fields:
+    - keyword
+    - rank
+    - urlFound
+    - top10Results
+    - totalScanned
+    - matchedTitle
+    - competitorsBeating
+    - dataQualityScore
+    - enrichmentChecks
+    - topCompetitors
+    - notFoundReason
+    - error
+    refs:
+    - CompetitorEntry
+  - name: Request
+    type: object
+    field_count: 4
+    required:
+    - shop_domain
+    - keywords
+    fields:
+    - shop_domain
+    - keywords
+    - report_detail
+    - ships_to_country
+    refs: []
+  - name: Response
+    type: object
+    field_count: 4
+    required:
+    - shop_domain
+    - ships_to_country
+    - results
+    fields:
+    - api_version
+    - shop_domain
+    - ships_to_country
+    - results
+    refs:
+    - RankResult
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: sitemap-url-extractor
+  title: Sitemap URL Extractor
+  spec: openapi/_original/done-sitemap-url-extractor-openapi.json
+  entity_count: 5
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 1
+    required:
+    - sitemap_url
+    fields:
+    - sitemap_url
+    refs: []
+  - name: Response
+    type: object
+    field_count: 4
+    required:
+    - total_urls
+    - sitemaps_found
+    - urls
+    fields:
+    - api_version
+    - total_urls
+    - sitemaps_found
+    - urls
+    refs:
+    - URLEntry
+  - name: URLEntry
+    type: object
+    field_count: 4
+    required:
+    - url
+    fields:
+    - url
+    - lastmod
+    - changefreq
+    - priority
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+- service: url-uptime-checker
+  title: URL Uptime Checker
+  spec: openapi/_original/done-url-uptime-checker-openapi.json
+  entity_count: 4
+  entities:
+  - name: HTTPValidationError
+    type: object
+    field_count: 1
+    required: []
+    fields:
+    - detail
+    refs:
+    - ValidationError
+  - name: Request
+    type: object
+    field_count: 3
+    required:
+    - url
+    fields:
+    - url
+    - follow_redirects
+    - method
+    refs: []
+  - name: Response
+    type: object
+    field_count: 9
+    required:
+    - url
+    - up
+    - redirected
+    - checked_at
+    fields:
+    - api_version
+    - url
+    - up
+    - status_code
+    - response_time_ms
+    - final_url
+    - redirected
+    - error
+    - checked_at
+    refs: []
+  - name: ValidationError
+    type: object
+    field_count: 5
+    required:
+    - loc
+    - msg
+    - type
+    fields:
+    - loc
+    - msg
+    - type
+    - input
+    - ctx
+    refs: []
+cross_links:
+  errors: errors/done-problem-types.yml
+  conventions: conventions/done-conventions.yml

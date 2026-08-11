@@ -1,0 +1,100 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/_original/*.json + well-known/done-x402.json + live 402 challenge + https://underscoredone.com/llms.txt
+summary: >-
+  _done's conformance story is entirely payment-protocol conformance. It implements x402 v2 on
+  two CAIP-2 rails with CAIP-122 wallet signatures, and publishes OpenAPI 3.1.0 for every
+  service. It asserts NO regulatory or audited compliance program — no SOC 2, ISO 27001, PCI,
+  GDPR or HIPAA claim appears anywhere on the site, in llms.txt, or in any spec. No Compliance
+  pointer is emitted, because there is nothing published to point at.
+standards:
+  - id: openapi-3.1
+    name: OpenAPI Specification 3.1.0
+    conforms: true
+    evidence: All 26 service specs declare openapi 3.1.0 with paths, components.schemas, servers, tags and in-spec examples.
+  - id: json-schema-2020-12
+    name: JSON Schema Draft 2020-12
+    conforms: true
+    evidence: >-
+      The live 402 challenge's x402 `bazaar` extension embeds a document declaring
+      $schema https://json-schema.org/draft/2020-12/schema describing the request body and response.
+  - id: x402
+    name: x402 HTTP 402 Payment Required protocol
+    conforms: true
+    version: 2
+    evidence: >-
+      x402Version 2 at spec root and in the live challenge; /.well-known/x402.json resource
+      manifest listing all 26 endpoints; live 402 with base64 `payment-required` header;
+      Coinbase CDP facilitator at https://api.cdp.coinbase.com/platform/v2/x402.
+  - id: caip-2
+    name: CAIP-2 chain identifiers
+    conforms: true
+    evidence: 'Networks named as eip155:8453 (Base Mainnet) and solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp.'
+  - id: caip-122
+    name: CAIP-122 Sign-In With X
+    conforms: partial
+    evidence: >-
+      securitySchemes.siwx declares a SIGN-IN-WITH-X header "CAIP-122 wallet signature for repeat
+      access after payment" in all 26 specs, but no docs page describes the message format,
+      nonce handling, session lifetime, or the 401/403 responses it would produce.
+  - id: eip-3009
+    name: EIP-3009 transferWithAuthorization (USDC)
+    conforms: likely
+    evidence: >-
+      The Base rail quotes asset 0x8335...2913 (USD Coin) with extra {name "USD Coin", version "2"},
+      the standard EIP-712 domain for a transferWithAuthorization signature. Not stated in prose;
+      inferred from the challenge payload, so recorded as likely rather than asserted.
+  - id: rfc9457
+    name: RFC 9457 Problem Details for HTTP APIs
+    conforms: false
+    evidence: Errors use the FastAPI `detail` envelope with application/json, not application/problem+json.
+  - id: rfc8594
+    name: RFC 8594 Sunset HTTP header
+    conforms: false
+    evidence: No Sunset or Deprecation header; no deprecation policy published.
+  - id: rfc9116
+    name: RFC 9116 security.txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404 on the apex and on service subdomains.
+  - id: rfc9309
+    name: RFC 9309 Robots Exclusion Protocol
+    conforms: true
+    evidence: 'https://underscoredone.com/robots.txt (200) — User-agent: * Allow: / plus a Sitemap directive.'
+  - id: a2a
+    name: A2A Agent Card
+    conforms: false
+    evidence: >-
+      /.well-known/agent-card.json 404. /.well-known/agent.json returns 200 but the body is the
+      x402 manifest, not an AgentCard — no protocolVersion, capabilities or skills.
+  - id: mcp
+    name: Model Context Protocol
+    conforms: false
+    evidence: >-
+      No MCP server. mcp.underscoredone.com resolves via wildcard DNS to the marketing homepage
+      and returns 405 Method Not Allowed to a JSON-RPC tools/list POST.
+  - id: rdap
+    name: RDAP (RFC 9082/9083)
+    conforms: consumer
+    evidence: >-
+      domain-availability-checker's own description states it uses "the official RDAP protocol" —
+      _done is a consumer of RDAP, not an implementer of it.
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: false
+    evidence: No oauth2 securityScheme in any spec; /.well-known/oauth-authorization-server 404.
+  - id: oidc
+    name: OpenID Connect
+    conforms: false
+    evidence: /.well-known/openid-configuration 404.
+compliance_programs:
+  published: false
+  certifications: []
+  notes: >-
+    No trust center, no certification claims, no DPA, no terms of service and no privacy policy
+    are published (both /terms and /privacy return 404). For a service that accepts money and
+    fetches arbitrary URLs on a caller's behalf (curl_http_request, port_scanner, screenshots),
+    the absence of published terms is the most material governance gap in this profile.
+cross_links:
+  authentication: authentication/done-authentication.yml
+  errors: errors/done-problem-types.yml
+  security: security/done-domain-security.yml

@@ -1,0 +1,646 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/_original/*.json — examples published in-spec by the provider
+summary: 'All 26 _done specs ship provider-authored examples IN the spec: a components.schemas.Request `example`
+  for the request body and a named `success` example on the 200 response. This artifact is the extracted catalog
+  — every value below is verbatim from the provider spec, nothing invented.'
+example_count: 27
+operation_count: 27
+coverage:
+  operations_with_request_example: 27
+  operations_with_response_example: 27
+examples:
+- service: asn-lookup
+  operationId: handler_lookup_post
+  endpoint: POST https://asn-lookup.underscoredone.com/lookup
+  request_example:
+    query: 8.8.8.8
+  response_example:
+    api_version: 1.0.0
+    query: 8.8.8.8
+    asn: AS15169
+    holder: GOOGLE
+    country: US
+    registry: arin
+    prefix: 8.8.8.0/24
+    allocated: '1992-12-01'
+  source: openapi/_original/done-asn-lookup-openapi.json
+- service: bimi-checker
+  operationId: handler_check_post
+  endpoint: POST https://bimi-checker.underscoredone.com/check
+  request_example:
+    check_vmc: true
+    domains:
+    - example.com
+    - brand.co
+    selector: default
+  response_example:
+    api_version: 1.0.0
+  source: openapi/_original/done-bimi-checker-openapi.json
+- service: cors-header-checker
+  operationId: handler_check_post
+  endpoint: POST https://cors-header-checker.underscoredone.com/check
+  request_example:
+    origin: https://myapp.com
+    url: https://api.github.com
+  response_example:
+    api_version: 1.0.0
+    url: https://api.github.com
+    origin_tested: https://myapp.com
+    status: 200
+    cors_enabled: true
+    origin_allowed: false
+    headers:
+      access-control-allow-origin: https://github.com
+      access-control-allow-methods: null
+      access-control-allow-headers: null
+      access-control-allow-credentials: null
+      access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+      access-control-max-age: null
+    error: null
+  source: openapi/_original/done-cors-header-checker-openapi.json
+- service: cpi-report-us
+  operationId: handler_cpi_post
+  endpoint: POST https://cpi-report-us.underscoredone.com/cpi
+  request_example:
+    period: 2024-03
+  response_example:
+    api_version: 1.0.0
+  source: openapi/_original/done-cpi-report-us-openapi.json
+- service: curl-http-request
+  operationId: handler_curl_post
+  endpoint: POST https://curl-http-request.underscoredone.com/curl
+  request_example:
+    method: GET
+    url: https://httpbin.org/get
+  response_example:
+    api_version: 1.0.0
+    url: https://httpbin.org/get
+    method: GET
+    statusCode: 200
+    headers:
+      content-type: application/json
+      content-length: '307'
+      server: gunicorn/19.9.0
+    body: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Host\": \"httpbin.org\"\n  }, \n  \"url\": \"https://httpbin.org/get\"\
+      \n}"
+    durationMs: 312
+    redirectChain: []
+    error: null
+  source: openapi/_original/done-curl-http-request-openapi.json
+- service: directory-submission-lite
+  operationId: handler_submit_post
+  endpoint: POST https://directory-submission-lite.underscoredone.com/submit
+  request_example:
+    url: https://example.com
+  response_example:
+    api_version: 1.0.0
+  source: openapi/_original/done-directory-submission-lite-openapi.json
+- service: directory-submission-lite
+  operationId: status_handler_status_post
+  endpoint: POST https://directory-submission-lite.underscoredone.com/status
+  request_example:
+    submissionid: 3f2b1c4a-1234-4a1b-8c1d-abcdefabcdef
+  response_example:
+    api_version: 1.0.0
+  source: openapi/_original/done-directory-submission-lite-openapi.json
+- service: dmarc-lookup
+  operationId: handler_dmarc_lookup_post
+  endpoint: POST https://dmarc-lookup.underscoredone.com/dmarc-lookup
+  request_example:
+    domains:
+    - onescales.com
+    - hillms.com
+    - google.com
+  response_example:
+    api_version: 1.0.0
+    results:
+    - domain: onescales.com
+      recordStatus: Valid
+      domainPolicy: reject
+      reportingEnabled: true
+      rawRecord: v=DMARC1;p=reject;rua=mailto:3e873edd60aa449aa519421775786d39@dmarc-reports.cloudflare.net,mailto:dmarc@onescales.com,mailto:27da9b4b47@rua.easydmarc.us;ruf=mailto:27da9b4b47@ruf.easydmarc.us;fo=1;
+    - domain: hillms.com
+      recordStatus: Valid
+      domainPolicy: reject
+      reportingEnabled: true
+      rawRecord: v=DMARC1;p=reject;rua=mailto:info@hillms.com;
+    - domain: nodmarc-example.com
+      recordStatus: Not Found
+      domainPolicy: ''
+      reportingEnabled: false
+      rawRecord: ''
+    total: 3
+    valid_count: 2
+    invalid_count: 0
+    not_found_count: 1
+  source: openapi/_original/done-dmarc-lookup-openapi.json
+- service: dns-whois-lookup
+  operationId: handler_lookup_post
+  endpoint: POST https://dns-whois-lookup.underscoredone.com/lookup
+  request_example:
+    domains:
+    - onescales.com
+    - hillms.com
+    - underscore.com
+  response_example:
+    api_version: 1.0.0
+    results:
+    - domain: onescales.com
+      checkedAt: '2026-06-15T01:45:08.607Z'
+      dns_a: 23.227.38.65
+      dns_aaaa: ''
+      dns_mx: 5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com
+        | 5 alt1.aspmx.l.google.com
+      dns_cname: ''
+      dns_txt: openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all
+      dns_ns: carter.ns.cloudflare.com | bonnie.ns.cloudflare.com
+      dns_ptr: ''
+      dns_soa: mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400
+        expire=604800 minttl=1800
+      dns_srv: ''
+      dns_caa: ''
+      dns_naptr: ''
+      dns_ds: ''
+      dns_tlsa: ''
+      whois_registrar: Cloudflare, Inc.
+      whois_iana_id: '1910'
+      whois_registrar_url: http://www.cloudflare.com
+      whois_registrar_abuse_email: registrar-abuse@cloudflare.com
+      whois_registrar_abuse_phone: '+1.6503198930'
+      whois_created: '2022-10-11T10:20:28Z'
+      whois_expires: '2028-10-11T10:20:28Z'
+      whois_updated: '2023-02-13T02:38:06Z'
+      whois_status: clientTransferProhibited
+      whois_nameservers: bonnie.ns.cloudflare.com | carter.ns.cloudflare.com
+      whois_registrant_name: ''
+      whois_registrant_org: ''
+      whois_registrant_address: ''
+      whois_registrant_country: ''
+      whois_registrant_phone: ''
+      whois_admin_name: ''
+      whois_admin_org: ''
+      whois_admin_email: ''
+      whois_admin_country: ''
+  source: openapi/_original/done-dns-whois-lookup-openapi.json
+- service: domain-age-checker
+  operationId: handler_lookup_post
+  endpoint: POST https://domain-age-checker.underscoredone.com/lookup
+  request_example:
+    domains:
+    - google.com
+    - openai.com
+    - github.com
+  response_example:
+    api_version: 1.0.0
+    results:
+    - domainName: google.com
+      age: 26 Years 10 Months 12 Days
+      registrationDate: '1997-09-15'
+      lastUpdateDate: '2024-09-07'
+      expirationDate: '2028-09-14'
+      expiringIn: 3 Years 1 Month 18 Days
+      status: success
+    - domainName: openai.com
+      age: 9 Years 3 Months 5 Days
+      registrationDate: '2015-04-18'
+      lastUpdateDate: '2024-11-01'
+      expirationDate: '2026-04-18'
+      expiringIn: 11 Months 22 Days
+      status: success
+    total: 2
+    succeeded: 2
+    failed: 0
+    processed_at: '2024-07-27T14:22:01Z'
+  source: openapi/_original/done-domain-age-checker-openapi.json
+- service: domain-availability-checker
+  operationId: check_check_post
+  endpoint: POST https://domain-availability-checker.underscoredone.com/check
+  request_example:
+    domains:
+    - example.com
+    - mybrand.ai
+    - coolstartup.io
+  response_example:
+    count: 2
+    results:
+    - domain: example.com
+      registered: true
+      status: registered
+      rdap_source: registry
+      tld_supported: true
+      note: A registration record exists for this domain.
+    - domain: thisnameprobablyhasnorecord12345.ai
+      registered: false
+      status: unregistered
+      rdap_source: registry
+      tld_supported: true
+      note: No registration record found. Usually means unregistered, but reserved or premium names can also return
+        this result.
+    queried_at: '2026-06-26T09:00:00Z'
+    disclaimer: Status reflects whether a registration record exists. It does not confirm price, premium status,
+      or that an 'unregistered' name is purchasable at standard cost.
+    api_version: 1.0.0
+  source: openapi/_original/done-domain-availability-checker-openapi.json
+- service: ens-resolver
+  operationId: handler_resolve_post
+  endpoint: POST https://ens-resolver.underscoredone.com/resolve
+  request_example:
+    query: vitalik.eth
+  response_example:
+    api_version: 1.0.0
+  source: openapi/_original/done-ens-resolver-openapi.json
+- service: hackernews-data
+  operationId: handler_fetch_post
+  endpoint: POST https://hackernews-data.underscoredone.com/fetch
+  request_example:
+    category: top
+    comment_limit: 3
+    limit: 5
+    reply_depth: 1
+  response_example:
+    api_version: 1.0.0
+    mode: get_stories
+    category: top
+    date: null
+    count: 5
+    scanned: null
+    next_page_token: null
+    range_complete: null
+    results:
+    - id: 48753715
+      item_type: story
+      category: top
+      title: ZCode – Harness for GLM-5.2
+      author: chvid
+      url: https://zcode.z.ai/en
+      points: 234
+      posted_at: 1782943416
+      comment_count: 223
+      comments:
+      - id: 48752128
+        author: seizethecheese
+        posted_at: 1782935074
+        body: I'm somewhat surprised that this is not open source...
+        reply_count: 9
+        replies: []
+  source: openapi/_original/done-hackernews-data-openapi.json
+- service: hash-hmac
+  operationId: handler_hash_post
+  endpoint: POST https://hash-hmac.underscoredone.com/hash
+  request_example:
+    algorithms:
+    - sha256
+    - sha512
+    - crc32
+    hmac:
+      algorithm: sha256
+      expected_signature: 088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b
+      key: whsec_test_secret_key_123
+      mode: verify
+    input: '{"order_id":"A-1029","amount":4200}'
+    input_encoding: utf-8
+    output_encoding: hex
+  response_example:
+    api_version: 1.0.0
+    input_bytes: 35
+    digests:
+      sha256: aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6
+      sha512: f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07
+      crc32: 74c679bb
+    hmac:
+      mode: verify
+      algorithm: sha256
+      computed_signature: edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a
+      matches: true
+  source: openapi/_original/done-hash-hmac-openapi.json
+- service: http-header-checker
+  operationId: handler_check_post
+  endpoint: POST https://http-header-checker.underscoredone.com/check
+  request_example:
+    follow_redirects: true
+    method: GET
+    url: https://example.com
+  response_example:
+    api_version: 1.0.0
+    url: https://example.com
+    final_url: https://example.com/
+    status_code: 200
+    redirect_chain:
+    - url: http://example.com
+      status_code: 301
+    headers:
+      content-type: text/html; charset=UTF-8
+      server: nginx
+      cache-control: max-age=600
+      content-length: '1256'
+    missing_security_headers:
+    - strict-transport-security
+    - content-security-policy
+    response_time_ms: 214
+  source: openapi/_original/done-http-header-checker-openapi.json
+- service: http-status-checker
+  operationId: check_urls_check_post
+  endpoint: POST https://http-status-checker.underscoredone.com/check
+  request_example:
+    urls:
+    - https://onescales.com
+    - https://onescales.com/pages/contact
+  response_example:
+    api_version: 1.0.0
+    results:
+    - url: https://onescales.com
+      statusCode: 200
+      isRedirect: false
+      redirectURL: ''
+      error: ''
+    - url: https://onescales.com/pages/contact
+      statusCode: 200
+      isRedirect: false
+      redirectURL: ''
+      error: ''
+  source: openapi/_original/done-http-status-checker-openapi.json
+- service: json-suite
+  operationId: handler_json_post
+  endpoint: POST https://json-suite.underscoredone.com/json
+  request_example:
+    data:
+      order:
+        id: A-1029
+        items:
+        - qty: 2
+          sku: BIL-CUE-07
+        - qty: 5
+          sku: BIL-CHALK-01
+    op: query
+    options:
+      jsonpath: $.order.items[*].sku
+  response_example:
+    api_version: 1.0.0
+    op: query
+    valid: true
+    matches:
+    - path: $.order.items[0].sku
+      value: BIL-CUE-07
+    - path: $.order.items[1].sku
+      value: BIL-CHALK-01
+    match_count: 2
+  source: openapi/_original/done-json-suite-openapi.json
+- service: leetspeak-translator
+  operationId: handler_translate_post
+  endpoint: POST https://leetspeak-translator.underscoredone.com/translate
+  request_example:
+    direction: to_leet
+    level: basic
+    text: hello world
+  response_example:
+    api_version: 1.0.0
+    original_text: hello world
+    translated_text: h3110 w0r1d
+    direction: to_leet
+    level: basic
+  source: openapi/_original/done-leetspeak-translator-openapi.json
+- service: mortgage-amortization
+  operationId: handler_calculate_post
+  endpoint: POST https://mortgage-amortization.underscoredone.com/calculate
+  request_example:
+    annual_rate_percent: 6.5
+    extra_monthly_payment: 300
+    one_time_payments:
+    - amount: 10000
+      month: 24
+    principal: 400000
+    rounding: 2
+    start_date: '2026-07-01'
+    summary_only: false
+    term_months: 360
+  response_example:
+    api_version: 1.0.0
+    inputs_echo:
+      principal: 400000
+      annual_rate_percent: 6.5
+      term_months: 360
+      start_date: '2026-07-01'
+    rounding:
+      mode: half_even
+      decimals: 2
+      final_payment_adjusted: true
+    scheduled_payment: 2528.27
+    summary:
+      total_paid: 910179.81
+      total_interest: 510179.81
+      final_payment: 2530.88
+      payoff_date: '2056-06-01'
+      scheduled_term_months: 360
+    with_extra_payments:
+      total_paid: 734237.48
+      total_interest: 334237.48
+      final_payment: 200.36
+      payoff_date: '2047-11-01'
+      actual_term_months: 257
+      interest_saved: 175942.33
+      months_saved: 103
+    schedule:
+    - payment_number: 1
+      date: '2026-07-01'
+      payment: 2828.27
+      scheduled_payment: 2528.27
+      extra_applied: 300.0
+      interest: 2166.67
+      principal: 661.6
+      balance: 399338.4
+    - payment_number: 2
+      date: '2026-08-01'
+      payment: 2828.27
+      scheduled_payment: 2528.27
+      extra_applied: 300.0
+      interest: 2163.08
+      principal: 665.19
+      balance: 398673.21
+  source: openapi/_original/done-mortgage-amortization-openapi.json
+- service: ocr
+  operationId: handler_read_post
+  endpoint: POST https://ocr.underscoredone.com/read
+  request_example:
+    image_url: https://example.com/receipt.png
+    lang: eng
+  response_example:
+    api_version: 1.0.0
+    text: 'TOTAL 24.50
+
+      THANK YOU'
+    word_count: 4
+    confidence: 91.4
+    lang: eng
+    source: image_url
+  source: openapi/_original/done-ocr-openapi.json
+- service: port-scanner
+  operationId: scan_scan_post
+  endpoint: POST https://port-scanner.underscoredone.com/scan
+  request_example:
+    ports: 1-1000
+    scan_type: tcp_connect
+    target: scanme.nmap.org
+    timeout: 30
+  response_example:
+    api_version: 1.0.0
+    target: scanme.nmap.org
+    resolved_ip: 45.33.32.156
+    scan_type: tcp_connect
+    duration_ms: 4521
+    complete: true
+    ports_requested: 1000
+    ports_scanned: 1000
+    open_ports:
+    - port: 22
+      protocol: tcp
+      state: open
+      service: ssh
+      version: OpenSSH 8.2p1
+    - port: 80
+      protocol: tcp
+      state: open
+      service: http
+      version: Apache httpd 2.4.41
+    closed_or_filtered_count: 998
+    warning: null
+  source: openapi/_original/done-port-scanner-openapi.json
+- service: qr-code-generator
+  operationId: generate_generate_post
+  endpoint: POST https://qr-code-generator.underscoredone.com/generate
+  request_example:
+    error_correction: H
+    size: 600
+    texts:
+    - https://example.com
+    - https://example.com/product/42
+  response_example:
+    api_version: 1.0.0
+    count: 2
+    results:
+    - text: https://example.com
+      qr_base64: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYCAYAAAC+ZpjcAA...
+    - text: 'Phone: +1-800-555-0199'
+      qr_base64: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYCAYAAAC+ZpjcAA...
+  source: openapi/_original/done-qr-code-generator-openapi.json
+- service: screenshots
+  operationId: handler_capture_post
+  endpoint: POST https://screenshots.underscoredone.com/capture
+  request_example:
+    allow_popups: false
+    full_page: false
+    load_lazy: true
+    url: https://example.com
+    viewport:
+      height: 1080
+      width: 1920
+    wait_until: networkidle0
+  response_example:
+    api_version: 1.0.0
+    url: https://example.com
+    image: https://r2.example.com/shot-abc123.png
+    format: png
+    width: 1920
+    height: 1080
+    captured_at: '2026-07-20T04:12:33Z'
+  source: openapi/_original/done-screenshots-openapi.json
+- service: seo-data-extractor
+  operationId: handler_extract_post
+  endpoint: POST https://seo-data-extractor.underscoredone.com/extract
+  request_example:
+    url: https://www.example.com
+  response_example:
+    api_version: 1.0.0
+    url: https://www.onescales.com
+    final_url: https://onescales.com/
+    status_code: 200
+    title_tag: One Scales - Ecommerce, Analytics, Tech, Shopify & Marketing Tutorials
+    meta_description: We Create Tutorials, How-To's and Share Insight about E-commerce, Web, Tech, AI, Shopify,
+      Analytics, SEO, PPC, Marketing and More.
+    meta_keywords: ''
+    meta_robots: ''
+    canonical_tag: https://onescales.com/
+    h1_tags: []
+    h2_tags:
+    - Join our Newsletter
+    - Size chart
+    - Follow Us on Social Media
+    h3_tags:
+    - Intro to One Scales
+    num_links: 187
+  source: openapi/_original/done-seo-data-extractor-openapi.json
+- service: shopify-ai-rank-checker
+  operationId: handler_rank_post
+  endpoint: POST https://shopify-ai-rank-checker.underscoredone.com/rank
+  request_example:
+    keywords:
+    - 7 foot pool table
+    - shuffleboard table
+    report_detail: simple
+    ships_to_country: US
+    shop_domain: legacybilliards.com
+  response_example:
+    api_version: 1.0.0
+    results:
+    - keyword: 7 foot pool table
+      rank: 2
+      urlFound: https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern
+      top10Results:
+      - https://www.playgosports.com/products/gosports-mid-size
+      - https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern
+  source: openapi/_original/done-shopify-ai-rank-checker-openapi.json
+- service: sitemap-url-extractor
+  operationId: handler_extract_post
+  endpoint: POST https://sitemap-url-extractor.underscoredone.com/extract
+  request_example:
+    sitemap_url: https://onescales.com/sitemap.xml
+  response_example:
+    api_version: 1.0.0
+    total_urls: 6
+    sitemaps_found: 1
+    urls:
+    - url: https://onescales.com/pages/contact
+      lastmod: '2022-12-27T03:01:05-05:00'
+      changefreq: weekly
+      priority: null
+    - url: https://onescales.com/pages/about
+      lastmod: '2025-09-29T21:38:56-04:00'
+      changefreq: weekly
+      priority: null
+    - url: https://onescales.com/pages/join-our-community
+      lastmod: '2023-11-29T18:49:48-05:00'
+      changefreq: weekly
+      priority: null
+    - url: https://onescales.com/pages/podcast
+      lastmod: '2024-01-01T23:12:34-05:00'
+      changefreq: weekly
+      priority: null
+    - url: https://onescales.com/pages/support-us
+      lastmod: '2024-10-07T21:21:59-04:00'
+      changefreq: weekly
+      priority: null
+    - url: https://onescales.com/pages/shopify-growth-course
+      lastmod: '2025-05-06T21:28:16-04:00'
+      changefreq: weekly
+      priority: null
+  source: openapi/_original/done-sitemap-url-extractor-openapi.json
+- service: url-uptime-checker
+  operationId: handler_check_post
+  endpoint: POST https://url-uptime-checker.underscoredone.com/check
+  request_example:
+    follow_redirects: true
+    method: GET
+    url: https://example.com
+  response_example:
+    api_version: 1.0.0
+    url: https://example.com
+    up: true
+    status_code: 200
+    response_time_ms: 184
+    final_url: https://example.com/
+    redirected: false
+    error: null
+    checked_at: '2026-07-23T04:12:09Z'
+  source: openapi/_original/done-url-uptime-checker-openapi.json

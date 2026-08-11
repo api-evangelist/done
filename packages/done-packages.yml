@@ -1,0 +1,91 @@
+generated: '2026-08-11'
+method: searched
+source: >-
+  registry.npmjs.org search + package lookups, pypi.org/pypi JSON, github.com/underscoredone
+  (GitHub REST orgs+repos API), https://underscoredone.com/llms.txt, and all 26 service pages
+summary: >-
+  _done publishes NO client libraries. That is a design position, not an oversight: the product
+  is keyless HTTP + x402, so the intended client is a generic x402-capable agent runtime plus the
+  per-service OpenAPI, not a vendor SDK. Registries were queried and returned nothing.
+package_count: 0
+official_sdk_count: 0
+packages: []
+registry_probes:
+  - registry: npm
+    query: 'https://registry.npmjs.org/-/v1/search?text=underscoredone'
+    result_count: 0
+    version: null
+    published: null
+    note: Zero packages match the org name; no scope @underscoredone exists.
+  - registry: npm
+    package: x402-checker
+    version: null
+    published: null
+    note: >-
+      The name declared in github.com/underscoredone/x402checker/package.json. NOT published to
+      npm (registry returns 404) — it is an Apify actor run with `node src/main.js`, and it is a
+      tool ABOUT x402, not a client for the _done APIs.
+  - registry: pypi
+    packages_probed: [underscoredone, done-api, x402checker]
+    version: null
+    published: null
+    note: All three return 404 from pypi.org/pypi/<name>/json.
+  - registry: maven-central
+    probed: false
+    version: null
+    published: null
+    note: Not probed — no Java surface is referenced anywhere in the docs or the GitHub org.
+  - registry: nuget
+    probed: false
+    version: null
+    published: null
+    note: Not probed — no .NET surface is referenced anywhere.
+  - registry: crates.io
+    probed: false
+    version: null
+    published: null
+    note: Not probed — no Rust surface is referenced anywhere.
+  - registry: rubygems
+    probed: false
+    version: null
+    published: null
+    note: Not probed — no Ruby surface is referenced anywhere.
+  - registry: pkg.go.dev
+    probed: false
+    version: null
+    published: null
+    note: Not probed — no Go surface is referenced anywhere.
+github_org:
+  url: https://github.com/underscoredone
+  status: 200
+  public_repos: 8
+  contains_first_party_sdk: false
+  repos:
+    - name: awesome-agentic-commerce
+      kind: curated-list
+    - name: awesome-ai-agents-2026
+      kind: curated-list
+    - name: awesome-ai-startups
+      kind: curated-list
+    - name: awesome-no-login-web-apps
+      kind: curated-list
+    - name: awesome-x402
+      kind: curated-list
+    - name: gold-402
+      kind: curated-list
+      note: 'x402 ecosystem dataset, "Curated by 24K Labs" — Python.'
+    - name: stagehand
+      kind: fork
+      note: Fork of the Browserbase Stagehand browser-agent SDK; not a _done client.
+    - name: x402checker
+      kind: tool
+      note: Apify actor that detects x402 support on arbitrary URLs. Unpublished to npm.
+  note: >-
+    None of the 8 repos contains the service implementations or a client for them. The org is
+    used for x402-ecosystem content marketing.
+recommended_client_path:
+  - Any x402-capable HTTP client / agent runtime (the protocol, not a vendor SDK, is the integration surface).
+  - Generate a per-service client from https://<service>.underscoredone.com/openapi.json (26 specs, OpenAPI 3.1.0).
+  - >-
+    Beware cross-spec operationId collisions when generating one merged client — see
+    conventions/done-conventions.yml#known_defects.

@@ -1,0 +1,41 @@
+generated: '2026-08-11'
+method: probed
+source: https://underscoredone.com/llms.txt + 26 service pages + live POST to https://asn-lookup.underscoredone.com/lookup
+summary: >-
+  _done documents NO rate limits and emits NO rate-limit headers. The throttle is economic —
+  every call costs $0.01 — so there is no quota to publish, but there is also no runtime signal
+  an agent can read to back off, and no documented 429 behaviour.
+limit_count: 0
+documented: false
+headers_returned: []
+retry_after: false
+status_on_exhaustion: undocumented
+observed:
+  - probe: 'POST https://asn-lookup.underscoredone.com/lookup'
+    http_status: 402
+    rate_limit_headers_present: false
+    headers_seen: [date, content-type, content-length, payment-required, server, x-railway-request-id, x-hikari-trace, x-railway-edge, cf-cache-status, nel, report-to, cf-ray, alt-svc]
+    fetched: '2026-08-11'
+input_caps_instead_of_rate_limits:
+  note: >-
+    Several services cap the SIZE of a single request instead of the RATE of requests. These are
+    published in the operation descriptions, not as rate limits.
+  caps:
+    - service: dns-whois-lookup
+      cap: up to 10 domains per call
+    - service: domain-availability-checker
+      cap: 1-10 domain names per call
+    - service: http-status-checker
+      cap: up to 10 URLs per call
+    - service: dmarc-lookup
+      cap: 'bulk — "one or many" domains per call, no stated ceiling'
+gaps:
+  - No 429 response is declared on any of the 27 operations.
+  - No RateLimit-* / X-RateLimit-* / Retry-After header on any observed response.
+  - >-
+    Because the only backpressure signal would be a 429 that is neither documented nor observed,
+    an agent looping over this API has nothing to read but latency.
+cross_links:
+  plans: plans/done-plans-pricing.yml
+  errors: errors/done-problem-types.yml
+  conventions: conventions/done-conventions.yml

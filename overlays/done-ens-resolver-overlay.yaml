@@ -1,0 +1,53 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — _done ENS Resolver
+  version: 1.0.0
+extends: openapi/done-ens-resolver-openapi.yml
+x-generated: '2026-08-11'
+x-method: generated
+x-source: openapi/_original/done-ens-resolver-openapi.json
+x-note: 'Non-destructive. Captures API Evangelist enhancements only: catalog provenance, a canonical resource tag
+  in place of the SEO keyword tag list (keywords preserved under x-keywords), and a service-namespaced canonical
+  operationId. The provider spec is never mutated.'
+actions:
+- target: $.info
+  description: Record API Evangelist provenance and the catalog identity of this service.
+  update:
+    x-api-evangelist:
+      provider: _done
+      slug: done
+      catalog: https://apis.io/provider/done/
+      harvested: '2026-08-11'
+      source: https://ens-resolver.underscoredone.com/openapi.json
+      payment_protocol: x402
+      price_usd: 0.01
+- target: $.paths["/resolve"].post
+  description: Collapse 14 SEO keyword tags to one canonical resource tag "ens". The original keyword list is preserved
+    as x-keywords so nothing is lost.
+  update:
+    tags:
+    - ens
+    x-keywords:
+    - ens
+    - ens resolver
+    - ethereum name service
+    - resolve ens name
+    - ens to address
+    - address to ens
+    - .eth domain
+    - ens lookup
+    - reverse ens
+    - onchain identity
+    - web3 identity
+    - wallet name lookup
+    - ethereum address name
+    - name resolution
+- target: $.paths["/resolve"].post
+  description: Namespace the operationId by service — operationIds collide across the 26 _done specs.
+  update:
+    x-canonical-operation-id: ens_resolver_handler_resolve_post
+- target: $.tags
+  description: Reduce the 14-entry SEO tag list to one canonical resource tag.
+  update:
+  - name: ens
+    description: ENS Resolver

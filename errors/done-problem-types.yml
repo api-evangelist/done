@@ -1,0 +1,72 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/_original/*.json (27 operations across 26 service specs) + https://underscoredone.com/asn_lookup/
+summary: >-
+  Every _done service returns the SAME four-status contract: 200, 400, 402, 422. The error
+  envelope is the FastAPI default — a JSON object with a single `detail` key — NOT RFC 9457
+  application/problem+json. There is no error CODE registry: the machine-readable signal is the
+  HTTP status alone, and `detail` is free text (400) or a validation-error array (422).
+format: fastapi-detail
+rfc9457: false
+media_type: application/json
+envelope:
+  field: detail
+  shapes:
+    - status: 400
+      type: string
+      note: Free-text validation/processing message.
+    - status: 422
+      type: array
+      items: ValidationError
+      note: >-
+        Pydantic ValidationError objects — {loc[], msg, type, input?, ctx?}. Declared in
+        components.schemas.HTTPValidationError / ValidationError in all 26 specs.
+    - status: 402
+      type: none
+      note: Body is an empty JSON object `{}`; the payload rides in the response HEADER.
+problem_types:
+  - status: 400
+    title: Bad request
+    description: Your input failed validation or could not be processed. Check the detail field for specifics.
+    envelope: '{ "detail": "<string>" }'
+    remediation: Correct the request body against the operation's Request schema and retry.
+    operations: all 27
+  - status: 402
+    title: Payment required
+    description: >-
+      Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.
+      This is the DEFAULT response to every unpaid call — not an exception path.
+    envelope: '{}'
+    headers:
+      payment-required: >-
+        base64-encoded JSON x402 challenge (observed live). Decodes to
+        {x402Version: 2, error, resource{url,description,mimeType,serviceName,tags[]},
+        accepts[{scheme,network,asset,amount,payTo,maxTimeoutSeconds,extra}],
+        extensions.bazaar{info{input,output},schema}}. The `bazaar` extension carries a full
+        JSON Schema 2020-12 description of the request body and response example.
+      X-Payment-Response: declared in the OpenAPI as the challenge header name.
+    remediation: >-
+      Sign a USDC transfer authorization for the quoted amount to the quoted payTo address on
+      the quoted network, then retry the identical request with the X-PAYMENT header.
+    operations: all 27
+    x-evidence:
+      probed: 'POST https://asn-lookup.underscoredone.com/lookup {"query":"8.8.8.8"}'
+      http_status: 402
+      observed_headers: [payment-required]
+      fetched: '2026-08-11'
+  - status: 422
+    title: Unprocessable entity
+    description: A required field is missing or the wrong type. Check the detail field for specifics.
+    envelope: '{ "detail": [ { "loc": [...], "msg": "...", "type": "..." } ] }'
+    remediation: Supply the missing/mistyped field named in detail[].loc and retry.
+    operations: all 27
+gaps:
+  - No named/numeric error-code registry — a caller cannot branch on anything but HTTP status.
+  - No 401/403 documented even though a SIGN-IN-WITH-X securityScheme is declared.
+  - No 429 documented; rate limiting is neither documented nor signalled (see rate-limits/).
+  - No 5xx documented on any of the 27 operations.
+  - Header naming is inconsistent — the spec declares `X-Payment-Response`; the live 402 sends `payment-required`.
+cross_links:
+  conventions: conventions/done-conventions.yml
+  authentication: authentication/done-authentication.yml
+  rate_limits: rate-limits/done-rate-limits.yml

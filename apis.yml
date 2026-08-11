@@ -1,115 +1,1018 @@
 name: _done
-description: >-
-  Agent-native catalog of ~26 single-purpose utility REST APIs (network, DNS, dev tools, SEO, OCR, web3, data). No
-  accounts or API keys — access is metered per call via the x402 protocol ($0.01 USDC on Base or Solana). Each service
-  exposes its own OpenAPI 3.1.0 spec annotated for AI agents.
+description: '_done is an agent-native catalog of 26 single-purpose utility REST APIs — network and DNS lookups,
+  domain intelligence, email-authentication checks, HTTP and SEO inspection, OCR, screenshots, hashing, JSON tooling,
+  web3 resolution and finance calculators. There are no accounts, no signups and no API keys: every call is metered
+  individually at $0.01 in USDC over the x402 protocol, settled on Base Mainnet or Solana Mainnet through the Coinbase
+  CDP facilitator. Each service runs on its own subdomain, exposes a single POST operation, and publishes its own
+  OpenAPI 3.1.0 spec annotated for AI agents with x-ai-instructions, x-guidance, x-pricing and x-402 payment metadata.
+  Discovery is served from /.well-known/x402.json, /llms.txt, robots.txt and sitemap.xml. There is no MCP server,
+  no A2A agent card, no SDK, no changelog, no status page and no published terms of service.'
+image: https://underscoredone.com/logo.png
 url: https://done.apievangelist.com/apis.yml
 created: '2026-08-10'
-modified: '2026-08-10'
+modified: '2026-08-11'
 specificationVersion: '0.21'
 tags:
-  - developer-tools
-  - utility-apis
-  - ai-agents
+- developer-tools
+- utility-apis
+- ai-agents
+- agent-native
+- x402
+- pay-per-call
+- web3
+- crypto-payments
+- dns
+- domains
+- email-security
+- network-security
+- seo
+- ocr
+- data
+- fintech-calculators
+apis:
+- name: _done Catalog
+  description: Single-page agent-native catalog of the 26 _done pay-per-call utility APIs. Publishes a real llms.txt,
+    a robots.txt, a sitemap.xml and an x402 resource manifest at /.well-known/x402.json listing every payment-gated
+    endpoint with its price, chain, asset, payTo address, OpenAPI URL and info page. The aggregate https://underscoredone.com/openapi.json
+    is a valid OpenAPI 3.1.0 document but its paths object is EMPTY — the real contracts are the 26 per-service
+    specs on the service subdomains.
+  humanURL: https://underscoredone.com
+  baseURL: https://underscoredone.com
+  tags:
+  - api-catalog
   - agent-native
+  - llms-txt
+  - x402
+  - discovery
+  - pay-per-call
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com
+  - type: LLMsTxt
+    url: llms/done-llms.txt
+  - type: WellKnown
+    url: well-known/done-well-known.yml
+- name: ASN Lookup
+  description: 'Look up the network operator, country, and address block behind any IP address or ASN number. Given
+    an internet address (IP) or a network identification number (ASN), this tool returns who operates that piece
+    of the internet: the network number, the owner''s name, the country it''s registered in, the regional registry
+    that manages it, and the exact address range it belongs to. Pay-per-call at $0.01 USDC over x402 on Base or
+    Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /lookup.'
+  humanURL: https://underscoredone.com/asn_lookup/
+  baseURL: https://asn-lookup.underscoredone.com
+  tags:
+  - network
+  - asn
+  - lookup
+  - ip-address
+  - autonomous-system
+  - threat-intel
+  - abuse-reporting
+  - infrastructure-mapping
+  - whois
+  - cidr
   - x402
   - pay-per-call
-  - web3
-  - crypto-payments
-  - dns
-  - domains
-  - email-security
-  - network-security
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/asn_lookup/
+  - type: APIReference
+    url: https://underscoredone.com/asn_lookup/
+  - type: OpenAPI
+    url: openapi/done-asn-lookup-openapi.yml
+  - type: OpenAPI
+    url: https://asn-lookup.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-asn-lookup-overlay.yaml
+- name: BIMI Checker
+  description: 'Checks whether a website''s email branding setup is correct so its logo shows up in inboxes. Checks
+    one or more website addresses to see if they are properly set up to show a brand logo next to emails in inboxes
+    like Gmail, Apple Mail, and Yahoo. It looks up the special settings the domain has published, checks that the
+    logo picture follows the required format, checks that a security certificate for the logo (if any) is valid
+    and not expired, and confirms the domain has strict enough email protection rules turned on. It returns a clear
+    pass or fail for each domain along with a plain list of what is broken if something fails. Pay-per-call at $0.01
+    USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /check.'
+  humanURL: https://underscoredone.com/bimi_checker/
+  baseURL: https://bimi-checker.underscoredone.com
+  tags:
+  - bimi
+  - bimi-checker
+  - email-branding
+  - dmarc
+  - vmc-certificate
+  - email-authentication
+  - brand-indicators-for-message-identification
+  - logo-validation
+  - email-deliverability
+  - svg-validation
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/bimi_checker/
+  - type: APIReference
+    url: https://underscoredone.com/bimi_checker/
+  - type: OpenAPI
+    url: openapi/done-bimi-checker-openapi.yml
+  - type: OpenAPI
+    url: https://bimi-checker.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-bimi-checker-overlay.yaml
+- name: CORS Header Checker
+  description: 'Send a URL and origin, get back exactly which cross-origin permissions that server grants. Sends
+    a real request to any URL you provide, attaches an Origin header, and reads back all six standard cross-origin
+    permission headers the server returns. Tells you whether cross-origin requests are enabled at all, whether your
+    specific origin is permitted, and shows you every permission value exactly as the server sent it. Perfect for
+    figuring out why a browser is blocking a request, confirming a freshly deployed service is configured correctly,
+    or auditing whether a public API allows credentialed cross-origin calls. Pay-per-call at $0.01 USDC over x402
+    on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /check.'
+  humanURL: https://underscoredone.com/cors_header_checker/
+  baseURL: https://cors-header-checker.underscoredone.com
+  tags:
+  - network
+  - cors
+  - header
+  - checker
+  - cross-origin
+  - access-control
+  - cors-debug
+  - browser-blocked
+  - preflight
+  - origin-allowed
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/cors_header_checker/
+  - type: APIReference
+    url: https://underscoredone.com/cors_header_checker/
+  - type: OpenAPI
+    url: openapi/done-cors-header-checker-openapi.yml
+  - type: OpenAPI
+    url: https://cors-header-checker.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-cors-header-checker-overlay.yaml
+- name: US CPI Data & Inflation Report
+  description: 'Returns the latest, a specific month''s, or a historical range of official US inflation (CPI) figures
+    from BLS . Gives you official United States inflation numbers from the government''s BLS Consumer Price Index.
+    Ask for the newest reading, a specific month in the past, or a whole range of months, and get back clear percentages
+    for overall inflation and ''core'' inflation (which ignores food and energy prices), plus a plain-English summary
+    sentence. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1
+    operation(s): POST /cpi.'
+  humanURL: https://underscoredone.com/cpi_report_us/
+  baseURL: https://cpi-report-us.underscoredone.com
+  tags:
+  - cpi-report
+  - cpi-consumer-price-index
+  - consumer-index-number
+  - consumer-index-price
+  - consumer-index-rate
+  - consumer-price-index-figures
+  - cpi-index-report
+  - cpi-price-index
+  - current-price-index
+  - price-index-consumer
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/cpi_report_us/
+  - type: APIReference
+    url: https://underscoredone.com/cpi_report_us/
+  - type: OpenAPI
+    url: openapi/done-cpi-report-us-openapi.yml
+  - type: OpenAPI
+    url: https://cpi-report-us.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-cpi-report-us-overlay.yaml
+- name: Curl HTTP Request
+  description: 'Make a real HTTP request from the cloud and get back the status code, headers, and body instantly.
+    Send an HTTP request to any URL from our servers and receive the full response — including the status code,
+    all response headers, and the body content. Supports GET, POST, PUT, PATCH, DELETE, and HEAD. Automatically
+    follows up to 3 redirects. Useful for testing endpoints, verifying servers are responding correctly, debugging
+    redirect chains, or fetching raw data without needing a local setup. Pay-per-call at $0.01 USDC over x402 on
+    Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /curl.'
+  humanURL: https://underscoredone.com/curl_http_request/
+  baseURL: https://curl-http-request.underscoredone.com
+  tags:
+  - network
+  - curl
+  - http-request
+  - fetch-url
+  - check-endpoint
+  - status-code
+  - response-headers
+  - redirect-follow
+  - api-tester
+  - debug-server
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/curl_http_request/
+  - type: APIReference
+    url: https://underscoredone.com/curl_http_request/
+  - type: OpenAPI
+    url: openapi/done-curl-http-request-openapi.yml
+  - type: OpenAPI
+    url: https://curl-http-request.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-curl-http-request-overlay.yaml
+- name: Directory Submission Lite
+  description: 'Places an order to have a website submitted to twenty directories, returning a confirmation number
+    to track it. Places an order to have a website submitted to twenty directories that publish a link back to it,
+    and returns a confirmation number so the order can be checked later for free. Pay-per-call at $0.01 USDC over
+    x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 2 operation(s): POST /submit, POST /status.'
+  humanURL: https://underscoredone.com/directory_submission_lite/
+  baseURL: https://directory-submission-lite.underscoredone.com
+  tags:
+  - network
+  - directory-submission
+  - backlinks
   - seo
+  - indexing
+  - link-building
+  - new-website
+  - search-engine-discovery
+  - site-submission
+  - order
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/directory_submission_lite/
+  - type: APIReference
+    url: https://underscoredone.com/directory_submission_lite/
+  - type: OpenAPI
+    url: openapi/done-directory-submission-lite-openapi.yml
+  - type: OpenAPI
+    url: https://directory-submission-lite.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-directory-submission-lite-overlay.yaml
+- name: Bulk DMARC Record Lookup
+  description: 'Check email security (DMARC) configuration for one or many domains in a single request. Give this
+    tool a list of domain names and it will instantly check each one''s DMARC email security record. DMARC is a
+    standard that tells email providers how to handle fake or spoofed emails pretending to come from your domain.
+    For each domain you submit, you get back whether a valid record exists, what the policy is (none, quarantine,
+    or reject), whether reporting addresses are set up, and the full raw record text. Perfect for auditing many
+    domains at once without any setup. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account, no API
+    key. OpenAPI 3.1.0; 1 operation(s): POST /dmarc-lookup.'
+  humanURL: https://underscoredone.com/dmarc_lookup/
+  baseURL: https://dmarc-lookup.underscoredone.com
+  tags:
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/dmarc_lookup/
+  - type: APIReference
+    url: https://underscoredone.com/dmarc_lookup/
+  - type: OpenAPI
+    url: openapi/done-dmarc-lookup-openapi.yml
+  - type: OpenAPI
+    url: https://dmarc-lookup.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-dmarc-lookup-overlay.yaml
+- name: DNS & WHOIS Lookup
+  description: 'Look up all 13 DNS record types plus full WHOIS registration data for up to 10 domains in one call.
+    Send up to 10 domain names and get back every DNS record type (A, AAAA, MX, CNAME, TXT, NS, PTR, SOA, SRV, CAA,
+    NAPTR, DS, TLSA) plus the full WHOIS registration profile (registrar, dates, contacts, status, nameservers)
+    for each one. URLs are accepted and automatically stripped down to the bare domain. Duplicate domains are quietly
+    removed before processing. Results come back as one flat row per domain, ready to drop into a spreadsheet, database,
+    or pipeline. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0;
+    1 operation(s): POST /lookup.'
+  humanURL: https://underscoredone.com/dns_whois_lookup/
+  baseURL: https://dns-whois-lookup.underscoredone.com
+  tags:
+  - network
+  - dns
+  - whois
+  - domain-lookup
+  - dns-records
+  - domain-audit
+  - mx-record
+  - spf-dkim-dmarc
+  - domain-expiry
+  - migration-verification
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/dns_whois_lookup/
+  - type: APIReference
+    url: https://underscoredone.com/dns_whois_lookup/
+  - type: OpenAPI
+    url: openapi/done-dns-whois-lookup-openapi.yml
+  - type: OpenAPI
+    url: https://dns-whois-lookup.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-dns-whois-lookup-overlay.yaml
+- name: Domain Age Checker
+  description: 'Give it a list of domains and get back registration date, expiration date, age, and time remaining
+    — instantly. Send a list of domain names and this tool tells you exactly how old each one is, when it was first
+    registered, when it expires, and how much time is left before expiration. Great for spotting brand-new suspicious
+    domains, researching competitors, or evaluating domains before buying or linking to them. Works with over 100
+    domain extensions worldwide. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account, no API key.
+    OpenAPI 3.1.0; 1 operation(s): POST /lookup.'
+  humanURL: https://underscoredone.com/domain_age_checker/
+  baseURL: https://domain-age-checker.underscoredone.com
+  tags:
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/domain_age_checker/
+  - type: APIReference
+    url: https://underscoredone.com/domain_age_checker/
+  - type: OpenAPI
+    url: openapi/done-domain-age-checker-openapi.yml
+  - type: OpenAPI
+    url: https://domain-age-checker.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-domain-age-checker-overlay.yaml
+- name: Domain Availability Checker
+  description: 'Check whether 1–10 domain names have an active registration record using the official RDAP protocol.
+    Give this API up to 10 domain names and it will tell you whether each one has a registration record on file
+    with the official registry. It uses RDAP — the modern, structured replacement for WHOIS — so there is no messy
+    free-text parsing. Each domain comes back labeled ''registered'', ''unregistered'', or ''indeterminate'' (when
+    the registry does not support RDAP for that ending). Important: ''unregistered'' means no record was found,
+    which usually means the name is available — but reserved or premium names can also return no record. This API
+    tells you registration status only; it does not tell you price, premium status, or whether a registrar will
+    actually let you buy the name. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account, no API key.
+    OpenAPI 3.1.0; 1 operation(s): POST /check.'
+  humanURL: https://underscoredone.com/domain_availability_checker/
+  baseURL: https://domain-availability-checker.underscoredone.com
+  tags:
+  - network
+  - domain
+  - availability
+  - checker
+  - rdap
+  - whois
+  - domain-lookup
+  - tld
+  - registration-status
+  - name-search
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/domain_availability_checker/
+  - type: APIReference
+    url: https://underscoredone.com/domain_availability_checker/
+  - type: OpenAPI
+    url: openapi/done-domain-availability-checker-openapi.yml
+  - type: OpenAPI
+    url: https://domain-availability-checker.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-domain-availability-checker-overlay.yaml
+- name: ENS Resolver
+  description: 'Resolve an ENS name to an Ethereum address, or an address back to its ENS name. Look up an ENS name
+    or an Ethereum address and get back the matching one, automatically figuring out which direction you need. Pay-per-call
+    at $0.01 USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /resolve.'
+  humanURL: https://underscoredone.com/ens_resolver/
+  baseURL: https://ens-resolver.underscoredone.com
+  tags:
+  - network
+  - ens
+  - resolver
+  - ethereum
+  - wallet-address
+  - ens-name-lookup
+  - blockchain-identity
+  - reverse-resolve
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/ens_resolver/
+  - type: APIReference
+    url: https://underscoredone.com/ens_resolver/
+  - type: OpenAPI
+    url: openapi/done-ens-resolver-openapi.yml
+  - type: OpenAPI
+    url: https://ens-resolver.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-ens-resolver-overlay.yaml
+- name: Hacker News Data
+  description: 'Fetch Hacker News stories by category, or scan all stories/jobs/polls from a specific date, with
+    optional nested comments. This tool reads live information from Hacker News, a popular website where people
+    share and discuss technology news. You can either ask for a current list of stories (like the Top, New, Best,
+    Ask, Show, or Job lists) or ask for every story, job posting, and poll that was posted on one specific calendar
+    day in the past. You can also choose to pull in the discussion comments underneath each story, including nested
+    replies several levels deep. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account, no API key.
+    OpenAPI 3.1.0; 1 operation(s): POST /fetch.'
+  humanURL: https://underscoredone.com/hackernews_data/
+  baseURL: https://hackernews-data.underscoredone.com
+  tags:
+  - network
+  - hackernews
+  - hacker-news
+  - hn-api
+  - stories
+  - comments
+  - jobs
+  - polls
+  - date-scan
+  - developer-news
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/hackernews_data/
+  - type: APIReference
+    url: https://underscoredone.com/hackernews_data/
+  - type: OpenAPI
+    url: openapi/done-hackernews-data-openapi.yml
+  - type: OpenAPI
+    url: https://hackernews-data.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-hackernews-data-overlay.yaml
+- name: Hashing, HMAC & Checksum Suite
+  description: 'Compute cryptographic hashes, HMAC signatures, and checksums — and verify webhook signatures with
+    constant-time comparison. Give this API any text or binary data and it instantly returns its fingerprint under
+    whichever hash algorithms you choose — SHA-256, SHA-512, MD5, BLAKE2, CRC32, and more. It also signs data with
+    a secret key (HMAC) and, most importantly, safely verifies whether an incoming signature matches — using a timing-safe
+    comparison that prevents secret-leaking attacks. Language models cannot perform hashing: they produce a string
+    of the right length and character set that looks correct but is simply wrong. Every webhook verification, idempotency
+    key, cache fingerprint, or integrity check that relies on a hallucinated hash is silently broken. This API is
+    the cure. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1
+    operation(s): POST /hash.'
+  humanURL: https://underscoredone.com/hash_hmac/
+  baseURL: https://hash-hmac.underscoredone.com
+  tags:
+  - security
+  - hash
+  - hmac
+  - checksum
+  - sha256
+  - webhook-verification
+  - content-fingerprint
+  - idempotency-key
+  - signature-verify
+  - blake2
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/hash_hmac/
+  - type: APIReference
+    url: https://underscoredone.com/hash_hmac/
+  - type: OpenAPI
+    url: openapi/done-hash-hmac-openapi.yml
+  - type: OpenAPI
+    url: https://hash-hmac.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-hash-hmac-overlay.yaml
+- name: HTTP Header Checker
+  description: 'Fetches any web address and returns its response headers, status code, and redirect path. Sends
+    a request to a web address you provide and reports back everything the server said in response: the status code,
+    all the response headers, how many times it got redirected, and how long the whole thing took. Pay-per-call
+    at $0.01 USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /check.'
+  humanURL: https://underscoredone.com/http_header_checker/
+  baseURL: https://http-header-checker.underscoredone.com
+  tags:
+  - network
+  - http-header-checker
+  - headers
+  - url-lookup
+  - redirect-check
+  - security-headers
+  - cache-control
+  - status-code
+  - web-debugging
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/http_header_checker/
+  - type: APIReference
+    url: https://underscoredone.com/http_header_checker/
+  - type: OpenAPI
+    url: openapi/done-http-header-checker-openapi.yml
+  - type: OpenAPI
+    url: https://http-header-checker.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-http-header-checker-overlay.yaml
+- name: HTTP Status Code Checker
+  description: 'Check the live status of up to 10 URLs at once and detect redirects instantly. Give this API a list
+    of up to 10 web addresses and it will visit each one to tell you whether it is working, broken, or redirecting
+    visitors somewhere else. You get back the exact status number (like 200 for OK, 404 for not found, 500 for server
+    error), whether the address redirects, and where it redirects to. Great for finding broken links, verifying
+    website migrations, and running quick SEO audits without writing any code. Pay-per-call at $0.01 USDC over x402
+    on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /check.'
+  humanURL: https://underscoredone.com/http_status_checker/
+  baseURL: https://http-status-checker.underscoredone.com
+  tags:
+  - network
+  - http
+  - status
+  - checker
+  - redirect
+  - broken-links
+  - seo-audit
+  - link-validation
+  - website-migration
+  - url-health
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/http_status_checker/
+  - type: APIReference
+    url: https://underscoredone.com/http_status_checker/
+  - type: OpenAPI
+    url: openapi/done-http-status-checker-openapi.yml
+  - type: OpenAPI
+    url: https://http-status-checker.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-http-status-checker-overlay.yaml
+- name: JSON Validate, Repair, Convert, Query & Diff
+  description: 'One endpoint to validate, repair, format, query, diff, convert, and canonicalize JSON — the most
+    common operation in every agent workflow. Every AI agent and developer runs into broken or confusing JSON constantly.
+    This tool handles all the most common JSON headaches in one place: check if JSON is valid (with exact error
+    location), fix near-JSON that has typos or formatting mistakes, pretty-print or minify, pull out specific values
+    using a path expression, compare two JSON documents and see exactly what changed, convert to and from YAML or
+    CSV, produce a byte-stable canonical form for hashing or signing, validate against a schema, and get size and
+    structure statistics. Same input always gives the same output — fully predictable, no side effects. Pay-per-call
+    at $0.01 USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /json.'
+  humanURL: https://underscoredone.com/json_suite/
+  baseURL: https://json-suite.underscoredone.com
+  tags:
+  - parsing
+  - json
+  - validate
+  - repair
+  - jsonpath
+  - diff
+  - canonicalize
+  - convert
+  - yaml
+  - csv
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/json_suite/
+  - type: APIReference
+    url: https://underscoredone.com/json_suite/
+  - type: OpenAPI
+    url: openapi/done-json-suite-openapi.yml
+  - type: OpenAPI
+    url: https://json-suite.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-json-suite-overlay.yaml
+- name: Leetspeak Translator
+  description: 'Converts regular text into leetspeak or decodes leetspeak back into normal readable text. Takes
+    a piece of text and either turns it into leetspeak (swapping some letters for numbers and symbols, like ''hello''
+    becoming ''h3110'') or turns leetspeak back into normal, easy-to-read words. The same words always produce the
+    same result, so answers never change unexpectedly. Pay-per-call at $0.01 USDC over x402 on Base or Solana —
+    no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /translate.'
+  humanURL: https://underscoredone.com/leetspeak_translator/
+  baseURL: https://leetspeak-translator.underscoredone.com
+  tags:
+  - text
+  - leetspeak
+  - translator
+  - leet
+  - encode-text
+  - decode-text
+  - text-obfuscation
+  - character-substitution
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/leetspeak_translator/
+  - type: APIReference
+    url: https://underscoredone.com/leetspeak_translator/
+  - type: OpenAPI
+    url: openapi/done-leetspeak-translator-openapi.yml
+  - type: OpenAPI
+    url: https://leetspeak-translator.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-leetspeak-translator-overlay.yaml
+- name: Mortgage & Loan Amortization Calculator
+  description: 'Get the exact monthly payment and full period-by-period breakdown for any fixed-rate loan — results
+    an AI model cannot reliably compute on its own. Give this API a loan amount, an interest rate, and a repayment
+    term, and it hands back the precise monthly payment plus a complete schedule showing — for every single month
+    — how much goes to interest, how much reduces the balance, and what you still owe. You can also ask ''what if
+    I pay an extra $300 a month?'' or ''what if I make a $10,000 lump payment in month 24?'' and it will tell you
+    exactly how many months you save and how much interest you avoid. Every number is computed with banker''s rounding
+    and a pinned arithmetic rule so that two correct systems running the same inputs produce identical results,
+    down to the cent. No rate lookups, no market data — you supply the rate, the API does the math. Pay-per-call
+    at $0.01 USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /calculate.'
+  humanURL: https://underscoredone.com/mortgage_amortization/
+  baseURL: https://mortgage-amortization.underscoredone.com
+  tags:
+  - math
+  - mortgage
+  - amortization
+  - loan
+  - monthly-payment
+  - repayment-schedule
+  - interest-calculation
+  - extra-payment
+  - lump-sum
+  - real-estate
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/mortgage_amortization/
+  - type: APIReference
+    url: https://underscoredone.com/mortgage_amortization/
+  - type: OpenAPI
+    url: openapi/done-mortgage-amortization-openapi.yml
+  - type: OpenAPI
+    url: https://mortgage-amortization.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-mortgage-amortization-overlay.yaml
+- name: OCR Text Extractor
+  description: 'Extract text from any image using Tesseract OCR. Send a picture, either as a public web address
+    or as base64-encoded image data, and get back the plain text found inside it. Pay-per-call at $0.01 USDC over
+    x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /read.'
+  humanURL: https://underscoredone.com/ocr/
+  baseURL: https://ocr.underscoredone.com
+  tags:
+  - text
   - ocr
+  - read
+  - image-to-text
+  - extract-text
+  - screenshot-reader
+  - document-scan
+  - receipt-reader
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/ocr/
+  - type: APIReference
+    url: https://underscoredone.com/ocr/
+  - type: OpenAPI
+    url: openapi/done-ocr-openapi.yml
+  - type: OpenAPI
+    url: https://ocr.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-ocr-overlay.yaml
+- name: TCP Port Scanner
+  description: 'Send a host and port range, get back a clean list of which ports are open and what services are
+    running on them. Give this API a hostname or IP address and it will try connecting to each port in your requested
+    range. For every port that answers, it tells you whether it is open or blocked, which service is likely running
+    there (like a web server or SSH), and what software version was detected. This saves you from installing network
+    tools, parsing messy command-line output, or writing socket loops yourself. Only scan hosts you own or have
+    permission to scan — this tool does not check that for you. Pay-per-call at $0.01 USDC over x402 on Base or
+    Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /scan.'
+  humanURL: https://underscoredone.com/port_scanner/
+  baseURL: https://port-scanner.underscoredone.com
+  tags:
+  - network
+  - port
+  - scanner
+  - tcp
+  - open-ports
+  - service-detection
+  - nmap
+  - infrastructure
+  - security-audit
+  - firewall-check
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/port_scanner/
+  - type: APIReference
+    url: https://underscoredone.com/port_scanner/
+  - type: OpenAPI
+    url: openapi/done-port-scanner-openapi.yml
+  - type: OpenAPI
+    url: https://port-scanner.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-port-scanner-overlay.yaml
+- name: Bulk QR Code Generator
+  description: 'Turn a list of text, URLs, or any strings into QR code images instantly — one call, many codes.
+    Send a list of texts — website addresses, phone numbers, plain words, WiFi details, anything — and get back
+    a ready-to-use QR code image for each one. Every QR code comes as a base64-encoded PNG you can drop straight
+    into a webpage or save to disk. Great for marketing campaigns, event tickets, product labels, menus, or any
+    situation where you need many QR codes in one go. Empty entries are quietly skipped. Each input is limited to
+    700 characters. You must send at least one non-empty entry. Pay-per-call at $0.01 USDC over x402 on Base or
+    Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /generate.'
+  humanURL: https://underscoredone.com/qr_code_generator/
+  baseURL: https://qr-code-generator.underscoredone.com
+  tags:
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/qr_code_generator/
+  - type: APIReference
+    url: https://underscoredone.com/qr_code_generator/
+  - type: OpenAPI
+    url: openapi/done-qr-code-generator-openapi.yml
+  - type: OpenAPI
+    url: https://qr-code-generator.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-qr-code-generator-overlay.yaml
+- name: Screenshots
+  description: 'Capture a screenshot of a fully rendered webpage, including JavaScript-heavy pages. Renders a webpage
+    exactly as a real browser would, including all its scripts and dynamic content, then takes a picture of it.
+    You can capture just the visible area or the whole scrollable page, choose the screen size, wait for slow-loading
+    images to finish, and hide cookie banners or popups before the picture is taken. Pay-per-call at $0.01 USDC
+    over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /capture.'
+  humanURL: https://underscoredone.com/screenshots/
+  baseURL: https://screenshots.underscoredone.com
+  tags:
+  - network
+  - screenshots
+  - url-to-screenshot
+  - url-to-secreenshot
+  - webpage-capture
+  - browser-rendering
+  - full-page-screenshot
+  - website-image
+  - puppeteer
+  - headless-browser
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/screenshots/
+  - type: APIReference
+    url: https://underscoredone.com/screenshots/
+  - type: OpenAPI
+    url: openapi/done-screenshots-openapi.yml
+  - type: OpenAPI
+    url: https://screenshots.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-screenshots-overlay.yaml
+- name: SEO Data Extractor
+  description: 'Fetch a webpage and instantly extract all key SEO fields: title, meta tags, headings, canonical
+    URL, and more. Give this API a web address and it will visit that page, then hand back everything an SEO professional
+    needs to know: the page title, meta description, meta keywords, robots instructions, canonical link, H1/H2/H3
+    headings, how many links are on the page, and the HTTP status code. No setup required — just paste a URL and
+    get structured data back in under two seconds. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account,
+    no API key. OpenAPI 3.1.0; 1 operation(s): POST /extract.'
+  humanURL: https://underscoredone.com/seo_data_extractor/
+  baseURL: https://seo-data-extractor.underscoredone.com
+  tags:
+  - parsing
+  - seo
   - data
-  - fintech-calculators
-apis:
-  - name: _done Catalog
-    description: >-
-      Single-page catalog listing all ~26 pay-per-call utility APIs, with a provider-advertised llms.txt and aggregate
-      openapi.json.
-    humanURL: https://underscoredone.com
-    baseURL: https://underscoredone.com
-    tags:
-      - developer-tools
-      - utility-apis
-      - ai-agents
-      - agent-native
-      - x402
-      - pay-per-call
-      - web3
-      - crypto-payments
-      - dns
-      - domains
-      - email-security
-      - network-security
-      - seo
-      - ocr
-      - data
-      - fintech-calculators
-    properties:
-      - type: Documentation
-        url: https://underscoredone.com
-      - type: LLMsTxt
-        url: https://underscoredone.com/llms.txt
-  - name: ASN Lookup
-    description: ASN lookup service. OpenAPI 3.1.0 spec with x-402 payment metadata; pay-per-call $0.01 USDC.
-    humanURL: https://underscoredone.com/asn_lookup/
-    baseURL: https://asn-lookup.underscoredone.com
-    tags:
-      - developer-tools
-      - utility-apis
-      - ai-agents
-      - agent-native
-      - x402
-      - pay-per-call
-      - web3
-      - crypto-payments
-      - dns
-      - domains
-      - email-security
-      - network-security
-      - seo
-      - ocr
-      - data
-      - fintech-calculators
-    properties:
-      - type: OpenAPI
-        url: https://asn-lookup.underscoredone.com/openapi.json
-      - type: Documentation
-        url: https://underscoredone.com/asn_lookup/
-  - name: JSON Suite
-    description: JSON validate/repair/convert/query/diff service. OpenAPI 3.1.0 spec; pay-per-call $0.01 USDC.
-    humanURL: https://underscoredone.com/json_suite/
-    baseURL: https://json-suite.underscoredone.com
-    tags:
-      - developer-tools
-      - utility-apis
-      - ai-agents
-      - agent-native
-      - x402
-      - pay-per-call
-      - web3
-      - crypto-payments
-      - dns
-      - domains
-      - email-security
-      - network-security
-      - seo
-      - ocr
-      - data
-      - fintech-calculators
-    properties:
-      - type: OpenAPI
-        url: https://json-suite.underscoredone.com/openapi.json
-      - type: Documentation
-        url: https://underscoredone.com/json_suite/
+  - extractor
+  - meta-tags
+  - title-tag
+  - canonical
+  - headings
+  - seo-audit
+  - competitor-analysis
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/seo_data_extractor/
+  - type: APIReference
+    url: https://underscoredone.com/seo_data_extractor/
+  - type: OpenAPI
+    url: openapi/done-seo-data-extractor-openapi.yml
+  - type: OpenAPI
+    url: https://seo-data-extractor.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-seo-data-extractor-overlay.yaml
+- name: Shopify AI Rank Checker
+  description: 'Check exactly where your Shopify product ranks when AI shopping assistants like ChatGPT and Gemini
+    search for it. Checks how well a Shopify store''s products show up when AI shopping assistants such as ChatGPT,
+    Gemini, Perplexity, Grok, and Copilot search for products, and reports the store''s rank and its closest competitors.
+    Searches Shopify''s real Global Catalog — the same product index AI assistants read from. Pay-per-call at $0.01
+    USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s): POST /rank.'
+  humanURL: https://underscoredone.com/shopify_ai_rank_checker/
+  baseURL: https://shopify-ai-rank-checker.underscoredone.com
+  tags:
+  - network
+  - shopify-rank-checker
+  - ai-shopping-visibility
+  - chatgpt-product-rank
+  - gemini-shopping-search
+  - shopify-seo
+  - global-catalog
+  - ucp-mcp
+  - product-rank-tracker
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/shopify_ai_rank_checker/
+  - type: APIReference
+    url: https://underscoredone.com/shopify_ai_rank_checker/
+  - type: OpenAPI
+    url: openapi/done-shopify-ai-rank-checker-openapi.yml
+  - type: OpenAPI
+    url: https://shopify-ai-rank-checker.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-shopify-ai-rank-checker-overlay.yaml
+- name: Sitemap URL Extractor
+  description: 'Give it a sitemap.xml link and get back every URL listed in it — including nested sub-sitemaps —
+    with metadata like last modified date and change frequency. Give this API a link to any website''s sitemap.xml
+    file and it will fetch and parse it, returning every URL found inside. If the sitemap links to other sitemaps
+    (called sitemap indexes), it will follow and extract those too. Each URL is returned with any extra information
+    available, such as when the page was last updated and how often it changes. Useful for SEO audits, content inventories,
+    broken link checks, and competitive research. Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account,
+    no API key. OpenAPI 3.1.0; 1 operation(s): POST /extract.'
+  humanURL: https://underscoredone.com/sitemap_url_extractor/
+  baseURL: https://sitemap-url-extractor.underscoredone.com
+  tags:
+  - parsing
+  - sitemap
+  - url-extractor
+  - seo-audit
+  - content-inventory
+  - site-crawl
+  - sitemap-index
+  - xml-parsing
+  - broken-link-check
+  - competitive-analysis
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/sitemap_url_extractor/
+  - type: APIReference
+    url: https://underscoredone.com/sitemap_url_extractor/
+  - type: OpenAPI
+    url: openapi/done-sitemap-url-extractor-openapi.yml
+  - type: OpenAPI
+    url: https://sitemap-url-extractor.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-sitemap-url-extractor-overlay.yaml
+- name: URL Uptime Checker
+  description: 'Checks whether a website or web address is currently reachable and reports how fast it responded.
+    Pay-per-call at $0.01 USDC over x402 on Base or Solana — no account, no API key. OpenAPI 3.1.0; 1 operation(s):
+    POST /check.'
+  humanURL: https://underscoredone.com/url_uptime_checker/
+  baseURL: https://url-uptime-checker.underscoredone.com
+  tags:
+  - network
+  - url-uptime-checker
+  - website-status
+  - reachability-check
+  - uptime-monitor
+  - url-validator
+  - site-down-detector
+  - http-status-check
+  - x402
+  - pay-per-call
+  - agent-native
+  - utility-apis
+  - developer-tools
+  properties:
+  - type: Documentation
+    url: https://underscoredone.com/url_uptime_checker/
+  - type: APIReference
+    url: https://underscoredone.com/url_uptime_checker/
+  - type: OpenAPI
+    url: openapi/done-url-uptime-checker-openapi.yml
+  - type: OpenAPI
+    url: https://url-uptime-checker.underscoredone.com/openapi.json
+  - type: Overlay
+    url: overlays/done-url-uptime-checker-overlay.yaml
+common:
+- type: DeveloperPortal
+  url: https://underscoredone.com
+- type: Documentation
+  url: https://underscoredone.com
+- type: APIReference
+  url: https://underscoredone.com/#apis
+- type: GitHubOrganization
+  url: https://github.com/underscoredone
+- type: Support
+  url: https://forms.gle/5KzuSFH7p8hHtDmz7
+- type: LLMsTxt
+  url: llms/done-llms.txt
+- type: WellKnown
+  url: well-known/done-well-known.yml
+- type: Authentication
+  url: authentication/done-authentication.yml
+- type: Conventions
+  url: conventions/done-conventions.yml
+- type: ErrorCatalog
+  url: errors/done-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/done-lifecycle.yml
+- type: Conformance
+  url: conformance/done-conformance.yml
+- type: DomainSecurity
+  url: security/done-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/done-agentic-access.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Examples
+  url: examples/done-examples.yml
+- type: DataModel
+  url: data-model/done-data-model.yml
+- type: Plans
+  url: plans/done-plans-pricing.yml
+- type: Pricing
+  url: https://underscoredone.com/#apis
+- type: RateLimits
+  url: rate-limits/done-rate-limits.yml
+- type: Packages
+  url: packages/done-packages.yml
 maintainers:
-  - FN: _done
-    url: https://underscoredone.com
+- FN: _done
+  url: https://underscoredone.com
+  email: info@underscoredone.com
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 92
   at: '2026-08-10T09:49:57.724Z'
+
+x-enrichment:
+  date: '2026-08-11'
+  status: enriched
+  artifacts_added: 101
+  pass: local-v1
+x-coverage:
+  state: covered
+  reason: null
+  detail: >-
+    Full contract discovery succeeded — 26 provider-published OpenAPI 3.1.0 specs harvested live from
+    the service subdomain roots, plus llms.txt, /.well-known/x402.json and a live HTTP 402 x402
+    challenge. No wall was hit.
+  checked: '2026-08-11'

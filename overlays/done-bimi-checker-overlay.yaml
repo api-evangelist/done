@@ -1,0 +1,83 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — _done BIMI Checker
+  version: 1.0.0
+extends: openapi/done-bimi-checker-openapi.yml
+x-generated: '2026-08-11'
+x-method: generated
+x-source: openapi/_original/done-bimi-checker-openapi.json
+x-note: 'Non-destructive. Captures API Evangelist enhancements only: catalog provenance, a canonical resource tag
+  in place of the SEO keyword tag list (keywords preserved under x-keywords), and a service-namespaced canonical
+  operationId. The provider spec is never mutated.'
+actions:
+- target: $.info
+  description: Record API Evangelist provenance and the catalog identity of this service.
+  update:
+    x-api-evangelist:
+      provider: _done
+      slug: done
+      catalog: https://apis.io/provider/done/
+      harvested: '2026-08-11'
+      source: https://bimi-checker.underscoredone.com/openapi.json
+      payment_protocol: x402
+      price_usd: 0.01
+- target: $.paths["/check"].post
+  description: Collapse 44 SEO keyword tags to one canonical resource tag "validation". The original keyword list
+    is preserved as x-keywords so nothing is lost.
+  update:
+    tags:
+    - validation
+    x-keywords:
+    - Validation
+    - Bimi Validation
+    - bimi
+    - Email Branding
+    - Dmarc Check
+    - Logo Verification
+    - bimi checker
+    - bimi validator
+    - bimi record checker
+    - bimi lookup tool
+    - check bimi record
+    - bimi generator
+    - why isn't my logo showing in gmail
+    - logo not showing in email
+    - brand logo not appearing in inbox
+    - how to get logo to show in gmail
+    - gmail brand indicator not working
+    - outlook logo not showing
+    - apple mail logo missing
+    - how to show company logo in emails
+    - email logo verification
+    - how to set up bimi
+    - how to add bimi record
+    - bimi record example
+    - bimi setup guide
+    - what is bimi record
+    - bimi requirements for gmail
+    - dmarc checker
+    - dmarc record checker
+    - spf dkim dmarc checker
+    - vmc certificate
+    - verified mark certificate
+    - what is a vmc certificate
+    - dmarc policy checker
+    - email authentication checker
+    - svg logo validator
+    - bimi svg requirements
+    - vmc certificate cost
+    - vmc certificate provider
+    - email branding tool
+    - brand logo email marketing
+    - improve email deliverability
+    - email deliverability checker
+    - domain email security check
+- target: $.paths["/check"].post
+  description: Namespace the operationId by service — operationIds collide across the 26 _done specs.
+  update:
+    x-canonical-operation-id: bimi_checker_handler_check_post
+- target: $.tags
+  description: Reduce the 44-entry SEO tag list to one canonical resource tag.
+  update:
+  - name: validation
+    description: BIMI Checker

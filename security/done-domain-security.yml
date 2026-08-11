@@ -1,0 +1,26 @@
+generated: '2026-08-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: underscoredone.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 20 03:00:05 2026 GMT
+  hsts: null
+- host: asn-lookup.underscoredone.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 20 03:00:05 2026 GMT
+  hsts: false
+- host: json-suite.underscoredone.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 20 03:00:05 2026 GMT
+  hsts: false
+domains:
+- domain: underscoredone.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: quarantine

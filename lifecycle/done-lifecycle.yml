@@ -1,0 +1,66 @@
+generated: '2026-08-11'
+method: searched
+source: https://underscoredone.com/llms.txt + https://underscoredone.com/ + openapi/_original/*.json + live probes
+summary: >-
+  _done publishes no lifecycle governance at all: no changelog, no versioning policy, no
+  deprecation policy, no Sunset/Deprecation headers, no SLA and no status page. Version is
+  carried only as info.version 1.0.0 in each spec and an api_version field in each response body.
+versioning:
+  policy_published: false
+  scheme: implicit
+  url_versioning: false
+  header_versioning: false
+  current_version: 1.0.0
+  evidence: info.version == '1.0.0' on all 26 service specs; response api_version default '1.0.0'
+  notes: >-
+    Nothing tells a caller how a breaking change would be introduced or announced. With 26
+    independent single-operation services each pinned at 1.0.0, a change to one service's
+    Response schema would be invisible except by re-fetching its openapi.json.
+deprecation:
+  policy_published: false
+  rfc8594_headers: false
+  sunset_header: false
+  deprecation_header: false
+  deprecated_operations: []
+  notes: 'No operation in any of the 26 specs carries `deprecated: true`.'
+changelog:
+  published: false
+  probed:
+    - url: https://underscoredone.com/changelog
+      status: 404
+  notes: >-
+    No dated changelog, release notes or "what's new" surface on the site, in llms.txt, or in
+    the GitHub org (github.com/underscoredone hosts curated awesome-lists and a Stagehand fork,
+    not the service code).
+status_page:
+  published: false
+  probed:
+    - url: https://status.underscoredone.com/
+      status: 200
+      verdict: >-
+        FALSE POSITIVE — wildcard DNS returns the 45,567-byte marketing homepage, byte-for-byte
+        identical to https://underscoredone.com/. Not a status page.
+    - url: https://underscoredone.com/status
+      status: 404
+  notes: >-
+    No StatusPage pointer is emitted. A 200 from a wildcard host is not evidence of a status page.
+sla:
+  published: false
+  uptime_commitment: null
+  support_response_commitment: null
+  notes: >-
+    No SLA, no uptime target, no refund/credit policy for a paid call that fails — notable given
+    every call is settled on-chain before the work runs.
+support:
+  channel: Google Form
+  url: https://forms.gle/5KzuSFH7p8hHtDmz7
+  email: info@underscoredone.com
+  evidence: info.contact in all 26 specs; "Contact" link in llms.txt and site footer.
+  notes: The only support channel is a Google Form plus a contact email. No ticketing, no community, no chat.
+maturity:
+  spec_stability: stable-by-assertion (1.0.0, no change history to corroborate)
+  first_seen_by_apis_io: '2026-08-10'
+cross_links:
+  conventions: conventions/done-conventions.yml
+  errors: errors/done-problem-types.yml
+  well_known: well-known/done-well-known.yml

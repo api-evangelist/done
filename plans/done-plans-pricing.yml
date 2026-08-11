@@ -1,0 +1,66 @@
+generated: '2026-08-11'
+method: searched
+source: https://underscoredone.com/llms.txt + https://underscoredone.com/asn_lookup/ + https://underscoredone.com/.well-known/x402.json
+summary: >-
+  _done has exactly one commercial plan and it applies to every one of the 26 services: pay
+  $0.01 per successful request in USDC over x402. There are no tiers, no accounts, no
+  subscription, no free tier and no enterprise plan. The price is published in three
+  machine-readable places (each spec's info.x-pricing and x-402 blocks, each operation's
+  x-payment-info, and the /.well-known/x402.json manifest) as well as on every service page.
+pricing_page: null
+pricing_page_note: >-
+  https://underscoredone.com/pricing returns 404. Price is stated inline on each of the 26
+  service pages and in llms.txt instead of on a dedicated pricing page.
+plan_count: 1
+model: pay-per-call
+free_tier: false
+trial: false
+plans:
+  - name: Pay-per-call
+    id: x402-per-request
+    price: 0.01
+    currency: USD
+    settlement_currency: USDC
+    billing_period: per-request
+    included_quota: 0
+    overage: 'n/a — every request is individually priced and individually settled'
+    limits: none published
+    signup_required: false
+    account_required: false
+    applies_to: all 26 services / 27 operations
+    payment:
+      protocol: x402
+      version: 2
+      amount_base_units: '10000'
+      decimals: 6
+      facilitator: https://api.cdp.coinbase.com/platform/v2/x402
+      max_timeout_seconds: 300
+      rails:
+        - network: 'eip155:8453'
+          chain: Base Mainnet
+          asset: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913'
+          asset_name: USD Coin
+          pay_to: '0xE9740820225B3918b4ddd1292C7cA4Ca0e2C2F08'
+        - network: 'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp'
+          chain: Solana Mainnet
+          asset: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+          pay_to: 8ugAWAXDB8V18kiUrGZTq1oMvU3C6Fxs8hfC6rvzQT3b
+    evidence:
+      - url: https://underscoredone.com/llms.txt
+        status: 200
+      - url: https://underscoredone.com/.well-known/x402.json
+        status: 200
+      - url: https://asn-lookup.underscoredone.com/openapi.json
+        status: 200
+      - url: https://asn-lookup.underscoredone.com/lookup
+        status: 402
+        note: Live unpaid POST returned the 402 challenge quoting amount 10000 on both rails.
+notes:
+  - Price is uniform — all 26 resources in /.well-known/x402.json quote "$0.01" / amount "10000".
+  - >-
+    No refund, credit or failure policy is published. A caller who pays and receives an error has
+    no documented recourse, and there is no idempotency key to prove a retry is the same request.
+  - No volume discount, committed-use or enterprise contract is offered or mentioned.
+cross_links:
+  rate_limits: rate-limits/done-rate-limits.yml
+  conventions: conventions/done-conventions.yml

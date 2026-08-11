@@ -1,0 +1,46 @@
+# _done
+
+> Actions for AI. Real-world tasks your agent can't do alone.
+> via x402/USDC on Base mainnet. No accounts, no API keys, no subscriptions.
+
+API cost starts from $0.01 per request. To call one: POST JSON to the endpoint,
+receive HTTP 402 with payment details, sign a USDC authorization, retry
+with the X-PAYMENT header, get the result. Supports Base and Solana USDC.
+
+Every API lives at its own subdomain: https://{api-name}.underscoredone.com
+Machine-readable discovery: /.well-known/x402.json (all payment-gated
+endpoints) and /openapi.json (aggregated OpenAPI 3.1 spec).
+
+## APIs
+
+- [ASN Lookup](https://underscoredone.com/asn_lookup/): Look up the network operator, country, and address block behind any IP address or ASN number. [OpenAPI](https://asn-lookup.underscoredone.com/openapi.json)
+- [BIMI Checker](https://underscoredone.com/bimi_checker/): Checks whether a website's email branding setup is correct so its logo shows up in inboxes. [OpenAPI](https://bimi-checker.underscoredone.com/openapi.json)
+- [CORS Header Checker](https://underscoredone.com/cors_header_checker/): Send a URL and origin, get back exactly which cross-origin permissions that server grants. [OpenAPI](https://cors-header-checker.underscoredone.com/openapi.json)
+- [US CPI Data & Inflation Report](https://underscoredone.com/cpi_report_us/): Returns the latest, a specific month's, or a historical range of official US inflation (CPI) figures from BLS . [OpenAPI](https://cpi-report-us.underscoredone.com/openapi.json)
+- [Curl HTTP Request](https://underscoredone.com/curl_http_request/): Make a real HTTP request from the cloud and get back the status code, headers, and body instantly. [OpenAPI](https://curl-http-request.underscoredone.com/openapi.json)
+- [Directory Submission Lite](https://underscoredone.com/directory_submission_lite/): Places an order to have a website submitted to twenty directories, returning a confirmation number to track it. [OpenAPI](https://directory-submission-lite.underscoredone.com/openapi.json)
+- [Bulk DMARC Record Lookup](https://underscoredone.com/dmarc_lookup/): Check email security (DMARC) configuration for one or many domains in a single request. [OpenAPI](https://dmarc-lookup.underscoredone.com/openapi.json)
+- [DNS & WHOIS Lookup](https://underscoredone.com/dns_whois_lookup/): Look up all 13 DNS record types plus full WHOIS registration data for up to 10 domains in one call. [OpenAPI](https://dns-whois-lookup.underscoredone.com/openapi.json)
+- [Domain Age Checker](https://underscoredone.com/domain_age_checker/): Give it a list of domains and get back registration date, expiration date, age, and time remaining — instantly. [OpenAPI](https://domain-age-checker.underscoredone.com/openapi.json)
+- [Domain Availability Checker](https://underscoredone.com/domain_availability_checker/): Check whether 1–10 domain names have an active registration record using the official RDAP protocol. [OpenAPI](https://domain-availability-checker.underscoredone.com/openapi.json)
+- [ENS Resolver](https://underscoredone.com/ens_resolver/): Resolve an ENS name to an Ethereum address, or an address back to its ENS name. [OpenAPI](https://ens-resolver.underscoredone.com/openapi.json)
+- [Hacker News Data](https://underscoredone.com/hackernews_data/): Fetch Hacker News stories by category, or scan all stories/jobs/polls from a specific date, with optional nested comments. [OpenAPI](https://hackernews-data.underscoredone.com/openapi.json)
+- [Hashing, HMAC & Checksum Suite](https://underscoredone.com/hash_hmac/): Compute cryptographic hashes, HMAC signatures, and checksums — and verify webhook signatures with constant-time comparison. [OpenAPI](https://hash-hmac.underscoredone.com/openapi.json)
+- [HTTP Header Checker](https://underscoredone.com/http_header_checker/): Fetches any web address and returns its response headers, status code, and redirect path. [OpenAPI](https://http-header-checker.underscoredone.com/openapi.json)
+- [HTTP Status Code Checker](https://underscoredone.com/http_status_checker/): Check the live status of up to 10 URLs at once and detect redirects instantly. [OpenAPI](https://http-status-checker.underscoredone.com/openapi.json)
+- [JSON Validate, Repair, Convert, Query & Diff](https://underscoredone.com/json_suite/): One endpoint to validate, repair, format, query, diff, convert, and canonicalize JSON — the most common operation in every agent workflow. [OpenAPI](https://json-suite.underscoredone.com/openapi.json)
+- [Leetspeak Translator](https://underscoredone.com/leetspeak_translator/): Converts regular text into leetspeak or decodes leetspeak back into normal readable text. [OpenAPI](https://leetspeak-translator.underscoredone.com/openapi.json)
+- [Mortgage & Loan Amortization Calculator](https://underscoredone.com/mortgage_amortization/): Get the exact monthly payment and full period-by-period breakdown for any fixed-rate loan — results an AI model cannot reliably compute on its own. [OpenAPI](https://mortgage-amortization.underscoredone.com/openapi.json)
+- [OCR Text Extractor](https://underscoredone.com/ocr/): Extract text from any image using Tesseract OCR. [OpenAPI](https://ocr.underscoredone.com/openapi.json)
+- [TCP Port Scanner](https://underscoredone.com/port_scanner/): Send a host and port range, get back a clean list of which ports are open and what services are running on them. [OpenAPI](https://port-scanner.underscoredone.com/openapi.json)
+- [Bulk QR Code Generator](https://underscoredone.com/qr_code_generator/): Turn a list of text, URLs, or any strings into QR code images instantly — one call, many codes. [OpenAPI](https://qr-code-generator.underscoredone.com/openapi.json)
+- [Screenshots](https://underscoredone.com/screenshots/): Capture a screenshot of a fully rendered webpage, including JavaScript-heavy pages. [OpenAPI](https://screenshots.underscoredone.com/openapi.json)
+- [SEO Data Extractor](https://underscoredone.com/seo_data_extractor/): Fetch a webpage and instantly extract all key SEO fields: title, meta tags, headings, canonical URL, and more. [OpenAPI](https://seo-data-extractor.underscoredone.com/openapi.json)
+- [Shopify AI Rank Checker](https://underscoredone.com/shopify_ai_rank_checker/): Check exactly where your Shopify product ranks when AI shopping assistants like ChatGPT and Gemini search for it. [OpenAPI](https://shopify-ai-rank-checker.underscoredone.com/openapi.json)
+- [Sitemap URL Extractor](https://underscoredone.com/sitemap_url_extractor/): Give it a sitemap.xml link and get back every URL listed in it — including nested sub-sitemaps — with metadata like last modified date and change frequency. [OpenAPI](https://sitemap-url-extractor.underscoredone.com/openapi.json)
+- [URL Uptime Checker](https://underscoredone.com/url_uptime_checker/): Checks whether a website or web address is currently reachable and reports how fast it responded. [OpenAPI](https://url-uptime-checker.underscoredone.com/openapi.json)
+
+## Optional
+
+- [Sitemap](https://underscoredone.com/sitemap.xml)
+- [Contact](https://forms.gle/5KzuSFH7p8hHtDmz7)
