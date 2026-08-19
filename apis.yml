@@ -11,7 +11,7 @@ image: https://underscoredone.com/logo.png
 url: https://raw.githubusercontent.com/api-evangelist/done/refs/heads/main/apis.yml
 created: '2026-08-10'
 modified: '2026-08-11'
-specificationVersion: '0.21'
+specificationVersion: '0.23'
 tags:
 - developer-tools
 - utility-apis
