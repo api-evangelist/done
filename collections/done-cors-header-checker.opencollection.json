@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CORS Header Checker",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cors headers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check which cross-origin permissions a URL grants for a given origin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cors-header-checker.underscoredone.com/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a real HTTP request to any web address with an Origin header attached, and report back every cross-origin permission header the server returns."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HTTP Status Code Checker",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "http status code",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check live status and redirects for up to 10 URLs in one call.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://http-status-checker.underscoredone.com/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Visit each web address you provide and report back whether it is working, broken, or redirecting to somewhere else."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

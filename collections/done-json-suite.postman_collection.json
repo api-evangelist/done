@@ -1,0 +1,3486 @@
+{
+  "item": [
+    {
+      "id": "a84a78b5-0ce8-4d60-965e-9731c1342ba6",
+      "name": "json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11158a69-4d89-4ba1-9d22-17cf5144d7c4",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a69a4e64-36ed-4113-afaf-82714bb23931",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84dfb82c-bf4e-4823-9bd6-73027a92963a",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f015859a-157b-4ac9-baae-17cb79389aac",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9cc4f0a4-96a2-4edd-8bfb-ba9e98aa6252",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b7493655-967f-4178-8a8e-dfc4245330d6",
+      "name": "validate json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f807159f-6245-4945-b609-fe13be1e84d2",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc3d224b-b1e9-490e-a3b3-4e3c29a5362a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c42d99a-e302-4718-8e67-eefc7c3fda1d",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "842d192f-cc75-4dcd-b9ad-eeb5d48a30a2",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "566ab240-b2fe-4bf2-a630-29eb3ae170af",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c9199f76-6ea5-4b15-82cd-b74c2982f158",
+      "name": "json validator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "00db2821-0fcc-4acf-8f4c-1e2a3dec587a",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "916d9098-5e7f-4d9d-957f-7c6c66c5a075",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c79352df-22aa-489f-a3a7-b516fd9cbcef",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48869dd7-d14c-4439-b234-1e28278e00fa",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f1ff35b-d9c8-4cfc-9351-fa92bbfda841",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fdba6ee7-1236-4222-8562-f80cec60022c",
+      "name": "repair json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71e945c4-fc30-4f9a-b0f9-a9950a0ab235",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ef0dcce-9007-4ab9-9365-3acdf2a70156",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26dbf3e4-e789-455c-951d-f43ee6abb734",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97903f99-1eda-4fa7-895f-7b8dbaeec420",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "88697f87-b9bb-4d42-a3bd-c4a8d6c1dc5a",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "eca9f819-7c13-4ff1-9bed-e599a97f544c",
+      "name": "fix broken json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4bf301e6-53f6-40e8-b9e6-5d78d617d23d",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69202088-1519-4434-84fc-91c26fda4938",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e7118e2-8145-4355-abd3-5296211a4c48",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13d1ffc0-d40c-4295-89a3-7205a6703130",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "446a08b9-891a-4df4-987a-24b2ff9f3787",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0dc8a504-9744-4ccf-87a6-277282509c27",
+      "name": "json formatter",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9519840d-5aea-4bfe-b77d-a2abd61c716e",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "60e65254-aac0-4aaa-bc9e-8be3c856384e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a26e2d24-d864-41c2-9c84-fe5c5f1d0952",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b665d35-7bc9-4cac-8444-ffb5f044f5c1",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2909215d-65ef-4100-8265-862b6c14b1fd",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "02f7c310-8fa3-471d-9f7f-8e3c60eaf5a5",
+      "name": "pretty print json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83be8c2b-7ef0-4deb-917b-4aae1e3b9f38",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b96a755-2366-4e5b-bb9b-e168cbf7a270",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75702b25-ad6a-4e98-b888-4a710ebacd6c",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d6590db-4ee3-41ac-96a3-6d698a0a4c22",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2ab781c-17f8-4386-b4bc-4958961a4572",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "79d602b4-f9bd-44dc-a778-4f17741bf926",
+      "name": "minify json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "afad5b71-da6b-4aa1-ae8c-ec50b12227f9",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "169dc708-f0f3-4df1-a3ba-6a6a4f3e3c84",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa3ceaf5-4ca8-495a-9a95-beb48b107fb3",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fed0114-6e03-4bad-a8f8-271f69da9e1d",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1151430b-ce12-454a-84de-41d339619a96",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "be86b383-671a-443e-9f9e-0216953657f2",
+      "name": "json to yaml",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "127aab62-21e5-41c5-b26f-3db047c9f673",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "68915a59-f69d-4f40-b97c-429dca05e7dd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f871378a-7f44-4e81-81f7-d64bbcc89324",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9249428-76a7-43d4-a3e8-edc215e77036",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9419434-adb8-4610-a4a8-7ab06043e94a",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a9677a97-2971-4672-bad8-35e23fb7dfde",
+      "name": "json to csv",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2519429a-6974-40c7-94f2-d76e7140804f",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98a4d0ea-b82c-4c35-95a0-a2784d8988b5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fac14d9-d298-4755-bac9-338cbca63a55",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9ed114c-ce84-4e4e-b42a-e4a019fe4c41",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d706d258-3a4e-4eed-a890-b8be2c03b9fb",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "64195bfd-7dc4-436e-a025-b4141f010526",
+      "name": "jsonpath",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ad27036-7a1c-4b8d-92b9-107aeb7ba49c",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35dcd27a-9dcb-4229-bb45-5098fcec6848",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "faffd911-acc1-438f-999a-c81dc3877594",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdf79344-72e0-423f-a73b-d790885925e1",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7931678f-4a10-408b-af34-ceb97def5d66",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9b2552a9-83df-4afc-ac37-06933e32ff14",
+      "name": "json schema validation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aeba9f52-f14a-402f-b2a0-0d79ac5eb1b2",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4a8ed68-0808-4405-a51b-a89c271bbb71",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a798ea53-de88-4cc3-bdda-b7c2fd75b198",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4f08652-967d-4cb5-ad9e-ca2c3208e7be",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b21adc5b-763f-4bb0-b84d-60876f9b73d9",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9ed1956a-f38e-44d9-b23d-bbdc9db03ac5",
+      "name": "json diff",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23c4f1f0-4982-4b40-afbc-d7999c738dd5",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0c85d574-ae55-43af-bbd4-c7839050da2b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db358796-9534-4e66-9fcc-dddf61316231",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff9580ed-1b44-4feb-9fed-258442bd3580",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6adc0172-05b7-4519-b62b-7d45c4270c00",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5ba36680-fcb5-4deb-be05-987a3bb7fc76",
+      "name": "parse json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "85146cd1-9888-4513-b4df-1ed731571550",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abefaa47-b710-4e01-970c-f73e1aee378d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf386b6a-a1fe-49b5-885b-b0cb6ed8cd09",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74e7a8c6-87c7-4ed8-aba9-6269aace41a2",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "30e0bb54-9330-4609-a3ae-706819d8cf84",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9159dced-6934-4359-8d0e-1237a65f6d50",
+      "name": "canonical json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41f6e0cf-d300-43ce-b3c6-ef6b4b44708b",
+          "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+          "request": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "description": {
+              "content": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"op\": \"<string>\",\n  \"data\": {},\n  \"data_raw\": \"<string>\",\n  \"options\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "511e52c3-0d8b-4726-b4e4-91a53821c490",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"op\": \"query\",\n  \"valid\": true,\n  \"matches\": [\n    {\n      \"path\": \"$.order.items[0].sku\",\n      \"value\": \"BIL-CUE-07\"\n    },\n    {\n      \"path\": \"$.order.items[1].sku\",\n      \"value\": \"BIL-CHALK-01\"\n    }\n  ],\n  \"match_count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "031e5a81-f768-4cdd-a735-8fbfd168cd49",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef002d59-0331-412d-bcbf-8d94c64b82aa",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e45127e-af71-4461-9abb-e02bb9a58c79",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"order\": {\n      \"items\": [\n        {\n          \"qty\": 2,\n          \"sku\": \"BIL-CUE-07\"\n        },\n        {\n          \"qty\": 5,\n          \"sku\": \"BIL-CHALK-01\"\n        }\n      ]\n    }\n  },\n  \"op\": \"query\",\n  \"options\": {\n    \"jsonpath\": \"$.order.items[*].sku\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://json-suite.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1cbbbff5-5016-4746-aead-78b0844ced5e",
+    "name": "JSON Validate, Repair, Convert, Query & Diff",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Every AI agent and developer runs into broken or confusing JSON constantly. This tool handles all the most common JSON headaches in one place: check if JSON is valid (with exact error location), fix near-JSON that has typos or formatting mistakes, pretty-print or minify, pull out specific values using a path expression, compare two JSON documents and see exactly what changed, convert to and from YAML or CSV, produce a byte-stable canonical form for hashing or signing, validate against a schema, and get size and structure statistics. Same input always gives the same output — fully predictable, no side effects.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

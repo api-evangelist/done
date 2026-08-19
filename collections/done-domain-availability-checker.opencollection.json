@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Domain Availability Checker",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "domain availability",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up whether domain names are registered using official RDAP registry data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://domain-availability-checker.underscoredone.com/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Look up whether each submitted domain name has a registration record, using the official RDAP registry system."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

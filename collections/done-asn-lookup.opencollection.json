@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ASN Lookup",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "asn lookup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finds the network owner and details behind an IP address or ASN",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://asn-lookup.underscoredone.com/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Find out who owns and runs the piece of the internet behind an address or network number."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

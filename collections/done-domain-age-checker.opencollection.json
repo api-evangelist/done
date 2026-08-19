@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Domain Age Checker",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "domain age",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check how old a list of domains is and when they expire",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://domain-age-checker.underscoredone.com/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check how old a list of domains is, when they were registered, and when they expire."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

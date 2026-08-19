@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JSON Validate, Repair, Convert, Query & Diff",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "json",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://json-suite.underscoredone.com/json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

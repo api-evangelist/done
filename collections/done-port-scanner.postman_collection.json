@@ -1,0 +1,3486 @@
+{
+  "item": [
+    {
+      "id": "a5833483-4349-47cb-9335-8311da25eebd",
+      "name": "port scanner",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7503571-0ac9-476e-8a9a-5d8393ed1f10",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10ec9682-1fc2-45bc-b4b6-dbe9d51ac7b5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "184344ca-2bc9-46e1-8b59-117ab34e0de6",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0578036-600a-4db7-a9d3-b82b196497eb",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b133f2d-9d77-45e4-96a2-6d67d790c029",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6e49539b-f4bf-4aba-a33a-7770d35c48a6",
+      "name": "port scan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f131e83-8237-44a1-b0d4-42b0b319e50e",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc216697-0a4e-4c80-91c9-7c46908bc52b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef58aa65-3b3e-491f-bc43-e0e99a10cbba",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6a4e6a6-31e5-4fcb-99c1-2a8b5a420d3c",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5fddfa23-3003-46bf-86c3-7b0ea23d7a02",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "34ff0699-1e64-4105-81a9-ab936f8ca904",
+      "name": "open ports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8b07cbd-b92d-4f97-a274-46854bc7fdf6",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "960704ce-b5e9-4915-aec6-93bf02d74682",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cacec43-7687-4bae-b4ce-c7598bd14f8c",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f89b453b-e26c-453e-b9ac-4c9cdb7defd2",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c1f93d9-f178-4389-8858-976e56600d35",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "40f55e07-8d60-4a3b-a930-96ead6bc547b",
+      "name": "tcp port scanner",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3d0b81a5-d2e6-4e88-9018-4776ed0c91be",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "265a4a58-ca30-42f2-b91e-5f1ee1dac583",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1e04c45-963f-46c7-b9ae-18cd537acc27",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "472ad564-aab2-4743-acdb-16128f06924b",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1bf2513d-0436-41ff-9470-32b05bd3e5ce",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8ad7226c-af4f-4ec5-9459-e69eee8f14e9",
+      "name": "scan ports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fdd8da6e-cf03-4cdb-aff6-7a316fdc12ce",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "74a27d38-02b7-414a-b2ba-8f3ae62cf39d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56714caf-f5ef-4af0-bb74-89bf6adb6d8a",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d7ff51e-1b44-498d-ad6e-f94228253604",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eeb86edb-821a-4d3e-9590-d039048daf12",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ad4526d3-5540-4f7d-9a29-7018c807333b",
+      "name": "port",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "765bb7b2-6ebe-48a3-bf3a-370a3d1800fe",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c41da3d-3769-49a9-9642-4c80df561b24",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48fa7f0d-3db0-433d-9c4e-5e11e3255751",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c8543d0-fe0e-4dff-90be-8e7c60c7c553",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3ca3763d-0db5-42d1-8a23-f58ac8c7b8e1",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5e5e8320-3f60-4e10-98d8-9bd18e1d74ea",
+      "name": "open port check",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8cc6b46d-8481-454c-b9bc-7eeb80a2c625",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a20ec590-c4f6-4899-956d-8141090055c9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e301ba1f-13e4-4e5e-9a37-a3383ec54d26",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bc422b9-3f6a-4640-970f-a4bce610ae50",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9804d072-0221-4b98-82fa-ce61a40abf3c",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "32014512-6b10-4bd0-8cc2-e71d8f23e403",
+      "name": "service detection",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0b8ee15-302e-4d7c-9417-4c95e8da4e43",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6518d2bf-85f1-4445-9e99-7258fffe8026",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cc1bd2b-f31a-416c-8072-763e5d701978",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d07feaf-706b-4be3-87bd-db3bd409631a",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a8156d5-60b2-4be0-9949-9db6e8e7704f",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2d9d7cbf-d626-42d6-9096-f95c426e418c",
+      "name": "network scanner",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a72604a4-5e37-4084-bcd2-9143febfcf2a",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d7addae-173f-4714-813a-6f917a88257b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1af42589-a2ea-4bec-bd99-ada04631ce1d",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "179ee53d-4bf3-468d-8a05-572c04c64f8d",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d10c7c5-407e-413d-a0e8-ac8f08963736",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "64907747-b6b7-4e8d-a19c-c134d3259e9a",
+      "name": "port check",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02de0f51-2dd9-4b7d-a57d-1814d1f53ae3",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5eb7d1f0-c7be-4ffa-96ab-dd73820e0cbf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee6a980b-248b-437c-82e0-da4788c4d9e8",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b65538f-7b50-4ce6-8b4b-4828b304d8f9",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a52e0ef-3194-4871-9125-fa2e124ee3ed",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e53d3cde-c180-4517-9707-d3b55ff71880",
+      "name": "host port scan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4513b808-694a-4edc-9ae5-a6f00bede77d",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a25f88fd-172a-4f3e-8c66-d6444abefa34",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da3abbec-c324-4991-a3ab-798c257dc539",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b6f5128-96ec-4a08-8ff8-fb558f8c126c",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e43de16c-2d11-4426-81ab-e82dcb02f2e4",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ce9411c8-9a4d-4c88-92b5-eb09298809fb",
+      "name": "security scan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b3b82dc-2c13-4926-8634-eb2fe4542c29",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "94629b08-d5d0-4816-9546-4b21811e34ca",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0103fe4f-e0f0-4f02-aba0-a8fc5700dc00",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "949752e8-b331-41b3-a2e7-2b273ef7024f",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15f01aca-935c-4bc3-8e8b-e17e4d80a77f",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "330b44c2-8373-46ac-b3dd-139452ea8dba",
+      "name": "banner grab",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e9624be-915c-4466-8879-5d57277282e4",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa74ca8a-7f46-4c3c-a743-fabeda59c0fb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82a25b60-887c-42e0-b288-115ff2a6ed49",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "826e8bfa-8a4a-4b26-a368-9e188b6710df",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d5be198-23b4-4d09-ba29-b3f66def98df",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "89532c29-ce6e-4b5d-aa76-519e53a85220",
+      "name": "ssh port check",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0cbbb42b-c50c-4bf9-a1eb-a8fa92f7f49a",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64284d0d-76e7-4eeb-ab0d-118bcae726e0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85a997a2-5466-44ea-91db-8bad9fa46dbc",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8df05597-5942-4b04-8f70-b31239aa0f8c",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d2e2af2c-d40c-4963-ade6-c626a4b798e2",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a2bd3fbb-0478-453d-a82b-5b7c3db42124",
+      "name": "nmap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff7ae776-5a51-46c2-9519-f88a3b7d88d9",
+          "name": "Check which ports on a host are open and what services are listening on them",
+          "request": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "description": {
+              "content": "Check which ports on a host are open and what services are listening on them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": \"<string>\",\n  \"ports\": \"<string>\",\n  \"scan_type\": \"<string>\",\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a38e5588-8b74-499a-865e-a4e4ddc462c3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"target\": \"scanme.nmap.org\",\n  \"resolved_ip\": \"45.33.32.156\",\n  \"scan_type\": \"tcp_connect\",\n  \"duration_ms\": 4521,\n  \"complete\": true,\n  \"ports_requested\": 1000,\n  \"ports_scanned\": 1000,\n  \"open_ports\": [\n    {\n      \"port\": 22,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"ssh\",\n      \"version\": \"OpenSSH 8.2p1\"\n    },\n    {\n      \"port\": 80,\n      \"protocol\": \"tcp\",\n      \"state\": \"open\",\n      \"service\": \"http\",\n      \"version\": \"Apache httpd 2.4.41\"\n    }\n  ],\n  \"closed_or_filtered_count\": 998,\n  \"warning\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98dd58ba-e586-4e5e-851a-0ca3ea8688a0",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c5b9b9a-6a4e-48f4-8c3f-4d1d064c2570",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b51c5e1-942d-461b-aa97-573a2a271a40",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ports\": \"1-1000\",\n  \"scan_type\": \"tcp_connect\",\n  \"target\": \"scanme.nmap.org\",\n  \"timeout\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://port-scanner.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "14c19c96-e365-4c97-a3ee-b9cc8623c2e3",
+    "name": "TCP Port Scanner",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Give this API a hostname or IP address and it will try connecting to each port in your requested range. For every port that answers, it tells you whether it is open or blocked, which service is likely running there (like a web server or SSH), and what software version was detected. This saves you from installing network tools, parsing messy command-line output, or writing socket loops yourself. Only scan hosts you own or have permission to scan — this tool does not check that for you.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

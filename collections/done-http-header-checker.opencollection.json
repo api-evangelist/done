@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "HTTP Header Checker",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "http headers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up the response headers and status of any URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://http-header-checker.underscoredone.com/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks a web address and reports back its status, headers, redirect path, and timing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

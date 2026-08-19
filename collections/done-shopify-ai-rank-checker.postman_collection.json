@@ -1,0 +1,3486 @@
+{
+  "item": [
+    {
+      "id": "0daf0986-2de3-4754-b9db-add32d25337b",
+      "name": "shopify rank",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62d39b00-a3ae-4231-a9ef-06a408bda6cb",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "db76ad90-94fe-4b37-8879-57ce7ae6b756",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eceb054b-4224-4ed0-b61d-3a4ddf748e69",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "256f9e1b-f165-4020-9a9e-b5b1e41b1271",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "814ccbb5-4afb-4dca-b120-fa8bdc36eccc",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1bef0e53-e34e-495f-b716-02513dc34b56",
+      "name": "ai visibility",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3df489a-aa0d-44aa-92a3-7a494d3f719e",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b571239b-4f8b-49b6-aaed-c730ebc99898",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75f7def1-04cd-4ddc-bf90-de3fe53021bc",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8c7efa3-e074-4884-9531-fe436d03f753",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9e669eb-8301-4095-82b0-cddce6e36117",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4e994c1a-ab7b-4d32-b0d5-8c591e6adcd6",
+      "name": "product visibility",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9be41e9-7645-42f4-a303-3a3a9799032e",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4448f738-a750-4a38-9375-62b1a3622aec",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eac4c804-2b21-4efc-b72d-5bba39889dbe",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98be261c-5d63-492c-b550-e28b9106b536",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53517515-288f-4c8a-b181-622d6228faf2",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "aa31114b-e731-4e4e-a4c0-f8707aa7b524",
+      "name": "shopify",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73f0d2ad-d914-410b-a026-c7e77b0e93f0",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9aad8a7a-60da-4d21-8c7c-319d18aa2cb9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b7050f3-b667-4119-bf37-1212a3320f4f",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40cc42ee-865f-4989-a9df-78c81cc469d8",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31e822aa-e835-4afc-b37c-7c4b682c76ec",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "63b551c0-0681-4e46-b135-dd17131ee57b",
+      "name": "ai shopping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4629f459-e489-410a-884e-7e9109f731fc",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e7217d8-2925-465d-8347-5f71f05c1af5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc99221e-8280-4c43-9798-f3275d207e18",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86b2f973-bddd-447a-9d8c-4449b9bbf905",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2f49015-ca6c-4992-b960-e438cd74cdb0",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f38d7c90-d618-470e-b756-8227dcf1140e",
+      "name": "shopify seo",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45f109dd-291c-4f49-ae5c-a72552ef17d2",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7bdeac8b-a0f7-45ec-b128-0b4fce0f8822",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3ccd284-3fc6-4ad8-95bf-40e079f942f3",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "359bd02e-e664-4ac0-aefa-89c83180b26d",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d0d6abdf-d200-4bac-809f-6a86cee6382e",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f9f2df13-56af-44fd-9cae-d1c594b77d03",
+      "name": "ai search ranking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "43cab964-c229-4f3d-bed7-5b0f776b2ab1",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50e2086e-0d4e-46b3-b289-dea1ce24c571",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f16c11f-2f1b-4567-98f0-36b0caabc772",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aed9ad4d-1fa4-44df-8f15-f8c6a13afcb1",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c35dd02a-cf1d-4bf8-8ed6-f1c680486092",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0a056d18-56ff-4591-aef0-fd694341a5c4",
+      "name": "llm seo",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "188aa531-0ef0-4fc8-ba18-4917ca816c60",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b3db0c7-ed9d-4a75-9c3b-95939130826c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c78e746b-8f16-4e6c-a48c-366a54cf4531",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d1ee913-5efe-4e75-98d8-275a85b40d1c",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cda73c27-a56a-4529-b0df-a2acfd3b1954",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e62224ca-48e0-4d96-89c9-4872e3fa72d4",
+      "name": "generative engine optimization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b2f3ff78-f3ef-4d52-a58e-987cba8ab402",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24ab1355-9202-4c7d-8ef5-3ebc0be4af42",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3afc766-2be1-47fb-b3b4-f164617e6fdf",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1a24aff-0820-46d7-a4fd-acc73e69a039",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9778f4bc-e38b-4aad-8a49-e8699c05480c",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c7e1c684-ea96-46b4-a5f1-4ef25b9c60d5",
+      "name": "answer engine optimization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ba04377-337e-4185-95ba-028d2179f140",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "823376da-57d3-4da4-b708-5a71149ea8d6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "740cfd24-fae4-4f8e-8c4e-3abf5879fd54",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf8ec2bc-9161-4b52-9a79-a0ac9b6cda9b",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5927158-93f4-4071-83db-25c665454bf8",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f1cebdfc-d4e5-4266-a524-51404678f4d2",
+      "name": "geo",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87537046-dfc1-4573-984e-74e9be62b388",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a3e3ef2-234c-4bf2-93e8-9184d57c6eff",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c4a2173-5c7f-4bc1-a69f-67c742fd2a2b",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2291d39-caf6-4c00-b086-3597cd279565",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "efa4ac55-fcd2-43f3-b32f-35f3d76fe286",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "187fb48c-67a1-40f5-8ccf-0b4c74414329",
+      "name": "aeo",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c50e464-d34b-4986-bd4b-d72182c8244f",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4f96b32-8906-4b55-abef-2e539e508b18",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89702621-0e21-44b0-b5f1-786c49c17f4b",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44f961bb-8fd3-4d60-8842-54bee2465143",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b078754-1bb4-492e-9043-822f21515493",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5a7d2ac3-2917-4319-a73f-075b4f7b9e44",
+      "name": "chatgpt shopping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64868613-308e-46f4-be06-615c5777e372",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80cc6f12-c085-40b6-99a8-4a027502b7da",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d8be19a-0e7b-4d35-b9bd-ef1afe37a41e",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c35ee18f-0e3e-4c0b-88ac-5e34ec2e1ffc",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6259e03-4898-4325-b967-7369b1109ed0",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2a69fa8f-c04a-43e2-9d72-2e20a5660c19",
+      "name": "product rank checker",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "deb18ad5-b3c0-413a-9880-975d34c87f1f",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "293cc65d-2367-4822-b1ab-d6a39a1b99ca",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1cd0bab-dcd6-4ca7-9567-c2a7461f9b5d",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d8a75dd-9332-4897-b31b-a347a82d9452",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "234f19e9-bbd2-4261-8f16-9dbe78c33609",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b18ba2b4-d692-4170-821a-a0d8b5d054cd",
+      "name": "ai overview ranking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c96a74c-31a3-43a1-9118-0934eea37418",
+          "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+          "request": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "description": {
+              "content": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1391bde-e99c-4723-8164-d2e5708749bc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"keyword\": \"7 foot pool table\",\n      \"rank\": 2,\n      \"urlFound\": \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\",\n      \"top10Results\": [\n        \"https://www.playgosports.com/products/gosports-mid-size\",\n        \"https://www.legacybilliards.com/products/baylor-ii-7-ft-pool-table-modern\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7121487d-b136-4093-8139-d93a822a9634",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbc8a828-f8c3-433e-9656-5ad01986f4d7",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d2a3ed11-2111-4258-8322-9c748a15a975",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shop_domain\": \"<string>\",\n  \"keywords\": [\n    \"<string>\"\n  ],\n  \"report_detail\": \"simple\",\n  \"ships_to_country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://shopify-ai-rank-checker.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "583f212e-623d-4b91-bbaf-55a50558206e",
+    "name": "Shopify AI Rank Checker",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Checks how well a Shopify store's products show up when AI shopping assistants such as ChatGPT, Gemini, Perplexity, Grok, and Copilot search for products, and reports the store's rank and its closest competitors. Searches Shopify's real Global Catalog — the same product index AI assistants read from.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

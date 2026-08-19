@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BIMI Checker",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Validation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Checks if a domain's email logo branding setup is valid and ready to display.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bimi-checker.underscoredone.com/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks one or more website addresses to see if their email branding logo setup will work correctly, and explains what is wrong if it will not."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

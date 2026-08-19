@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shopify AI Rank Checker",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "shopify rank",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finds your Shopify product's rank in the AI shopping catalog for any search keywords.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shopify-ai-rank-checker.underscoredone.com/rank",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

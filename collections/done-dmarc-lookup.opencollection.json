@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bulk DMARC Record Lookup",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "dmarc",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up DMARC email security records for one or many domains at once.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dmarc-lookup.underscoredone.com/dmarc-lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check the DMARC email security record for one or many domain names at once. Send a JSON body with a 'domains' array of bare domain names and get back the record status, policy, and full record text for each one."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

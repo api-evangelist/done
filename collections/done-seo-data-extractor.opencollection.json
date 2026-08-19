@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SEO Data Extractor",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "seo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Visit a URL and pull out every important SEO field in one call.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://seo-data-extractor.underscoredone.com/extract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Visit the web address you provide and pull out every important SEO field in one go."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Leetspeak Translator",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "leetspeak",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Encode text to leetspeak or decode leetspeak back to normal text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://leetspeak-translator.underscoredone.com/translate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Turns everyday words into leetspeak, or turns leetspeak back into everyday words, using a fixed set of swap rules so the same input always gives the same answer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

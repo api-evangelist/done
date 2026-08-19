@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "US CPI Data & Inflation Report",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest, single-month, or ranged US CPI inflation data from BLS with plain-English summary.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cpi-report-us.underscoredone.com/cpi",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Looks up official United States inflation figures from BLS. Send nothing for the newest month on record, a 'period' for one specific month, or a 'start'/'end' pair for a range of months."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

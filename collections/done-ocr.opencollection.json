@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OCR Text Extractor",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ocr",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pulls readable text out of a picture.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ocr.underscoredone.com/read",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read a picture and give back the words found inside it, along with how sure the reader is."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

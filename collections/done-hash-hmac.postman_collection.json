@@ -1,0 +1,3486 @@
+{
+  "item": [
+    {
+      "id": "d65b6c42-3011-4f1b-9ef5-f9949cd01cdd",
+      "name": "sha256 hash",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ab53448-f334-48f3-b9c5-5fb795fbab29",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40b86aac-ee2a-4b16-b7db-fc187e3e048f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "400a9e8b-dac1-4e85-8d56-d16ca3ce9d49",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e5a76c0-1229-45cd-a710-af3e61786920",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b20a745-303d-4e13-9457-8bfa28ec989b",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2c2da2aa-244c-4802-91d9-ebf9e0f19596",
+      "name": "hash",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "107ad7c0-3654-44e2-9f09-b68e1aa67d1c",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b72b763-2070-4864-bf72-85264a37084b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "212b3398-5018-4fa5-bd27-1fd770957b3c",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "718fe9ae-2877-494f-afe2-8e4ab82da634",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c045ca17-540b-4c63-ad4a-76ee077505f3",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ea738fb9-2f02-443f-a7bd-3d5db24c96ca",
+      "name": "hmac",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e22b4f02-e06f-4047-98ca-256f8ca64200",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a400854-ae4e-4cee-a64b-acc401423b45",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea7d8979-dd9a-409e-8046-adeff15ee564",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dece3c8c-c864-4a19-b79f-4c4d0f29aaaf",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a07e792f-2d41-4044-8c7b-c089aa0d9d88",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d2216439-97ec-4946-a7c8-ebbcfbd1ba8e",
+      "name": "hmac signature",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "675d0aeb-166a-4fb2-b5e0-66cfe0b00b3b",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62b036e6-56ae-4f45-9b9e-8ec3f88a3904",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d85ec3c0-86fa-4647-a2d7-343dcc50a27f",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f646205-f82e-416c-8bc9-8368a371656b",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26e38b8a-98e6-4fa6-b853-cfdfb5eb4f1b",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d77f1ce2-5cf6-4b5f-8f51-d23e0440aa57",
+      "name": "verify hmac signature",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5e281897-2423-4c1a-8199-6c8814866ec7",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "244308b0-9ac9-441d-9065-49d23bf51143",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbbe3360-436e-437a-838a-2ede6021489f",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5f402ac-6be4-49e2-bcc4-0bfc854e5362",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11f797ba-bc09-4190-840a-a5acc570a997",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "646d40d4-0bf2-48b2-9598-784c74ffc28f",
+      "name": "checksum",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8d7a3b58-bcb3-4136-af13-83541a62bc69",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cad63f2e-2f3f-49e9-b532-9ba761fe427f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "482268ed-c705-4779-ae0d-992cade1e381",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d94bf09-7ae4-4a8b-bdaf-cfb9054172f6",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "77810835-6e96-4ada-ac2c-9ce6860b9cc0",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "87152d47-0f68-4d66-8421-8483ab4c80e4",
+      "name": "compute hash",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "61be4924-5581-4ee3-a936-68069537fa14",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bed563bb-4b73-4588-a0e8-6960683fc064",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "320783d9-f702-4a6c-957f-8f5d9e3a1dad",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43e8e341-191f-41f2-9d9f-0ca856693f0c",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2fa6c20-0361-49bb-bfe5-8bde90582e61",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "384360a8-d93b-4236-92d5-0dcf220f7858",
+      "name": "webhook signature verification",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1e5def3-6914-4af0-aff2-ef69ba8af021",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9511b29e-e77c-4f27-b8b7-a21bc19b90c0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d436260-c536-4574-908e-6f97a5290256",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d247dae4-3ade-48f0-a7ed-42d668763c96",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1168f4de-82b8-42d9-9599-72c9044256fb",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "537d8aa9-abcb-49d1-b88c-e751d8eaf207",
+      "name": "sha512",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2937bb59-5d59-4287-ad31-8f4be2db872d",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "01b3d798-c8b1-4df1-92b5-eb193ff7b985",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2869d4fa-7c9d-42b7-afc8-7818f43d3a6a",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80ad6659-9289-4798-a198-0e05cbbe7c87",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "29f18b89-4f66-4954-8630-d4ec96d5ebff",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1234a6d6-389f-4374-bcc9-5b1ad8802696",
+      "name": "md5",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ed48cfb4-80c9-4a2b-a254-7248db6cb3d0",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88e95c91-ff10-43f4-b258-f5dfffa47320",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "faa4486f-a9a0-4350-9aa0-aa4e68e6d097",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f6a84d2-50e5-40af-891d-f10af8db7c2b",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f496fcc-2866-477d-abc5-2b2f298d56bc",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d856bf12-d784-4fa8-a2c3-cc38c6291c6a",
+      "name": "message digest",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5dc758ea-933f-45c2-8c91-0c1e1c6d8fa6",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4760e80d-bfa6-4ccc-8ba5-c981886db4a2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdae3044-8267-4760-80ad-dd67825325c8",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "849a3e5e-1d9d-4147-9147-c02c7a52355e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "484006d9-4c6f-477e-9781-433322240993",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a8a566f2-725d-444d-955a-6e44eab13278",
+      "name": "signature verification",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87bc608b-a5f5-48e7-8a85-ee0e941c6f89",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6322312d-7672-43c0-96ed-90799c83ba32",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66ef4865-90b4-448e-b7df-0d83071bca19",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79bfbd77-68ab-4d9d-b16c-c61b9b1399a5",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0627c16e-73c1-4dd5-aa13-3fce07894570",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "41d6f784-0171-4d29-8ea1-b1504bf17bc9",
+      "name": "hash generator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a8ca7a4-894a-4e15-9880-6b426e64dd13",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e104195d-b7f4-4a41-8bb5-a675ac095091",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d34064b-4a5b-4df7-ac59-c1aa34005cf1",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0881f28-dbc2-4064-afde-fca953e4757e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da25cbdf-5454-457b-b22c-f76efbb0dc17",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "244bf935-3f0a-4da5-9657-9365f7da9e2b",
+      "name": "content fingerprint",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "25babff4-ce34-4304-b7be-f6496258237c",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31076274-7881-4563-935a-e2b6ceca00fe",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80aa5142-26e1-4427-8650-69bc535c9423",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "adf4f3a6-8986-49c9-97d1-5ac48141d2bb",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c010911-4a11-486e-93fe-ed4c0628c23b",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9379acae-d6b6-4028-8bc3-8937f1132037",
+      "name": "integrity check",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23d82700-fb59-4de9-9b24-e1450e5e79d3",
+          "name": "Hash, sign, and verify data fingerprints in one call",
+          "request": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "description": {
+              "content": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"mode\": \"<string>\",\n    \"algorithm\": \"<string>\",\n    \"key\": \"<string>\",\n    \"expected_signature\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "128a0cda-d3f5-48d5-9c73-93a741bd5993",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"input_bytes\": 35,\n  \"digests\": {\n    \"sha256\": \"aa27c1f5aeb13292cb74153461b1eb3193efe4501c109a99103d304657798cf6\",\n    \"sha512\": \"f9b133b06a4b7309392429f15108af870c073288f4297b85dba0ebb907f26c71a808abbe1d197f67ad4b7a1ab83507b1ac1774aa0a4295919e7b9697b395be07\",\n    \"crc32\": \"74c679bb\"\n  },\n  \"hmac\": {\n    \"mode\": \"verify\",\n    \"algorithm\": \"sha256\",\n    \"computed_signature\": \"edddd7a6a42a411ab35b993d690cc7bd5d3be3d9262f66fef16ac2be10e0539a\",\n    \"matches\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c021d29e-5414-4152-a4c5-3b60d3436a21",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87d70fc8-df72-490b-804d-d108176c386e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c1dcdf15-1025-408c-a9df-69b7ca499841",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": \"<string>\",\n  \"algorithms\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"input_encoding\": \"utf-8\",\n  \"output_encoding\": \"hex\",\n  \"hmac\": {\n    \"algorithm\": \"sha256\",\n    \"expected_signature\": \"088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b\",\n    \"key\": \"my-secret-key\",\n    \"mode\": \"verify\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://hash-hmac.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dc530307-69c1-41bb-8993-e4ecafd85d0e",
+    "name": "Hashing, HMAC & Checksum Suite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Give this API any text or binary data and it instantly returns its fingerprint under whichever hash algorithms you choose — SHA-256, SHA-512, MD5, BLAKE2, CRC32, and more. It also signs data with a secret key (HMAC) and, most importantly, safely verifies whether an incoming signature matches — using a timing-safe comparison that prevents secret-leaking attacks. Language models cannot perform hashing: they produce a string of the right length and character set that looks correct but is simply wrong. Every webhook verification, idempotency key, cache fingerprint, or integrity check that relies on a hallucinated hash is silently broken. This API is the cure.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

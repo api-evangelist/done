@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Screenshots",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "website screenshot",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://screenshots.underscoredone.com/capture",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

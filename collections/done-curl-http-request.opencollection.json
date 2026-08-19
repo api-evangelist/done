@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Curl HTTP Request",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "http request",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch any URL from the cloud and return its full response.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://curl-http-request.underscoredone.com/curl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send an HTTP request to the given web address from our servers and return the full response including status, headers, and body."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

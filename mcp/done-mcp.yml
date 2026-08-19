@@ -2,11 +2,11 @@ generated: '2026-08-11'
 method: derived
 source: openapi/_original/*.json (27 operations across 26 specs) + live probes of mcp.underscoredone.com
 status: candidate
-summary: _done runs NO MCP server. mcp.underscoredone.com answers 200 only because *.underscoredone.com is a wildcard
-  that serves the marketing homepage for every label (verified against zzz-not-real-abc123.underscoredone.com, byte-identical),
-  and a JSON-RPC tools/list POST to it returns 405 Method Not Allowed. The tool list below is DERIVED by API Evangelist
-  from the 26 published OpenAPI specs as a candidate forge target. No MCPServer pointer is wired into apis.yml,
-  because no MCP server exists.
+summary: _done runs NO MCP server. mcp.underscoredone.com answers 200 only because *.underscoredone.com
+  is a wildcard that serves the marketing homepage for every label (verified against zzz-not-real-abc123.underscoredone.com,
+  byte-identical), and a JSON-RPC tools/list POST to it returns 405 Method Not Allowed. The tool list
+  below is DERIVED by API Evangelist from the 26 published OpenAPI specs as a candidate forge target.
+  No MCPServer pointer is wired into apis.yml, because no MCP server exists.
 hosted_server: null
 probes:
 - url: https://mcp.underscoredone.com/
@@ -28,14 +28,14 @@ probes:
   method: GET
   status: 404
 forge_notes:
-- Every tool is a single POST with a JSON body — a 1:1 OpenAPI-operation-to-tool mapping is exact, no composition
-  needed.
-- Tool names below are namespaced by SERVICE because operationIds collide across specs (handler_lookup_post appears
-  three times, handler_check_post four).
-- 'Any forged server must implement the x402 payment leg: the first call returns 402 with a payment-required challenge
-  and no result.'
-- directory_submission_lite is the only side-effecting tool (POST /submit places a paid order); it should be gated
-  behind confirmation in any agent runtime.
+- Every tool is a single POST with a JSON body — a 1:1 OpenAPI-operation-to-tool mapping is exact, no
+  composition needed.
+- Tool names below are namespaced by SERVICE because operationIds collide across specs (handler_lookup_post
+  appears three times, handler_check_post four).
+- 'Any forged server must implement the x402 payment leg: the first call returns 402 with a payment-required
+  challenge and no result.'
+- directory_submission_lite is the only side-effecting tool (POST /submit places a paid order); it should
+  be gated behind confirmation in any agent runtime.
 tool_count: 27
 tools:
 - name: asn_lookup
@@ -51,13 +51,13 @@ tools:
   - name: query
     type: string
     required: true
-    description: An internet address such as 8.8.8.8 or 2001:4860:4860::8888, or a network reference such as AS15169
-      or 15169, that you want information about.
+    description: An internet address such as 8.8.8.8 or 2001:4860:4860::8888, or a network reference such
+      as AS15169 or 15169, that you want information about.
   price_usd: 0.01
-  ai_instructions: Send a query that is either a plain IP address (like 8.8.8.8) or an ASN reference (like AS15169
-    or 15169). The tool figures out which one it is automatically. It looks up live data from the RIPEstat public
-    information service (no key required) and returns the owning network's details. If the query is invalid or nothing
-    is found, it returns a clear error message instead of guessing.
+  ai_instructions: Send a query that is either a plain IP address (like 8.8.8.8) or an ASN reference (like
+    AS15169 or 15169). The tool figures out which one it is automatically. It looks up live data from
+    the RIPEstat public information service (no key required) and returns the owning network's details.
+    If the query is invalid or nothing is found, it returns a clear error message instead of guessing.
 - name: bimi_checker
   title: BIMI Checker
   description: Checks if a domain's email logo branding setup is valid and ready to display.
@@ -71,22 +71,23 @@ tools:
   - name: domains
     type: array
     required: true
-    description: List of website addresses to check, such as example.com. Up to 10 per request. Do not include http://
-      or https://.
+    description: List of website addresses to check, such as example.com. Up to 10 per request. Do not
+      include http:// or https://.
   - name: selector
     type: string
     required: false
-    description: The label used to find the branding settings, almost always 'default'. Only change this if the
-      domain uses a custom label.
+    description: The label used to find the branding settings, almost always 'default'. Only change this
+      if the domain uses a custom label.
   - name: check_vmc
     type: boolean
     required: false
     description: Whether to also verify the logo's security certificate. Turn off for a quicker check.
   price_usd: 0.01
-  ai_instructions: 'Call this when a user asks whether a domain''s email logo (BIMI) setup will work, why a brand
-    logo is not showing in inboxes, or to audit email branding for one or more domains. Submit domains without http/https
-    prefixes. Limit to 10 domains per call. Set check_vmc to false for a faster, cheaper check when certificate
-    validation is not needed. Read the issues list per domain to explain failures in '
+  ai_instructions: 'Call this when a user asks whether a domain''s email logo (BIMI) setup will work,
+    why a brand logo is not showing in inboxes, or to audit email branding for one or more domains. Submit
+    domains without http/https prefixes. Limit to 10 domains per call. Set check_vmc to false for a faster,
+    cheaper check when certificate validation is not needed. Read the issues list per domain to explain
+    failures in '
 - name: cors_header_checker
   title: CORS Header Checker
   description: Check which cross-origin permissions a URL grants for a given origin
@@ -104,13 +105,14 @@ tools:
   - name: origin
     type: any
     required: false
-    description: The website address you want to test cross-origin access from, for example https://myapp.com. Defaults
-      to https://example.com if you leave it out.
+    description: The website address you want to test cross-origin access from, for example https://myapp.com.
+      Defaults to https://example.com if you leave it out.
   price_usd: 0.01
-  ai_instructions: POST a JSON body with a required 'url' field (the endpoint to probe) and an optional 'origin'
-    field (defaults to https://example.com). The response always includes 'cors_enabled' (boolean, true if any CORS
-    header was found), 'origin_allowed' (boolean, true if the tested origin would be permitted by the browser),
-    and a 'headers' object with all six Access-Control-* values as strings or null when ab
+  ai_instructions: POST a JSON body with a required 'url' field (the endpoint to probe) and an optional
+    'origin' field (defaults to https://example.com). The response always includes 'cors_enabled' (boolean,
+    true if any CORS header was found), 'origin_allowed' (boolean, true if the tested origin would be
+    permitted by the browser), and a 'headers' object with all six Access-Control-* values as strings
+    or null when ab
 - name: cpi_report_us
   title: US CPI Data & Inflation Report
   description: Latest, single-month, or ranged US CPI inflation data from BLS with plain-English summary.
@@ -124,23 +126,24 @@ tools:
   - name: period
     type: any
     required: false
-    description: A single month to look up, written as year-month, like 2024-03. Leave this out if you want the
-      newest data or a range instead.
+    description: A single month to look up, written as year-month, like 2024-03. Leave this out if you
+      want the newest data or a range instead.
   - name: start
     type: any
     required: false
-    description: The first month of a historical range, written as year-month, like 2023-01. Leave out to start
-      from the earliest available month.
+    description: The first month of a historical range, written as year-month, like 2023-01. Leave out
+      to start from the earliest available month.
   - name: end
     type: any
     required: false
-    description: The last month of a historical range, written as year-month, like 2024-12. Leave out to end at
-      the newest available month.
+    description: The last month of a historical range, written as year-month, like 2024-12. Leave out
+      to end at the newest available month.
   price_usd: 0.01
-  ai_instructions: Send an empty body for the newest available inflation report. Send 'period' as YYYY-MM to get
-    one specific historical month. Send 'start' and/or 'end' as YYYY-MM to get a series of months for charting or
-    analysis; omitting both start and end while providing neither period returns the newest single report. Do not
-    send 'period' together with 'start'/'end' — 'period' takes priority and a range will n
+  ai_instructions: Send an empty body for the newest available inflation report. Send 'period' as YYYY-MM
+    to get one specific historical month. Send 'start' and/or 'end' as YYYY-MM to get a series of months
+    for charting or analysis; omitting both start and end while providing neither period returns the newest
+    single report. Do not send 'period' together with 'start'/'end' — 'period' takes priority and a range
+    will n
 - name: curl_http_request
   title: Curl HTTP Request
   description: Fetch any URL from the cloud and return its full response.
@@ -158,13 +161,14 @@ tools:
   - name: method
     type: string
     required: false
-    description: The type of request to make. Choose from GET, POST, PUT, PATCH, DELETE, or HEAD. Defaults to GET
-      if not provided.
+    description: The type of request to make. Choose from GET, POST, PUT, PATCH, DELETE, or HEAD. Defaults
+      to GET if not provided.
   price_usd: 0.01
-  ai_instructions: Send a JSON body with a 'url' (required, must start with http:// or https://) and an optional
-    'method' field (defaults to GET). The response includes 'statusCode' (integer), 'headers' (object of key-value
-    strings), 'body' (string, may be HTML, JSON, or plain text), 'durationMs' (how long the request took in milliseconds),
-    and 'error' (null on success, or a plain-English message if the request coul
+  ai_instructions: Send a JSON body with a 'url' (required, must start with http:// or https://) and an
+    optional 'method' field (defaults to GET). The response includes 'statusCode' (integer), 'headers'
+    (object of key-value strings), 'body' (string, may be HTML, JSON, or plain text), 'durationMs' (how
+    long the request took in milliseconds), and 'error' (null on success, or a plain-English message if
+    the request coul
 - name: directory_submission_lite
   title: Directory Submission Lite
   description: Orders submission of a website to twenty directories and returns a confirmation number.
@@ -178,12 +182,13 @@ tools:
   - name: url
     type: string
     required: true
-    description: The full web address of the site to submit, including the leading https://, for example https://example.com
+    description: The full web address of the site to submit, including the leading https://, for example
+      https://example.com
   price_usd: 0.01
-  ai_instructions: Call this once per website to order directory submissions. Save the submissionid from the reply
-    — it cannot be recovered and it is the only way to retrieve the order. Do not call this again to check progress;
-    that would place a second paid order. To check progress, send the confirmation number to the /status address
-    on this same service, which is free.
+  ai_instructions: Call this once per website to order directory submissions. Save the submissionid from
+    the reply — it cannot be recovered and it is the only way to retrieve the order. Do not call this
+    again to check progress; that would place a second paid order. To check progress, send the confirmation
+    number to the /status address on this same service, which is free.
 - name: directory_submission_lite
   title: Directory Submission Lite
   description: Orders submission of a website to twenty directories and returns a confirmation number.
@@ -199,10 +204,10 @@ tools:
     required: true
     description: The confirmation number returned when the order was placed
   price_usd: 0.01
-  ai_instructions: Call this once per website to order directory submissions. Save the submissionid from the reply
-    — it cannot be recovered and it is the only way to retrieve the order. Do not call this again to check progress;
-    that would place a second paid order. To check progress, send the confirmation number to the /status address
-    on this same service, which is free.
+  ai_instructions: Call this once per website to order directory submissions. Save the submissionid from
+    the reply — it cannot be recovered and it is the only way to retrieve the order. Do not call this
+    again to check progress; that would place a second paid order. To check progress, send the confirmation
+    number to the /status address on this same service, which is free.
 - name: dmarc_lookup
   title: Bulk DMARC Record Lookup
   description: Look up DMARC email security records for one or many domains at once.
@@ -216,13 +221,14 @@ tools:
   - name: domains
     type: array
     required: true
-    description: 'A list of one or more domain names to check. Use bare domain names only — no http://, https://,
-      or www. Example: ["onescales.com", "hillms.com"]'
+    description: 'A list of one or more domain names to check. Use bare domain names only — no http://,
+      https://, or www. Example: ["onescales.com", "hillms.com"]'
   price_usd: 0.01
-  ai_instructions: 'Call this endpoint with POST and a JSON body containing a ''domains'' array of bare domain names
-    (no http:// or www), e.g. {"domains": ["example.com", "mycompany.org"]}. Comma-separated strings inside an array
-    entry are also tolerated and will be split. Each domain in the response will have: ''domain'' (the input domain),
-    ''recordStatus'' (''Valid'', ''Invalid'', or ''Not Found''), ''domainPolicy'' (the p= tag '
+  ai_instructions: 'Call this endpoint with POST and a JSON body containing a ''domains'' array of bare
+    domain names (no http:// or www), e.g. {"domains": ["example.com", "mycompany.org"]}. Comma-separated
+    strings inside an array entry are also tolerated and will be split. Each domain in the response will
+    have: ''domain'' (the input domain), ''recordStatus'' (''Valid'', ''Invalid'', or ''Not Found''),
+    ''domainPolicy'' (the p= tag '
 - name: dns_whois_lookup
   title: DNS & WHOIS Lookup
   description: Get all DNS records and WHOIS data for up to 10 domains at once
@@ -236,14 +242,15 @@ tools:
   - name: domains
     type: array
     required: true
-    description: A list of domain names or full web addresses to look up. You can pass bare domains like 'example.com',
-      or full addresses like 'https://www.example.com/page' — the system will automatically extract just the domain.
-      Send b
+    description: A list of domain names or full web addresses to look up. You can pass bare domains like
+      'example.com', or full addresses like 'https://www.example.com/page' — the system will automatically
+      extract just the domain. Send b
   price_usd: 0.01
-  ai_instructions: POST an array of domain names (or full URLs) under the key 'domains'. You may send between 1
-    and 10 entries. The response is an array of objects, one per unique domain, each containing fields prefixed
-    with 'dns_' (all 13 record types) and 'whois_' (full registration data). All fields are always present; empty
-    string means no record found or data not available. Multiple values within a single recor
+  ai_instructions: POST an array of domain names (or full URLs) under the key 'domains'. You may send
+    between 1 and 10 entries. The response is an array of objects, one per unique domain, each containing
+    fields prefixed with 'dns_' (all 13 record types) and 'whois_' (full registration data). All fields
+    are always present; empty string means no record found or data not available. Multiple values within
+    a single recor
 - name: domain_age_checker
   title: Domain Age Checker
   description: Check how old a list of domains is and when they expire
@@ -257,13 +264,14 @@ tools:
   - name: domains
     type: array
     required: true
-    description: A list of domain names you want to look up. You can include plain domains like 'example.com' or
-      full web addresses like 'https://example.com/page' — both work. Maximum 50 domains per request.
+    description: A list of domain names you want to look up. You can include plain domains like 'example.com'
+      or full web addresses like 'https://example.com/page' — both work. Maximum 50 domains per request.
   price_usd: 0.01
-  ai_instructions: 'POST a JSON body with a ''domains'' list of domain name strings (plain domains or full URLs
-    both work). Each result includes ''domainName'', ''age'' as a human-readable string, ''registrationDate'', ''lastUpdateDate'',
-    ''expirationDate'', ''expiringIn'' as a human-readable string, and ''status'' which is ''success'' or ''error''.
-    If WHOIS data cannot be retrieved for a domain, that entry will have status ''error'' and '
+  ai_instructions: 'POST a JSON body with a ''domains'' list of domain name strings (plain domains or
+    full URLs both work). Each result includes ''domainName'', ''age'' as a human-readable string, ''registrationDate'',
+    ''lastUpdateDate'', ''expirationDate'', ''expiringIn'' as a human-readable string, and ''status''
+    which is ''success'' or ''error''. If WHOIS data cannot be retrieved for a domain, that entry will
+    have status ''error'' and '
 - name: domain_availability_checker
   title: Domain Availability Checker
   description: Look up whether domain names are registered using official RDAP registry data.
@@ -277,13 +285,14 @@ tools:
   - name: domains
     type: array
     required: true
-    description: Between 1 and 10 domain names to check, like 'example.com'. Use the plain domain only — no 'https://',
-      no 'www.', no subdomains.
+    description: Between 1 and 10 domain names to check, like 'example.com'. Use the plain domain only
+      — no 'https://', no 'www.', no subdomains.
   price_usd: 0.01
   ai_instructions: 'POST up to 10 plain registrable domain names (like ''example.com'', not ''https://example.com''
-    or ''sub.example.com'') in the ''domains'' array. Each result has a ''registered'' field: true means a record
-    exists, false means none was found, null means the result could not be determined. A false result does NOT guarantee
-    the domain is purchasable — reserved and premium names can also return false. The ''tld_'
+    or ''sub.example.com'') in the ''domains'' array. Each result has a ''registered'' field: true means
+    a record exists, false means none was found, null means the result could not be determined. A false
+    result does NOT guarantee the domain is purchasable — reserved and premium names can also return false.
+    The ''tld_'
 - name: ens_resolver
   title: ENS Resolver
   description: Look up an ENS name or address and get back the matching one.
@@ -300,14 +309,14 @@ tools:
     description: An ENS name like vitalik.eth, or an Ethereum address starting with 0x. The service automatically
       figures out which one you gave it.
   price_usd: 0.01
-  ai_instructions: 'Send the query field with either an ENS name ending in .eth or a 0x Ethereum address. The service
-    auto-detects direction: names resolve forward to addresses, addresses resolve backward to their primary ENS
-    name. If nothing is found, resolved will be false and address or name may be null, but this is not an error.
-    Only malformed input causes a 400 error.'
+  ai_instructions: 'Send the query field with either an ENS name ending in .eth or a 0x Ethereum address.
+    The service auto-detects direction: names resolve forward to addresses, addresses resolve backward
+    to their primary ENS name. If nothing is found, resolved will be false and address or name may be
+    null, but this is not an error. Only malformed input causes a 400 error.'
 - name: hackernews_data
   title: Hacker News Data
-  description: Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment
-    threads.
+  description: Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional
+    comment threads.
   rest:
     method: POST
     server: https://hackernews-data.underscoredone.com
@@ -318,12 +327,13 @@ tools:
   - name: category
     type: any
     required: false
-    description: 'Which current list to pull from: top, new, best, ask, show, or job. Ignored if a date is given.'
+    description: 'Which current list to pull from: top, new, best, ask, show, or job. Ignored if a date
+      is given.'
   - name: date
     type: any
     required: false
-    description: A calendar day in YYYY-MM-DD format (UTC). If given, the tool switches to scanning that whole day
-      instead of using a category.
+    description: A calendar day in YYYY-MM-DD format (UTC). If given, the tool switches to scanning that
+      whole day instead of using a category.
   - name: limit
     type: any
     required: false
@@ -343,13 +353,14 @@ tools:
   - name: page_token
     type: any
     required: false
-    description: A resume point from a previous date-scan response, used to continue scanning the same day where
-      it left off.
+    description: A resume point from a previous date-scan response, used to continue scanning the same
+      day where it left off.
   price_usd: 0.01
-  ai_instructions: 'Call this when you need Hacker News content: either a current ranked list (top, new, best, ask,
-    show, job) or every story/job/poll posted on a given UTC date. Set ''date'' to switch to date mode; leave it
-    empty to use category mode. Use ''reply_depth'' and ''comment_limit'' sparingly since higher values take longer.
-    For date mode, if ''range_complete'' is false in the response, call again passing the retu'
+  ai_instructions: 'Call this when you need Hacker News content: either a current ranked list (top, new,
+    best, ask, show, job) or every story/job/poll posted on a given UTC date. Set ''date'' to switch to
+    date mode; leave it empty to use category mode. Use ''reply_depth'' and ''comment_limit'' sparingly
+    since higher values take longer. For date mode, if ''range_complete'' is false in the response, call
+    again passing the retu'
 - name: hash_hmac
   title: Hashing, HMAC & Checksum Suite
   description: Hash, sign, and verify data fingerprints in one call
@@ -368,26 +379,28 @@ tools:
   - name: input_encoding
     type: string
     required: false
-    description: How the input is encoded. Use 'utf-8' for normal text (default) or 'base64' for binary data.
+    description: How the input is encoded. Use 'utf-8' for normal text (default) or 'base64' for binary
+      data.
   - name: algorithms
     type: array
     required: true
-    description: 'Which fingerprint methods to use. Choose any of: md5, sha1, sha224, sha256, sha384, sha512, sha3_256,
-      sha3_512, blake2b, blake2s, crc32, adler32. You may list several at once.'
+    description: 'Which fingerprint methods to use. Choose any of: md5, sha1, sha224, sha256, sha384,
+      sha512, sha3_256, sha3_512, blake2b, blake2s, crc32, adler32. You may list several at once.'
   - name: output_encoding
     type: string
     required: false
-    description: How to display the resulting fingerprints. Choose 'hex' (default), 'base64', or 'base64url' (safe
-      for URLs).
+    description: How to display the resulting fingerprints. Choose 'hex' (default), 'base64', or 'base64url'
+      (safe for URLs).
   - name: hmac
     type: any
     required: false
     description: Optional. Include this block to sign data or verify a signature.
   price_usd: 0.01
-  ai_instructions: POST to /hash with an 'input' string and an 'algorithms' list such as ['sha256','crc32']. To
-    verify a webhook signature set hmac.mode to 'verify', provide hmac.key and hmac.expected_signature — the response
-    field hmac.matches will be true or false. Never guess or generate hash output yourself; always call this endpoint.
-    The same input always produces the same output. Use input_encoding 'base64' wh
+  ai_instructions: POST to /hash with an 'input' string and an 'algorithms' list such as ['sha256','crc32'].
+    To verify a webhook signature set hmac.mode to 'verify', provide hmac.key and hmac.expected_signature
+    — the response field hmac.matches will be true or false. Never guess or generate hash output yourself;
+    always call this endpoint. The same input always produces the same output. Use input_encoding 'base64'
+    wh
 - name: http_header_checker
   title: HTTP Header Checker
   description: Look up the response headers and status of any URL
@@ -405,15 +418,17 @@ tools:
   - name: method
     type: any
     required: false
-    description: Either GET or HEAD. GET fetches the page normally, HEAD only asks for headers without the body.
+    description: Either GET or HEAD. GET fetches the page normally, HEAD only asks for headers without
+      the body.
   - name: follow_redirects
     type: any
     required: false
     description: Whether to follow redirects to their final destination or stop at the first one.
   price_usd: 0.01
-  ai_instructions: Call this when you need to inspect what a web server returns before downloading content, such
-    as checking caching rules, security headers, redirect chains, or content types. Provide a full URL with http://
-    or https://. Do not use this to scrape page content, only headers and status metadata are returned.
+  ai_instructions: Call this when you need to inspect what a web server returns before downloading content,
+    such as checking caching rules, security headers, redirect chains, or content types. Provide a full
+    URL with http:// or https://. Do not use this to scrape page content, only headers and status metadata
+    are returned.
 - name: http_status_checker
   title: HTTP Status Code Checker
   description: Check live status and redirects for up to 10 URLs in one call.
@@ -427,12 +442,14 @@ tools:
   - name: urls
     type: array
     required: true
-    description: A list of 1 to 10 web addresses you want to check. Each address must start with http:// or https://.
+    description: A list of 1 to 10 web addresses you want to check. Each address must start with http://
+      or https://.
   price_usd: 0.01
-  ai_instructions: 'POST a JSON body with a field called ''urls'' containing a list of 1 to 10 fully-qualified web
-    addresses (must start with http:// or https://). Each URL is checked independently. The response is a list of
-    result objects in the same order as the input. Each result includes the final status code seen, whether a redirect
-    happened, and the destination URL if redirected. If a URL could not be reached at '
+  ai_instructions: 'POST a JSON body with a field called ''urls'' containing a list of 1 to 10 fully-qualified
+    web addresses (must start with http:// or https://). Each URL is checked independently. The response
+    is a list of result objects in the same order as the input. Each result includes the final status
+    code seen, whether a redirect happened, and the destination URL if redirected. If a URL could not
+    be reached at '
 - name: json_suite
   title: JSON Validate, Repair, Convert, Query & Diff
   description: Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.
@@ -446,28 +463,29 @@ tools:
   - name: op
     type: string
     required: true
-    description: 'What you want to do. Choose one of: validate, repair, format, canonicalize, convert, query, diff,
-      patch, schema, stats.'
+    description: 'What you want to do. Choose one of: validate, repair, format, canonicalize, convert,
+      query, diff, patch, schema, stats.'
   - name: data
     type: any
     required: false
-    description: The JSON value you want to work with — can be an object, array, string, number, or anything valid.
-      Required for all operations except validate and repair.
+    description: The JSON value you want to work with — can be an object, array, string, number, or anything
+      valid. Required for all operations except validate and repair.
   - name: data_raw
     type: any
     required: false
-    description: The raw text you want to validate or repair. Use this instead of data only for validate and repair,
-      because those need to see the original broken text exactly as-is.
+    description: The raw text you want to validate or repair. Use this instead of data only for validate
+      and repair, because those need to see the original broken text exactly as-is.
   - name: options
     type: any
     required: false
-    description: 'Extra settings for the chosen operation. For example: indent, sort_keys, jsonpath, pointer, to
-      (for convert), schema, data_b (for diff/patch). All optional — sensible defaults are used.'
+    description: 'Extra settings for the chosen operation. For example: indent, sort_keys, jsonpath, pointer,
+      to (for convert), schema, data_b (for diff/patch). All optional — sensible defaults are used.'
   price_usd: 0.01
-  ai_instructions: 'Send the ''op'' field to choose what to do. Use ''data_raw'' (a plain string) only for ''validate''
-    and ''repair'' — these two need the original broken text. Use ''data'' (actual parsed JSON) for all other operations:
-    format, canonicalize, convert, query, diff, patch, schema, stats. For ''diff'' and ''patch'', put the first
-    document in ''data'' and the second in ''options.data_b''. For ''query'', put your JSONPath ex'
+  ai_instructions: 'Send the ''op'' field to choose what to do. Use ''data_raw'' (a plain string) only
+    for ''validate'' and ''repair'' — these two need the original broken text. Use ''data'' (actual parsed
+    JSON) for all other operations: format, canonicalize, convert, query, diff, patch, schema, stats.
+    For ''diff'' and ''patch'', put the first document in ''data'' and the second in ''options.data_b''.
+    For ''query'', put your JSONPath ex'
 - name: leetspeak_translator
   title: Leetspeak Translator
   description: Encode text to leetspeak or decode leetspeak back to normal text
@@ -485,17 +503,17 @@ tools:
   - name: direction
     type: string
     required: true
-    description: Choose 'to_leet' to turn normal words into leetspeak, or 'to_normal' to turn leetspeak back into
-      everyday words.
+    description: Choose 'to_leet' to turn normal words into leetspeak, or 'to_normal' to turn leetspeak
+      back into everyday words.
   - name: level
     type: string
     required: false
-    description: Only used when turning words into leetspeak. Choose 'basic', 'intermediate', or 'advanced' for
-      how many letters get changed.
+    description: Only used when turning words into leetspeak. Choose 'basic', 'intermediate', or 'advanced'
+      for how many letters get changed.
   price_usd: 0.01
-  ai_instructions: Send the text to convert, pick a direction ('to_leet' or 'to_normal'), and optionally a level
-    ('basic', 'intermediate', 'advanced') for how heavily to substitute characters when converting to leetspeak.
-    The result is always the same for the same input, so it can be cached or reused safely.
+  ai_instructions: Send the text to convert, pick a direction ('to_leet' or 'to_normal'), and optionally
+    a level ('basic', 'intermediate', 'advanced') for how heavily to substitute characters when converting
+    to leetspeak. The result is always the same for the same input, so it can be cached or reused safely.
 - name: mortgage_amortization
   title: Mortgage & Loan Amortization Calculator
   description: Exact monthly payment and full amortization schedule for any fixed-rate loan
@@ -518,8 +536,8 @@ tools:
   - name: term_months
     type: integer
     required: true
-    description: How many monthly payments the loan spans. A 30-year mortgage is 360; a 5-year car loan is 60. Must
-      be at least 1.
+    description: How many monthly payments the loan spans. A 30-year mortgage is 360; a 5-year car loan
+      is 60. Must be at least 1.
   - name: start_date
     type: string
     required: true
@@ -527,12 +545,13 @@ tools:
   - name: extra_monthly_payment
     type: number
     required: false
-    description: An optional extra amount you put toward principal every single month, on top of the required payment.
-      Defaults to 0.
+    description: An optional extra amount you put toward principal every single month, on top of the required
+      payment. Defaults to 0.
   - name: one_time_payments
     type: array
     required: false
-    description: An optional list of one-time lump-sum principal payments. Each item needs a 'month' and an 'amount'.
+    description: An optional list of one-time lump-sum principal payments. Each item needs a 'month' and
+      an 'amount'.
   - name: summary_only
     type: boolean
     required: false
@@ -540,13 +559,14 @@ tools:
   - name: rounding
     type: integer
     required: false
-    description: How many decimal places to round every money value to. Default is 2 (cents). Valid range is 2 to
-      6.
+    description: How many decimal places to round every money value to. Default is 2 (cents). Valid range
+      is 2 to 6.
   price_usd: 0.01
-  ai_instructions: 'POST to /calculate with principal (positive number), annual_rate_percent (0 or above), term_months
-    (1 or above), and start_date (YYYY-MM-DD for the first payment). Optional: extra_monthly_payment (recurring
-    extra principal each month), one_time_payments (list of objects with ''month'' and ''amount'' keys for lump-sum
-    payments), summary_only (true to skip the row-by-row schedule array), and rounding (d'
+  ai_instructions: 'POST to /calculate with principal (positive number), annual_rate_percent (0 or above),
+    term_months (1 or above), and start_date (YYYY-MM-DD for the first payment). Optional: extra_monthly_payment
+    (recurring extra principal each month), one_time_payments (list of objects with ''month'' and ''amount''
+    keys for lump-sum payments), summary_only (true to skip the row-by-row schedule array), and rounding
+    (d'
 - name: ocr
   title: OCR Text Extractor
   description: Pulls readable text out of a picture.
@@ -560,8 +580,8 @@ tools:
   - name: image_url
     type: any
     required: false
-    description: A public web address pointing to the picture. Leave this out if you are sending the picture as
-      text instead.
+    description: A public web address pointing to the picture. Leave this out if you are sending the picture
+      as text instead.
   - name: image_base64
     type: any
     required: false
@@ -571,9 +591,10 @@ tools:
     required: false
     description: The language of the words in the picture. Only English ('eng') is supported right now.
   price_usd: 0.01
-  ai_instructions: Provide either image_url or image_base64, never both. Use this when you have a picture (screenshot,
-    scanned document, receipt, sign) and need the text inside it as plain text. Check the confidence score before
-    trusting the result for critical decisions; low confidence means the image may be blurry or low quality.
+  ai_instructions: Provide either image_url or image_base64, never both. Use this when you have a picture
+    (screenshot, scanned document, receipt, sign) and need the text inside it as plain text. Check the
+    confidence score before trusting the result for critical decisions; low confidence means the image
+    may be blurry or low quality.
 - name: port_scanner
   title: TCP Port Scanner
   description: Check which ports on a host are open and what services are listening on them
@@ -587,28 +608,29 @@ tools:
   - name: target
     type: string
     required: true
-    description: The hostname (like 'example.com') or numeric IP address (like '93.184.216.34') you want to scan.
-      Must be a real, reachable address.
+    description: The hostname (like 'example.com') or numeric IP address (like '93.184.216.34') you want
+      to scan. Must be a real, reachable address.
   - name: ports
     type: any
     required: false
-    description: Which ports to check. Use a range like '1-1000', a comma-separated list like '22,80,443', or leave
-      this out to automatically check the 1000 most commonly used ports.
+    description: Which ports to check. Use a range like '1-1000', a comma-separated list like '22,80,443',
+      or leave this out to automatically check the 1000 most commonly used ports.
   - name: scan_type
     type: any
     required: false
-    description: How to probe each port. The only supported value right now is 'tcp_connect'. Defaults to 'tcp_connect'
-      if left out.
+    description: How to probe each port. The only supported value right now is 'tcp_connect'. Defaults
+      to 'tcp_connect' if left out.
   - name: timeout
     type: any
     required: false
-    description: How many seconds the scan is allowed to run before giving up. Must be between 5 and 60. Defaults
-      to 30 if left out.
+    description: How many seconds the scan is allowed to run before giving up. Must be between 5 and 60.
+      Defaults to 30 if left out.
   price_usd: 0.01
-  ai_instructions: POST a JSON body with 'target' (hostname or IP as a string) and optionally 'ports' (a range like
-    '1-1000' or a comma-separated list like '22,80,443'), 'scan_type' (only 'tcp_connect' is supported), and 'timeout'
-    (whole number of seconds, 5 to 60). The response includes an 'open_ports' array — each item has 'port', 'protocol',
-    'state', 'service', and 'version'. Use 'ports_scanned' and 'closed_or_fi
+  ai_instructions: POST a JSON body with 'target' (hostname or IP as a string) and optionally 'ports'
+    (a range like '1-1000' or a comma-separated list like '22,80,443'), 'scan_type' (only 'tcp_connect'
+    is supported), and 'timeout' (whole number of seconds, 5 to 60). The response includes an 'open_ports'
+    array — each item has 'port', 'protocol', 'state', 'service', and 'version'. Use 'ports_scanned' and
+    'closed_or_fi
 - name: qr_code_generator
   title: Bulk QR Code Generator
   description: Convert a list of texts into QR code PNG images in one request
@@ -622,25 +644,26 @@ tools:
   - name: texts
     type: array
     required: true
-    description: The list of things you want turned into QR codes — website addresses, phone numbers, plain text,
-      WiFi credentials, anything you like. Each entry must be 700 characters or fewer. Empty entries are skipped.
-      At least one re
+    description: The list of things you want turned into QR codes — website addresses, phone numbers,
+      plain text, WiFi credentials, anything you like. Each entry must be 700 characters or fewer. Empty
+      entries are skipped. At least one re
   - name: size
     type: any
     required: false
-    description: How wide (and tall — QR codes are square) the output image should be, measured in pixels. Must
-      be between 100 and 1200. Defaults to 600 if you leave it out.
+    description: How wide (and tall — QR codes are square) the output image should be, measured in pixels.
+      Must be between 100 and 1200. Defaults to 600 if you leave it out.
   - name: error_correction
     type: any
     required: false
-    description: How much damage or dirt the QR code can survive and still scan correctly. Choose L (least tough,
-      smallest code), M, Q, or H (most tough, slightly larger code). Defaults to H, which is best for printed labels
-      or stickers.
+    description: How much damage or dirt the QR code can survive and still scan correctly. Choose L (least
+      tough, smallest code), M, Q, or H (most tough, slightly larger code). Defaults to H, which is best
+      for printed labels or stickers.
   price_usd: 0.01
-  ai_instructions: 'POST a JSON body with a key ''texts'' containing an array of strings. Each string becomes one
-    QR code. The response is an array of objects in the same order as the non-empty inputs, each containing ''text''
-    (the original string) and ''qr_base64'' (a data URI string starting with ''data:image/png;base64,'' ready for
-    use in an HTML img src or file save). Strings longer than 700 characters or that are empty '
+  ai_instructions: 'POST a JSON body with a key ''texts'' containing an array of strings. Each string
+    becomes one QR code. The response is an array of objects in the same order as the non-empty inputs,
+    each containing ''text'' (the original string) and ''qr_base64'' (a data URI string starting with
+    ''data:image/png;base64,'' ready for use in an HTML img src or file save). Strings longer than 700
+    characters or that are empty '
 - name: screenshots
   title: Screenshots
   description: Takes a screenshot of any webpage after it fully loads.
@@ -670,17 +693,19 @@ tools:
   - name: allow_popups
     type: boolean
     required: false
-    description: If false, cookie banners, consent popups, and chat widgets are hidden before the picture is taken.
+    description: If false, cookie banners, consent popups, and chat widgets are hidden before the picture
+      is taken.
   - name: load_lazy
     type: boolean
     required: false
-    description: If true, scrolls through the page first so slow-loading images finish loading before the picture
-      is taken.
+    description: If true, scrolls through the page first so slow-loading images finish loading before
+      the picture is taken.
   price_usd: 0.01
-  ai_instructions: Send the target url plus any optional capture settings. Set load_lazy true and wait_until to
-    networkidle0 or networkidle2 for pages that load content as you scroll, such as image galleries or social feeds.
-    Set allow_popups false (default) to automatically hide cookie banners and chat widgets. The response gives a
-    short-lived link to the captured image, not the image itself, so download it promptly
+  ai_instructions: Send the target url plus any optional capture settings. Set load_lazy true and wait_until
+    to networkidle0 or networkidle2 for pages that load content as you scroll, such as image galleries
+    or social feeds. Set allow_popups false (default) to automatically hide cookie banners and chat widgets.
+    The response gives a short-lived link to the captured image, not the image itself, so download it
+    promptly
 - name: seo_data_extractor
   title: SEO Data Extractor
   description: Visit a URL and pull out every important SEO field in one call.
@@ -694,18 +719,19 @@ tools:
   - name: url
     type: string
     required: true
-    description: 'The full web address of the page you want to analyse, including http:// or https://. Example:
-      https://www.example.com'
+    description: 'The full web address of the page you want to analyse, including http:// or https://.
+      Example: https://www.example.com'
   - name: timeout_seconds
     type: integer
     required: false
-    description: How many seconds to wait for the page to respond before giving up. Must be between 1 and 15. Defaults
-      to 10 if not provided.
+    description: How many seconds to wait for the page to respond before giving up. Must be between 1
+      and 15. Defaults to 10 if not provided.
   price_usd: 0.01
-  ai_instructions: Send a single URL string in the 'url' field. The API will fetch that page and return structured
-    SEO data. If the page redirects, the final destination URL and its status code are returned. All missing fields
-    come back as empty strings, never null. The 'num_links' field is always an integer. Use the returned fields
-    directly for SEO audits, content comparisons, or monitoring pipelines. Do not send m
+  ai_instructions: Send a single URL string in the 'url' field. The API will fetch that page and return
+    structured SEO data. If the page redirects, the final destination URL and its status code are returned.
+    All missing fields come back as empty strings, never null. The 'num_links' field is always an integer.
+    Use the returned fields directly for SEO audits, content comparisons, or monitoring pipelines. Do
+    not send m
 - name: shopify_ai_rank_checker
   title: Shopify AI Rank Checker
   description: Finds your Shopify product's rank in the AI shopping catalog for any search keywords.
@@ -719,27 +745,29 @@ tools:
   - name: shop_domain
     type: string
     required: true
-    description: Your store's web address, for example legacybilliards.com or example-store.myshopify.com. You can
-      paste it with or without https://.
+    description: Your store's web address, for example legacybilliards.com or example-store.myshopify.com.
+      You can paste it with or without https://.
   - name: keywords
     type: array
     required: true
-    description: A list of 1 to 10 search phrases you want to check your store's rank for. Split larger lists across
-      multiple calls.
+    description: A list of 1 to 10 search phrases you want to check your store's rank for. Split larger
+      lists across multiple calls.
   - name: report_detail
     type: string
     required: false
-    description: Choose 'simple' for a quick rank summary or 'full' for complete competitor and data quality details.
+    description: Choose 'simple' for a quick rank summary or 'full' for complete competitor and data quality
+      details.
   - name: ships_to_country
     type: string
     required: false
-    description: A two-letter country code, such as US or DE, so results reflect what a shopper in that country
-      would see.
+    description: A two-letter country code, such as US or DE, so results reflect what a shopper in that
+      country would see.
   price_usd: 0.01
-  ai_instructions: Call this when a user wants to know how visible their Shopify store is to AI shopping assistants
-    for specific search terms. Provide the store's myshopify.com domain and a list of search keywords. Use 'simple'
-    report_detail for a quick rank check, or 'full' for complete competitor data and a data quality score. Keep
-    keyword lists to 10 or fewer per call for faster responses; split larger lists into
+  ai_instructions: Call this when a user wants to know how visible their Shopify store is to AI shopping
+    assistants for specific search terms. Provide the store's myshopify.com domain and a list of search
+    keywords. Use 'simple' report_detail for a quick rank check, or 'full' for complete competitor data
+    and a data quality score. Keep keyword lists to 10 or fewer per call for faster responses; split larger
+    lists into
 - name: sitemap_url_extractor
   title: Sitemap URL Extractor
   description: Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.
@@ -755,10 +783,11 @@ tools:
     required: true
     description: 'The full web address of the sitemap.xml file you want to read, for example: https://example.com/sitemap.xml'
   price_usd: 0.01
-  ai_instructions: POST a JSON body with a single field called 'sitemap_url' containing the full URL of the sitemap.xml
-    file you want to parse. The API will follow any nested sitemap index files automatically and return a flat list
-    of all discovered URLs along with their metadata. If the sitemap is unreachable, returns a 400 error. If the
-    URL does not point to valid XML sitemap content, returns a 400 error. Do not p
+  ai_instructions: POST a JSON body with a single field called 'sitemap_url' containing the full URL of
+    the sitemap.xml file you want to parse. The API will follow any nested sitemap index files automatically
+    and return a flat list of all discovered URLs along with their metadata. If the sitemap is unreachable,
+    returns a 400 error. If the URL does not point to valid XML sitemap content, returns a 400 error.
+    Do not p
 - name: url_uptime_checker
   title: URL Uptime Checker
   description: Checks if a given web address is currently online and reachable.
@@ -776,18 +805,25 @@ tools:
   - name: follow_redirects
     type: boolean
     required: false
-    description: Whether to follow the site to its final address if it sends you somewhere else, before reporting
-      the result.
+    description: Whether to follow the site to its final address if it sends you somewhere else, before
+      reporting the result.
   - name: method
     type: string
     required: false
-    description: Which kind of check to run. GET reads the whole page. HEAD only checks that the site answers, which
-      is quicker.
+    description: Which kind of check to run. GET reads the whole page. HEAD only checks that the site
+      answers, which is quicker.
   price_usd: 0.01
-  ai_instructions: Call this before treating any URL as reachable. Pass the full web address including http:// or
-    https://. Read the 'up' field for a simple yes/no, 'status_code' for the response code, 'response_time_ms' for
-    speed, and 'error' for the reason if it failed. Do not retry automatically on timeout unless explicitly instructed.
+  ai_instructions: Call this before treating any URL as reachable. Pass the full web address including
+    http:// or https://. Read the 'up' field for a simple yes/no, 'status_code' for the response code,
+    'response_time_ms' for speed, and 'error' for the reason if it failed. Do not retry automatically
+    on timeout unless explicitly instructed.
 cross_links:
   agentic_access: agentic-access/done-agentic-access.yml
   conventions: conventions/done-conventions.yml
   skills: skills/_index.yml
+deployment:
+  mode: none
+  verified: derived
+  tools: 27
+  checked: '2026-08-12'
+  source: catalog MCP census

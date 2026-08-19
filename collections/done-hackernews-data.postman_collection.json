@@ -1,0 +1,3486 @@
+{
+  "item": [
+    {
+      "id": "7742a7e1-2829-498d-926b-686ba0c47885",
+      "name": "hacker news",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "effc1096-1f25-42d4-a76c-56307edd380d",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9ba7312-7d14-4b2b-a1d8-22d5a6c6da0c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c87d8d8-99d4-40a0-abf2-a84dd4c00e80",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "994de661-63a4-4f5e-94ab-cf50ba30debd",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95b0e13f-fe2d-4a0b-8ab1-cb9565ee30de",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f203ebd3-dbf5-4f9e-9570-16a4bcaa8c25",
+      "name": "hackernews",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db49349a-9176-4917-b606-2f8d0187d557",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ac5c6d1-8696-47c5-a38e-89ae76886d4d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc85f4e7-6070-4448-abd5-b20e814753c8",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d76e469e-f19e-4856-93df-f5025ec6dcbc",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8e6f5fad-4017-4859-a7f5-f65fd8958cf5",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fffaa5b9-9bc3-4495-923a-33faf6d01762",
+      "name": "hacker news api",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f89fc3b-e92d-4340-a8ab-4aa16083d818",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c3719948-3459-4a49-b1f4-03b3b6c8b7a5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d67636d-fcde-4493-9b4d-97e3ef4ffb6f",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c607a7d6-3523-4604-88e6-9561d239a59b",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "07db47da-a4b5-4e36-b404-957958c50ec5",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e3aebce2-6f2c-4c8c-bf0d-6afe5b711314",
+      "name": "news",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3500ad70-6786-4f98-b62d-a92ecf58a908",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "588bd94d-504e-4d65-b9d1-03b158728380",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0ec9fac-df95-447d-a7f3-f6cd057313e3",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70bd5c85-d30c-49e8-bc33-d5c0bc5c6651",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2dd565c2-1cef-4bbe-9374-34997c3f1ff5",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d3df0137-01a8-4f0b-8ef3-14b0950ea5f9",
+      "name": "hn front page",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d189237b-78e8-4ae7-9067-65106de3a73d",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc59a22e-faff-40b8-a772-d13bbc5f9033",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2548732-99fe-4f0d-b713-d96c1a0f2ad4",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8b16219-b3ea-4896-ac5d-4a7b041bca4c",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ebafd066-392b-4273-9201-5a6d3b6bcca0",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "91b7089e-f685-4d08-8669-8fc40ef7ebe9",
+      "name": "tech news",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fd74fe56-157b-4d3e-ada0-055de92dee0c",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80f664ee-21c2-4637-bc49-9f7c2fde08ce",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0255a351-5244-4ca4-b96b-abe69d88bbb2",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85d5b50a-5e5e-4eb8-8b3f-1155bf26fd79",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f7669193-fbc2-4430-bb93-149aee2eae0c",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "db3e0792-c197-41f1-870d-9ee0e630866f",
+      "name": "hacker news stories",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e65a6c0-92b5-4ede-b153-f7e2587d80ed",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "769bbfae-5006-4584-a4cc-33bb67dbc590",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "237cd1c8-021a-4255-942c-7f515e240d7d",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81a55151-b716-45fe-9dea-b555e1d669dc",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1304230c-a718-4ff3-86f6-f0e3188a9f40",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "08569514-5bca-4519-8193-c74f0b1ec829",
+      "name": "top stories",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba5cb0c8-063c-41b5-84e9-3a5880289ca9",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ad58fea-f71c-4fba-a821-cfed87b05af5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e03a95b6-7f31-4e89-934e-dc69d5f7b0fd",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e22051b9-88e9-4e50-85e7-8af0da23e18a",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "54437c44-bc77-47a1-9785-fac12b1e20ad",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "00402bb2-e42d-459e-b8da-fd8dbf304031",
+      "name": "ask hn",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "29c3cf95-c868-4094-8e42-b4d5a5ef1585",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88982a3f-8016-44c6-919b-59198ba57ea2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9161c3d-1e0d-45b1-9656-813217b715ee",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d17b66c-0472-4157-b914-481ee0290568",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac3ba4fc-0aed-4141-a8d7-ef134c2b698b",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a98230a2-55f5-4661-b55d-5bd537c1ca23",
+      "name": "show hn",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b27f70d-b37d-41e8-bdde-c9d094ddc649",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ebfb437e-0938-429a-8887-d1ecaf00947a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f18ab4e2-7f6a-4b47-821b-01e27e3f7d1a",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f443fa63-610d-4a14-8579-a495cae8ccf3",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "740ba73a-8de4-4986-8c20-53f6c21fcc1d",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c2be0e42-da68-41b0-9af0-e550830605b4",
+      "name": "hn comments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c073931-093e-496a-985d-bdd2368984b0",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "752adc95-21fe-48ec-bec3-98e6e633c7f5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "430b7d6a-b37b-45c3-9bc8-b514da5e1a9e",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2afc2d99-af7a-4c3e-9400-3659d6cecfbc",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0e1b55c-c78c-4a6f-a552-dcd525de76a4",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "177a1c82-b8f9-4e5d-9a62-940546b53daa",
+      "name": "trending tech news",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c5fa5de1-791f-484b-a7f8-6ecaef020c76",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b329f8c9-0e51-48f6-a613-588ff7bf890c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b28f4695-6c45-4014-bda2-394175163841",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0873b1a6-b551-4809-93a1-6412dbd973a4",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24019b8f-5a8c-4353-9855-ba96ab294fff",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5c793b3f-df7c-41ed-9bed-f5c0f5ec7775",
+      "name": "developer news",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eda44929-199e-4e9b-93e6-5e17b7f4dd4c",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "069bf53a-4879-4f12-bdaf-911a1a8e0e2e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8790025a-6f6e-4cd2-baf3-7e37adc1e550",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f57f2b5a-177c-47fd-a0e0-fc6db40cfd4a",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48e6d15e-582b-4f39-b7fd-9d5d4051def6",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5edee5ed-29e2-4c2b-b446-91d9ec0dc9a9",
+      "name": "tech sentiment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "011f068a-625c-40ee-ba7b-7bb2de627e03",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc5f9f1f-a116-4a82-8939-e0972b95c558",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d73517e-cc4e-4ce8-82cc-7a6fc6461113",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3198761d-08aa-4cb2-8e62-df6e2619cdfb",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2da76fcc-97c1-4f9a-a3f1-592c4daa1497",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5b81b572-7b65-4bed-a278-cd8d0de5efc8",
+      "name": "hn jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6e956648-2a5e-42d6-9b1b-7f8550f2e31f",
+          "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+          "request": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "description": {
+              "content": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fetch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"date\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"comment_limit\": \"<integer>\",\n  \"reply_depth\": \"<integer>\",\n  \"replies_per_comment\": \"<integer>\",\n  \"page_token\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "60abbf11-e1bd-47b7-b7b1-2bb8de8a1a6c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"mode\": \"get_stories\",\n  \"category\": \"top\",\n  \"date\": null,\n  \"count\": 5,\n  \"scanned\": null,\n  \"next_page_token\": null,\n  \"range_complete\": null,\n  \"results\": [\n    {\n      \"id\": 48753715,\n      \"item_type\": \"story\",\n      \"category\": \"top\",\n      \"title\": \"ZCode – Harness for GLM-5.2\",\n      \"author\": \"chvid\",\n      \"url\": \"https://zcode.z.ai/en\",\n      \"points\": 234,\n      \"posted_at\": 1782943416,\n      \"comment_count\": 223,\n      \"comments\": [\n        {\n          \"id\": 48752128,\n          \"author\": \"seizethecheese\",\n          \"posted_at\": 1782935074,\n          \"body\": \"I'm somewhat surprised that this is not open source...\",\n          \"reply_count\": 9,\n          \"replies\": []\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbc41cdb-d567-4418-ad72-34ae6a4bb7ff",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f77fca23-9b13-4984-b769-7a0ebe470fec",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2098820f-fd85-48b8-a2e1-ded8e2d512a1",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fetch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"top\",\n  \"comment_limit\": 3,\n  \"limit\": 5,\n  \"reply_depth\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://hackernews-data.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9ee597d4-27ca-42e8-8339-30472d1e7459",
+    "name": "Hacker News Data",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This tool reads live information from Hacker News, a popular website where people share and discuss technology news. You can either ask for a current list of stories (like the Top, New, Best, Ask, Show, or Job lists) or ask for every story, job posting, and poll that was posted on one specific calendar day in the past. You can also choose to pull in the discussion comments underneath each story, including nested replies several levels deep.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sitemap URL Extractor",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "sitemap",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://sitemap-url-extractor.underscoredone.com/extract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

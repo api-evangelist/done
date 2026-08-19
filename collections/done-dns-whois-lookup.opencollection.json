@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DNS & WHOIS Lookup",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "dns lookup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dns-whois-lookup.underscoredone.com/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

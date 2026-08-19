@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mortgage & Loan Amortization Calculator",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mortgage calculator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://mortgage-amortization.underscoredone.com/calculate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

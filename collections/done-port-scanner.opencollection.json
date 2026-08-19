@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TCP Port Scanner",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "port scanner",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check which ports on a host are open and what services are listening on them",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://port-scanner.underscoredone.com/scan",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check which ports on a host are open and what services are listening on them."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

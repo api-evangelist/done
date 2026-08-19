@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hacker News Data",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "hacker news",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current Hacker News lists or scan a past date for stories, jobs, and polls, with optional comment threads.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://hackernews-data.underscoredone.com/fetch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get a current Hacker News list (top, new, best, ask, show, or job), or scan everything posted on one specific calendar day, optionally pulling in discussion comments and their nested replies."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

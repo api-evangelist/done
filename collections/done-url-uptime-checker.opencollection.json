@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "URL Uptime Checker",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "website uptime",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Checks if a given web address is currently online and reachable.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://url-uptime-checker.underscoredone.com/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks a web address to see if it is currently online, how fast it answered, and where it ended up after any redirection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

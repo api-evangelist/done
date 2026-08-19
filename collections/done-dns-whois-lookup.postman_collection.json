@@ -1,0 +1,3486 @@
+{
+  "item": [
+    {
+      "id": "552d22d7-14ec-463e-8ead-3c6b722f8be4",
+      "name": "dns lookup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "508be132-9be9-49f9-bb4b-00bdfabd0106",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ad29256-ffe0-450d-8fec-426af6f7bc2b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2142b407-69e0-4c7b-be03-30ca57242687",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b837ce7-4d54-4bb0-8d67-4f505b18cd14",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "91926937-362e-4132-90bd-e0f86305ea78",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4e3d3005-8dd4-4d4d-aff2-098b4799165c",
+      "name": "whois lookup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8912b051-e097-40dc-8274-029c8447c23c",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e508f84d-ef91-4ce9-978d-623674538193",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "122d847e-49d8-44da-87b2-09d2ad0eb657",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1c738c1-3ec6-42aa-ab34-5c221e07fc4b",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "653f1e92-7c88-4678-8c52-c9b967758d2c",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cf9846fc-5079-4242-a2e5-0eca8080bc1e",
+      "name": "dns",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a78614e4-ce33-47bf-9eaa-2e8c08a8b5ab",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0e14a666-1020-4adc-8385-05a93e2a8846",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18735ee4-26b5-4bdb-af85-240a91ed2ec9",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40bdb71d-a01a-4496-ae82-12472e6700a2",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6537eaea-5921-4eaa-9918-3b97ba22cb7d",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8b72828e-9e72-4dd3-9254-141bdd9bd7c5",
+      "name": "whois",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7c394e0-0713-418f-95ae-239e1ce49999",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d89fb42-0c37-4e5a-a347-75d7bf5ac5e8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1d1d6db-5c23-4b0a-a78f-df026d304947",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1cf7681c-1ace-42f8-8046-8f9b93c80e78",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a9da1bd-3149-4967-b6a0-dd2ad78c2df2",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8529e643-6bf8-40bb-b934-4f75f359e3e2",
+      "name": "domain lookup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af52b290-9b47-4763-892d-706107e9e664",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad20afbe-627f-4601-85a2-eabea0accdc8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea482ab8-168c-4345-8cbd-eb7937698445",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab84b892-1080-4521-a011-10360c658548",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82a8a523-3b66-4e33-9c7c-be150602a54e",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f75afd2f-0886-4b29-ab31-55beabfb3fa0",
+      "name": "dns records",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0f12e03-b5e3-490e-a03f-74d1c606e60a",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ed72540-622a-4538-bf12-4bd1a104c52d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5810dff6-0ce9-442e-a309-88781eae5cda",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d07b696c-f506-48da-b59c-17139cab1805",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e4f8c3b-4f19-4b81-99c7-9349b2020b14",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fe9de6b8-9043-4a6d-99dd-0173e874252b",
+      "name": "nameservers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81514eea-006a-414f-b00d-3f0e779167cb",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6ffd9e6-d451-4549-b403-b20f9957f96a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a160f53c-df5b-4d19-813e-f6b489686663",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1129e76-5a2a-46f8-8ac2-dc6d8006218a",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0fb80d3e-4ece-45f4-a9fd-e542001b6ec3",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "dc8c78a1-d734-43b9-b1c9-a583ae163882",
+      "name": "mx records",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ebae8654-839b-4bbc-b335-101ccd1b2cff",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc06b33d-29a5-49bc-b989-08146e02af25",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1a6c46e-37e5-4b63-9c57-a62c808429e4",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bdf90533-6165-429d-bd83-faed1d9438c0",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1caa4cb-b6c3-40d3-a0db-dc146e54139b",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bf54d8ec-098c-4524-8595-89bd66631d85",
+      "name": "registrar lookup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2f9e1e6-e23b-4f72-bc8b-5efe975659ef",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "888052e4-21d5-4b4d-be74-176326c09606",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7eb2a9a-9372-4d23-8712-753588f84676",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9bd1913e-5c74-4bec-bce4-5d434139e063",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15f64836-2b0f-4c72-ae5c-77209152d626",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "405846b4-95a1-41f5-9551-8726bf4d6929",
+      "name": "rdap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74a44111-7e45-4b53-b495-db21bfce661a",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9298225f-03c0-4466-acb1-37f3739a95b1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ea1a6c7-0c0e-48c4-ad11-6f2f9231ef98",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a37ccafe-ac83-4bf4-9a73-3ba3dde99efd",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aaa3151a-f78d-43fa-895d-c2146bb2f27f",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0629f1b1-b723-48aa-a0f4-46874af9259e",
+      "name": "domain registration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bbab2545-5460-4685-ae04-078e4e05a983",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "415fd8c6-aa0e-48e3-85e6-926817b6978a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16864bc0-b098-4b29-8121-f50be85e1924",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f793673a-9dc7-4d84-9e19-67c83f6452f0",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3319c3a9-0829-4be4-8993-ff9d1183f0c2",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fee304b1-5172-464f-a098-e3c53f2476c5",
+      "name": "txt records",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "56f44727-7b13-47b2-a930-2cb19d24760b",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f8f48d75-7b5a-4d25-97bf-7a5acdb8aa9d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43463a8a-77ed-44be-9a56-20e868089a3a",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19cb2502-0f72-4f02-be7a-0576f9556e53",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5560920-6b8b-4374-acdb-d529344c6ed9",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "eb7228d4-6a91-4420-9c6f-d7e19d681a87",
+      "name": "a record lookup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3d9a7660-75cb-427a-8425-669fdafae24d",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98459bda-5019-4597-9773-7a66c259887d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f19ebc4d-2e5a-4757-aaba-b0fd8834d2b4",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b347e2f-3db6-4d12-9472-fcfaca92feb5",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "86178fca-0e5e-4c83-a693-d546ebb63551",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5c9faf0c-5092-4d8b-a7d3-be4f6e08d57e",
+      "name": "domain intelligence",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2c923969-4733-4cfd-baa9-5b90eb330ac9",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dcd9928c-0677-45e8-82d0-eafecbffcf68",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "747dff3a-e2aa-4622-802c-35e3c55dec08",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b1ce4bb-5d1c-479f-b2f6-f0e0c79e319a",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6eb7f4ad-fe63-46ff-8b92-d2cddc550233",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ee0ca166-2fe0-4c4b-bc43-a37ef127ae58",
+      "name": "bulk dns",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c09b039b-8f57-46de-a8a5-3c038cb27f80",
+          "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+          "request": {
+            "name": "Get all DNS records and WHOIS data for up to 10 domains at once",
+            "description": {
+              "content": "Look up all DNS record types and WHOIS registration data for up to 10 domains at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a72eb885-6df0-42f3-aa0e-217088eda676",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"results\": [\n    {\n      \"domain\": \"onescales.com\",\n      \"checkedAt\": \"2026-06-15T01:45:08.607Z\",\n      \"dns_a\": \"23.227.38.65\",\n      \"dns_aaaa\": \"\",\n      \"dns_mx\": \"5 alt2.aspmx.l.google.com | 1 aspmx.l.google.com | 10 alt3.aspmx.l.google.com | 10 alt4.aspmx.l.google.com | 5 alt1.aspmx.l.google.com\",\n      \"dns_cname\": \"\",\n      \"dns_txt\": \"openai-domain-verification=dv-Y9cDXv64Bj8Z6h43mpki1rgt | v=spf1 include:_spf.google.com ~all\",\n      \"dns_ns\": \"carter.ns.cloudflare.com | bonnie.ns.cloudflare.com\",\n      \"dns_ptr\": \"\",\n      \"dns_soa\": \"mname=bonnie.ns.cloudflare.com rname=dns.cloudflare.com serial=2406862386 refresh=10000 retry=2400 expire=604800 minttl=1800\",\n      \"dns_srv\": \"\",\n      \"dns_caa\": \"\",\n      \"dns_naptr\": \"\",\n      \"dns_ds\": \"\",\n      \"dns_tlsa\": \"\",\n      \"whois_registrar\": \"Cloudflare, Inc.\",\n      \"whois_iana_id\": \"1910\",\n      \"whois_registrar_url\": \"http://www.cloudflare.com\",\n      \"whois_registrar_abuse_email\": \"registrar-abuse@cloudflare.com\",\n      \"whois_registrar_abuse_phone\": \"+1.6503198930\",\n      \"whois_created\": \"2022-10-11T10:20:28Z\",\n      \"whois_expires\": \"2028-10-11T10:20:28Z\",\n      \"whois_updated\": \"2023-02-13T02:38:06Z\",\n      \"whois_status\": \"clientTransferProhibited\",\n      \"whois_nameservers\": \"bonnie.ns.cloudflare.com | carter.ns.cloudflare.com\",\n      \"whois_registrant_name\": \"\",\n      \"whois_registrant_org\": \"\",\n      \"whois_registrant_address\": \"\",\n      \"whois_registrant_country\": \"\",\n      \"whois_registrant_phone\": \"\",\n      \"whois_admin_name\": \"\",\n      \"whois_admin_org\": \"\",\n      \"whois_admin_email\": \"\",\n      \"whois_admin_country\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18961ca2-05dd-427e-8ec2-9c10c5007981",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "633b2954-4767-4943-a046-0b50de933e60",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc15e9e3-f65f-4ede-94fa-d6a59194ba34",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dns-whois-lookup.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fbf5f932-6759-4d76-8f2b-8dc1cb91ae1e",
+    "name": "DNS & WHOIS Lookup",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Send up to 10 domain names and get back every DNS record type (A, AAAA, MX, CNAME, TXT, NS, PTR, SOA, SRV, CAA, NAPTR, DS, TLSA) plus the full WHOIS registration profile (registrar, dates, contacts, status, nameservers) for each one. URLs are accepted and automatically stripped down to the bare domain. Duplicate domains are quietly removed before processing. Results come back as one flat row per domain, ready to drop into a spreadsheet, database, or pipeline.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

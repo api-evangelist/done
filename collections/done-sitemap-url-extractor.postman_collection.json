@@ -1,0 +1,3255 @@
+{
+  "item": [
+    {
+      "id": "9fcb3a9d-b198-4303-ada9-f399486a0f0f",
+      "name": "sitemap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f46687c6-83ab-4934-a9fe-f2d9265f9c3d",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0a4ffde-aec5-45b7-b1af-d97e3b3908f9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8f7906f-fada-4ff1-8927-8fb73d47bb2c",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "268ab0c4-8095-4f6a-a60d-5969c9cefb15",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06ef7e35-7462-42ac-8ba0-dd945fa5a118",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "396e0b2e-29eb-4694-be56-9a0dcfcb5ba0",
+      "name": "sitemap parser",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7482ab8-f52c-4ebd-b9aa-70aa4f7cf09f",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0501e53-14d2-4699-98a7-480bc7eb433c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "411dc129-6c21-4f9c-9dc9-6ec95350a88e",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a56aae0-c229-4837-9d24-c82ff578b1ac",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99d2f8e4-35f8-4cde-99fd-bed96ee8206f",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "111f70fc-0c74-455b-a4cf-48d9c1792205",
+      "name": "extract sitemap urls",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff1d2a63-1189-4f57-b6af-8afa7d43b162",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9649e1af-babd-4183-a004-3a36925f4bf7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5048c1f-c519-45be-8a5b-b4f57eae912f",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a3e0f62-1213-42ce-803a-2f95a9d7d86e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7715079-3c6a-4689-9df4-49cf0b489532",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b26f2083-7c95-4b64-ab11-00dd1743fd0f",
+      "name": "parse sitemap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5bf62582-ba94-4c33-9410-f008f5b18d24",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39b8e055-bf53-4e2a-9f74-8b63cd044f98",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "043a5e0c-642c-4c37-93fd-ed1891932e27",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60cfb93c-eeb6-498d-8781-6ac80ce74780",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57294e20-9ba8-4fa2-a3a6-248cb7323236",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b55a32ae-bf70-43e1-9d75-deb39ad1087b",
+      "name": "sitemap.xml",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "adedb3c1-5868-45a0-aa20-ee40cf444fe7",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58f41803-1aa2-4e43-8abc-59c411430c77",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6df29c3c-5f99-43c1-90e6-e0c6cb068e81",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72a1ed01-dafe-47f1-ae03-987ee34a1db7",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72c8df80-8359-4756-b3f4-190a4642a618",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "54345cc1-efbb-43ae-9fe2-92031bd5cf8b",
+      "name": "sitemap crawler",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a417fcc1-ed10-46d6-8671-4762760c8325",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "189e7252-a41f-4cab-aa83-6eccc38437fd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "873f2be4-ff16-4384-9dc5-c3d0a5a2dd41",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ded3d74a-5128-4f92-b0a8-7733864f9eda",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f3e5d61-6bc4-490b-89a0-58ecaed94a78",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a6ee8087-f1d4-4803-b3c4-44f83dd832df",
+      "name": "url extraction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a4c94d11-b31e-46e7-a396-a7694dc6d8f5",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a4dcdfa-9e0a-437c-9fe8-7860d5a4b6d6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0b6cea1-3f08-4afb-8e51-e57af4551eee",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a09d3568-c90e-493f-99e2-f19b55348002",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d3280f4-787d-4f78-a43d-28b4f25fbf9e",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "93dfc30f-ffb6-4ae0-a0b1-cb2a308e233b",
+      "name": "sitemap index",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0cff99af-bb24-4088-a85e-30ee12dd47fc",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "561bf74d-e7dd-4ee0-afef-bc187f8d5d6d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19107f36-7f2d-4fee-b282-7e9c2bd5ff9f",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2db97f7b-b015-43e8-8645-50458fc6d6ba",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69e17077-e518-481c-aa2a-488e9e7d3f9a",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "01c5b399-f107-4f85-b1fd-ac03776ff5e3",
+      "name": "crawl sitemap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ca8c8bc-124b-4ea2-9174-2b6a62877693",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "08ddbf16-4a8a-403d-97c9-decb7fbd05ce",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec846c51-5e1c-479c-9771-fa81c2ab99b9",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b47a720-7729-4c1c-8652-e0d5df8622ab",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "deebcb98-d4f5-4d35-8057-d60a219dfdd6",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ae0b6116-682b-446f-ae49-7cfa04adab1d",
+      "name": "website urls",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9b1ed3e-e524-4d06-9fab-aaff2da2bd80",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "46132d10-78c3-4552-92fe-7ed82d6c3e53",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5302e69-2a79-429f-bfc7-ea6f5f00c020",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07b3225b-13ff-4310-89a5-e23f7e62a244",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "58531dad-b942-410c-9e4b-4e8a16afabd8",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2e1ecc51-531a-43a5-8aec-36cda0e1a0cd",
+      "name": "sitemap reader",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2551d26-e1e4-4be5-a05b-4719b7a39f10",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0aaeef6a-ac27-4662-8444-75c949f07bd2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c66de06-4e69-4807-ac37-72f2f8be4e4e",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb9503ff-22e6-4ee0-a57f-b0f994ee8b37",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ade81389-53e2-43ab-bd3d-d8cb09d80f2e",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ff20727e-760f-416f-88ab-b3956f41a473",
+      "name": "seo crawl",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60c67d57-49d6-49bc-80c6-35a484ab2eef",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edba821a-3f0a-46ab-b7e1-a83841f685f1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94f9debe-108d-4875-9180-78c3f53c7241",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "151e07d1-01d3-4f04-bfc6-a8e620c196f5",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bd8dac6-c1e3-4df7-9132-d8c35a74d6b1",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cdf475e3-93cb-402f-abc6-a2ec83a79d08",
+      "name": "url discovery",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36b8408f-5b1b-43a9-89b6-4694ad3e745b",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80abb7e5-6748-4d70-8b5a-98ea2ef7b469",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e85d157c-8e09-4d8f-bb8f-bc0711ea0921",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9db53ef4-19d1-4b51-ba28-4074680ac6ca",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fdf67b1b-5b77-405a-8690-04257b3a2b01",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "75f92b4e-4f4c-43b7-951b-a3e1615a505f",
+      "name": "list site urls",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f89b396c-5294-4b1c-9c06-9b5f7183cc10",
+          "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+          "request": {
+            "name": "Extract all URLs from a sitemap.xml file, including nested sub-sitemaps, with metadata.",
+            "description": {
+              "content": "Fetch and parse the sitemap at the given address, returning every URL found inside along with any available metadata like last-modified date and change frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extract"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sitemap_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "60cfe589-ed85-4187-b16c-ec5af140e16a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"total_urls\": 6,\n  \"sitemaps_found\": 1,\n  \"urls\": [\n    {\n      \"url\": \"https://onescales.com/pages/contact\",\n      \"lastmod\": \"2022-12-27T03:01:05-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/about\",\n      \"lastmod\": \"2025-09-29T21:38:56-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/join-our-community\",\n      \"lastmod\": \"2023-11-29T18:49:48-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/podcast\",\n      \"lastmod\": \"2024-01-01T23:12:34-05:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/support-us\",\n      \"lastmod\": \"2024-10-07T21:21:59-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    },\n    {\n      \"url\": \"https://onescales.com/pages/shopify-growth-course\",\n      \"lastmod\": \"2025-05-06T21:28:16-04:00\",\n      \"changefreq\": \"weekly\",\n      \"priority\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71726528-2003-41f3-953a-c781a00c4bf8",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "542f3bcd-0731-4b3e-b517-8385bc5f2c8f",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eea29277-bb41-4f11-8e30-474ac6386157",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extract"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sitemap_url\": \"https://onescales.com/sitemap.xml\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sitemap-url-extractor.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9badbe19-2cf1-4b19-9adf-d0c6b8952e62",
+    "name": "Sitemap URL Extractor",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Give this API a link to any website's sitemap.xml file and it will fetch and parse it, returning every URL found inside. If the sitemap links to other sitemaps (called sitemap indexes), it will follow and extract those too. Each URL is returned with any extra information available, such as when the page was last updated and how often it changes. Useful for SEO audits, content inventories, broken link checks, and competitive research.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

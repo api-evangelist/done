@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ENS Resolver",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up an ENS name or address and get back the matching one.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ens-resolver.underscoredone.com/resolve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Look up an ENS name or address. Send a name like vitalik.eth to get its address, or send an address starting with 0x to get its friendly name, if it has one. If nothing matches, resolved will simply be false rather than an error."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

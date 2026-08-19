@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Directory Submission Lite",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "directory submission",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Orders submission of a website to twenty directories and returns a confirmation number.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://directory-submission-lite.underscoredone.com/submit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Place an order to submit a website address to twenty directories and get back a confirmation number to track it later."
+        },
+        {
+          "info": {
+            "name": "Orders submission of a website to twenty directories and returns a confirmation number.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://directory-submission-lite.underscoredone.com/status",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check on an existing order using its confirmation number. Free and unlimited."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

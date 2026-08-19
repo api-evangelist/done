@@ -1,0 +1,3255 @@
+{
+  "item": [
+    {
+      "id": "67c4b352-7c68-4c0d-9ded-52c7f4d96b32",
+      "name": "mortgage calculator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e794ff75-c01a-4e8c-a458-2ad0e5d9beef",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9bd1179b-7ad5-4491-a290-33c4708a99e2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ac804f1-bc6a-4883-9e17-0f9517850f99",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cc7586f-8652-44ce-9376-635637a291ae",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a03927c-d8bf-4880-a183-4d8ef03f5e4f",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2710681a-69f5-4b77-8935-057da60bbebe",
+      "name": "loan amortization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02a77c5d-5d53-440b-bf07-2259d34ec0ea",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8d3c0b12-ef46-4ffb-be3c-2fd27228e52e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc241c3f-353a-4da5-b67c-8dcb6701b5ba",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15911d77-9813-4ccc-810d-ff4f9ee8f2ab",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7d4f44c-215a-4d88-9238-7ba52c07ea5e",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5fcf4d65-c960-4fa3-b903-35ce33f546a2",
+      "name": "amortization schedule",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "40bbdf27-5f4c-4f35-91f5-43a467ab3bd5",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "865635d4-6009-43e3-933a-ecd266da6f3d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8792c893-6edd-4c9d-80a6-a48d73e694b5",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1749320c-76c7-481a-95ee-d685fb9e2435",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c032e6cf-b779-4656-b4ee-8d6b3329b8b4",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0792ad29-cf81-4cf1-b4d6-80c700ab8fa9",
+      "name": "mortgage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bce7aa54-3a6f-4097-95b0-236c65159881",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb52d7a6-53d8-498e-acc2-ce8f3cac4d48",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0300e44-c4fb-45b6-851c-162e6f90a3ec",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca4d256a-32e6-4040-95f1-d80827137fe7",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ac12831-dfd9-413f-8053-a098be6dd2f4",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9673ec5a-a286-4618-9328-3a8add6b8f0a",
+      "name": "monthly payment calculator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "676d3a8f-c7fe-413d-b2a7-41792e971d24",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "445a43f3-3950-48d6-8e14-4fcbfe123572",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82a70cba-9dd4-4826-9f9d-47c8acb769ca",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0594a6f-463e-4f04-9a75-37bb8468f5a1",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6eb3ac26-a22f-46e6-883a-16e4670fe306",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "90210f1d-f19c-47f6-9310-618aaed7a176",
+      "name": "mortgage payment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0124ef48-c2b2-4992-bd21-e8986776e0c2",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d832b3c7-9af7-4501-b509-03d26172fe43",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70c566a3-b302-4971-b63c-6943e3206d72",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa853beb-c1fb-4633-8ec9-2af954d461c2",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a960bf42-7d3e-4c07-b22f-fe4c334f0137",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "03609486-8184-49c1-85e0-55db583e638b",
+      "name": "loan payment schedule",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0881b7a3-13f0-4435-b038-dd724d47cf16",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "809ccd8f-f6dc-46e4-8150-acd4d4acf6f7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00c12aa4-b7be-4022-aa4c-8f2f3fdc7b25",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44639af5-6083-41a9-a25e-ce0cb7e07e14",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "243a4347-d487-47ed-a1c7-39a8d70ebc82",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e117de29-2d35-4a25-bbfb-0ea8f58d6383",
+      "name": "mortgage amortization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bb84d9df-041d-42ee-8d82-17016e33edfd",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78b7e1d4-f978-47fb-b00c-0bc9110a9485",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89538e99-63f8-4919-bd9d-cc7fec3428c2",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00810b6a-20fa-48f2-b99b-f08007c05f4e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "061e110d-d2e0-4616-96af-cfe882f79ff1",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bb551c5d-f4fd-407f-b2f5-2cf5a9e91d6e",
+      "name": "loan calculator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1fbad95f-567a-4bb1-bb0d-e517e1bda8a2",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79857ba6-4e36-4385-adc9-17839928a578",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e96fd84a-168b-4ced-80d4-4ab8c43af8ea",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47d94c77-f3dc-43f2-bf40-4aa25cc510af",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd3c7474-3157-47e0-a70d-2de96d76c832",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bc87dfcf-636e-4b14-90ca-c6ac8799baea",
+      "name": "extra payment calculator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d762cdbf-4be1-4ac3-83b2-259c3541f0c1",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0841ebf2-c063-4621-80aa-b9c59b3aa676",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6a79d56-ad2c-4660-83c1-900529eb6e6b",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ecef210-fd4c-4265-a637-e16f0ea7ebb1",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9ae5030-3999-48dd-9d39-3389fca87218",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5aa0db87-191d-4158-a68c-056476efafe9",
+      "name": "interest schedule",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc20fcb7-bd8b-4a91-9bc3-713d0e7b2b49",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a94ce52-4be9-49d1-8eed-babb2a6f4797",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42892317-2bf9-4fec-8aae-d7977746fdab",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccba86c7-4df8-4baa-9a53-afab2a6ab9c8",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13b24f45-7a83-4041-b836-e3a8954f7346",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0076a39e-ba22-4282-a4f7-aca26b633492",
+      "name": "payoff calculator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "43cc9475-f02f-4fef-adbf-3cbefdf183d2",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7cf29026-f391-4817-a3d7-3e3829fdd991",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36b1c3ba-2472-426d-ba3e-3b496972349a",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac165096-0ca9-4af2-94b8-8bef3464852f",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ac5e8e9-0580-4e98-9ff4-34844728eae1",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1b60ba9b-d2ab-46f7-a56a-c629e1e1091d",
+      "name": "principal and interest",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d245e1f-56c9-4932-8023-278e682e711c",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a18d480e-07e7-4d20-873f-be4bf6d63320",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3a8267e-7201-4292-bcca-c7971ee88ceb",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "050fdcb5-23b5-4669-9bea-956b1316869e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "abf21598-9ad9-4af2-b813-2db0052564bc",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a16f917d-1b91-4f28-8c65-be1f5b28d27f",
+      "name": "mortgage schedule",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4ae46ae4-5783-4210-ac61-5aa26a608a80",
+          "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+          "request": {
+            "name": "Exact monthly payment and full amortization schedule for any fixed-rate loan",
+            "description": {
+              "content": "Compute the exact monthly payment and full amortization schedule for any fixed-rate loan, with optional extra and lump-sum payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"month\": \"<integer>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a65c8068-6d27-4706-8279-ef2d070f76f5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"inputs_echo\": {\n    \"principal\": 400000,\n    \"annual_rate_percent\": 6.5,\n    \"term_months\": 360,\n    \"start_date\": \"2026-07-01\"\n  },\n  \"rounding\": {\n    \"mode\": \"half_even\",\n    \"decimals\": 2,\n    \"final_payment_adjusted\": true\n  },\n  \"scheduled_payment\": 2528.27,\n  \"summary\": {\n    \"total_paid\": 910179.81,\n    \"total_interest\": 510179.81,\n    \"final_payment\": 2530.88,\n    \"payoff_date\": \"2056-06-01\",\n    \"scheduled_term_months\": 360\n  },\n  \"with_extra_payments\": {\n    \"total_paid\": 734237.48,\n    \"total_interest\": 334237.48,\n    \"final_payment\": 200.36,\n    \"payoff_date\": \"2047-11-01\",\n    \"actual_term_months\": 257,\n    \"interest_saved\": 175942.33,\n    \"months_saved\": 103\n  },\n  \"schedule\": [\n    {\n      \"payment_number\": 1,\n      \"date\": \"2026-07-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2166.67,\n      \"principal\": 661.6,\n      \"balance\": 399338.4\n    },\n    {\n      \"payment_number\": 2,\n      \"date\": \"2026-08-01\",\n      \"payment\": 2828.27,\n      \"scheduled_payment\": 2528.27,\n      \"extra_applied\": 300,\n      \"interest\": 2163.08,\n      \"principal\": 665.19,\n      \"balance\": 398673.21\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eda84c42-24d7-4c37-8513-c8ec6a3c8d6c",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b4e7931-388b-4f35-9193-982e2f2177f4",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d24e55a-669a-48ad-a955-f7cbaa862e4d",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<number>\",\n  \"annual_rate_percent\": \"<number>\",\n  \"term_months\": \"<integer>\",\n  \"start_date\": \"<string>\",\n  \"extra_monthly_payment\": 0,\n  \"one_time_payments\": [\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    },\n    {\n      \"amount\": 10000,\n      \"month\": 24\n    }\n  ],\n  \"summary_only\": false,\n  \"rounding\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://mortgage-amortization.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c3285ced-1c30-4353-8ec2-0b44fd2aaec1",
+    "name": "Mortgage & Loan Amortization Calculator",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Give this API a loan amount, an interest rate, and a repayment term, and it hands back the precise monthly payment plus a complete schedule showing — for every single month — how much goes to interest, how much reduces the balance, and what you still owe. You can also ask 'what if I pay an extra $300 a month?' or 'what if I make a $10,000 lump payment in month 24?' and it will tell you exactly how many months you save and how much interest you avoid. Every number is computed with banker's rounding and a pinned arithmetic rule so that two correct systems running the same inputs produce identical results, down to the cent. No rate lookups, no market data — you supply the rate, the API does the math.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

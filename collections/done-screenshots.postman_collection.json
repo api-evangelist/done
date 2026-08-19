@@ -1,0 +1,3255 @@
+{
+  "item": [
+    {
+      "id": "eab4f068-53e6-441a-8631-670e95596416",
+      "name": "website screenshot",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84b583b0-8ecf-4124-9807-c98e1dee0e25",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18378c2e-88e7-4e68-ad0d-9ec1f37363cf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d636647-b31d-4853-9f18-9df3cb82cd91",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4020012a-fa58-44eb-8ed9-37bb2a72c2bb",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3ec0de8-8a00-4b12-982e-f73dd5aafe4d",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fe51487a-e74c-4eec-bbd6-6b3c680abb58",
+      "name": "screenshot",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c506c31-7881-4d6f-9b73-84cc0d8bde9f",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "54e761e4-a9f4-4560-9762-4e374abef99d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "912585d0-9e0f-4710-a23c-02998c66ad97",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "765316e7-a0c5-493f-b5b8-1a4fae397ff2",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "84fdcdfa-2639-41cb-9589-49e2cf6835c6",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "22f176ce-6054-4a6c-b32c-c95b131a3e30",
+      "name": "capture webpage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f0973bc1-4f0a-4f22-9782-36d4bab012a4",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c470a89c-332b-42c8-9d19-b1820844143b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "879b1493-7738-4226-9171-996e89125dce",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6e6dd5e-4b0c-4191-99cf-b4833ba9f73e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12c62c47-acf1-4357-9281-75c88da4d3bd",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "38e87d2c-e32b-4100-b77b-130f71ed80a3",
+      "name": "screenshot api",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5343279a-cc63-43ce-ab4b-dfc0e6b10860",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2567e8be-8939-4464-88db-ad6b25f13b88",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a214fc2-f810-4fab-9c7d-bce1b358597d",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2f8defe-4c19-4ae5-bc82-d5cbed93b622",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2fd3377a-a6f6-4023-9c88-1745e41169f2",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2d518042-fb77-4db6-8c31-c836ebed43e1",
+      "name": "webpage screenshot",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1935bc6-2940-41e1-bf74-d95f0fca8342",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "692e7642-9b3a-4432-9f9f-fac68f0865a5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8beaed2e-c1d3-4135-a70e-185a503f6397",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1260e558-2a41-423a-b3ad-790bf5a2cc96",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62618523-1268-4b86-b4de-7a42633d62f6",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0b44d766-9578-497f-813b-f08e7105ec47",
+      "name": "full page screenshot",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a43fb4f-f51c-4744-87ae-4a2331164612",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e990422-2644-4189-a1e5-c53e68a2599b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f9b27f5-766e-452e-a077-9c5d6a2c2b3d",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0175eb5e-1de2-408e-9d8e-389526e0b85f",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b3127c29-f9df-4b48-9f1f-06ea33dfdc46",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e77bd73d-c04d-472c-b3ff-f8ebc05efacf",
+      "name": "render website",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "272f4a59-fea8-44f1-a7b2-74b756d87d22",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "25ecc7b3-a11f-48c3-ac21-40f142028c93",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59cd63fe-c214-4b86-bb3c-65b28e871229",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23933095-ed9f-4da1-a055-cf0af824b617",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b058b8ae-9fe4-43eb-9d3e-0f09bb72a2bc",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4acb4ec6-dee7-469d-934a-c90c0d226cd9",
+      "name": "capture website image",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db1ada55-7a20-4690-8d75-d028a2a6d671",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4544b491-c9f8-4cc4-bb53-572c4eaf34cb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e0ff8cb-113b-4359-aa1d-02b70262bec4",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1dd9e221-e434-4859-bbd2-b01759abcbb4",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be6c0a6f-65d3-42de-a271-d1b03ef46c02",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "91c39a27-9068-4657-ab69-9372b44ce620",
+      "name": "headless browser screenshot",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02a4812f-3bfd-472a-9a43-ac9e4844300e",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e5b0761-63a6-4662-a75d-7d5048a00b1b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "803bf13c-a623-4f55-89e3-428360cfa16f",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b614f60-f337-4bbe-bdb5-8f682821179a",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "277ed71f-ff1f-4e96-bb77-1f1cdc4f90b3",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ba8dd580-031d-4a21-b4a2-26f517d69839",
+      "name": "url to image",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24d951a6-bc2d-42cf-9d72-6a9187201d6a",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14ed3f37-f558-47a4-a639-7d7458b7906b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05dee284-995c-4bb6-99fd-4198c2e0f23b",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68682f02-89e6-4379-8dab-3bb8664f019e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f13468cb-db0b-48ff-a50a-66046d7fdf3d",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "901b4259-155a-4c95-b27f-a33765762a3a",
+      "name": "web page capture",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d33b8ec7-aa1f-4495-a254-baac4828c77f",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a63e7c2-69b3-4ac3-8d14-fd297d6a4ee1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1eab2936-8ae4-486d-b7be-778828f006b8",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eda90bf0-9984-45e4-b1db-03f0d7c5a439",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4504cf8b-3465-428e-acc9-66381c5e7bad",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "aeef21d7-b22a-408a-bf9c-d68f7623baa7",
+      "name": "screenshot url",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8fcf29d9-0aa0-4a25-a605-fb860aa95887",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27382ce1-097c-43a6-b180-0764da01508d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9b6c6d0-475c-4eec-be83-fd0dbc4e214a",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10e026fa-5ac5-4f90-8c12-72120670b756",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "601d41d0-270b-447d-9944-c27fb36a919f",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "76bdc510-5e2d-4132-9b06-835f6a7f091d",
+      "name": "site screenshot",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6cfeb61-6877-4d73-9696-c6d595bf8a52",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7c675b0-8cb9-4756-8c74-912aef3095f3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e318bebd-ec63-4593-8ed2-e030905a06e7",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab1ce2cc-fafc-42ae-a298-ffed78a525ee",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "659ab293-5984-4c93-abad-b4f3ef38220b",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5a8c312e-4827-4729-ae4f-f4f8b962c0f1",
+      "name": "browser screenshot",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d58d6e8-91ac-4e9f-af3e-f5b7b3299644",
+          "name": "Takes a screenshot of any webpage after it fully loads.",
+          "request": {
+            "name": "Takes a screenshot of any webpage after it fully loads.",
+            "description": {
+              "content": "Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"full_page\": false,\n  \"viewport\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"wait_until\": \"load\",\n  \"allow_popups\": false,\n  \"load_lazy\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "779b229f-a019-4b53-8302-2679fc483ee9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"1.0.0\",\n  \"url\": \"https://example.com\",\n  \"image\": \"https://r2.example.com/shot-abc123.png\",\n  \"format\": \"png\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"captured_at\": \"2026-07-20T04:12:33Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "714afde5-4f6f-4e18-a407-2addf8d364ac",
+              "name": "Bad request — your input failed validation or could not be processed. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e9cdf48-912a-4449-a6ff-3deaec72b83e",
+              "name": "Payment required. Send a signed USDC payment on Base Mainnet or Solana Mainnet using the x402 protocol.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "x402 payment challenge — base64-encoded JSON with payment details.",
+                  "key": "X-Payment-Response",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81b7eb06-a0b1-4768-ad5e-d0288cfdf2de",
+              "name": "Unprocessable — a required field is missing or the wrong type. Check the detail field for specifics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_popups\": false,\n  \"full_page\": false,\n  \"load_lazy\": true,\n  \"url\": \"https://example.com\",\n  \"viewport\": {\n    \"height\": 1080,\n    \"width\": 1920\n  },\n  \"wait_until\": \"networkidle0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://screenshots.underscoredone.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3b6b5aa7-5417-4ea2-a635-f9882fc0af23",
+    "name": "Screenshots",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Renders a webpage exactly as a real browser would, including all its scripts and dynamic content, then takes a picture of it. You can capture just the visible area or the whole scrollable page, choose the screen size, wait for slow-loading images to finish, and hide cookie banners or popups before the picture is taken.\n\nContact Support:\n Name: _done\n Email: info@underscoredone.com",
+      "type": "text/plain"
+    }
+  }
+}

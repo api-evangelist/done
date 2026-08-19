@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hashing, HMAC & Checksum Suite",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "sha256 hash",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hash, sign, and verify data fingerprints in one call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://hash-hmac.underscoredone.com/hash",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Hash, sign, and verify data fingerprints in one call. Give it any text or binary data and get back the fingerprint, HMAC signature, or verification result you need."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bulk QR Code Generator",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "qr code",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Convert a list of texts into QR code PNG images in one request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://qr-code-generator.underscoredone.com/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Turn a list of texts into QR code PNG images. Empty entries are skipped. At least one real entry must be in the list."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
