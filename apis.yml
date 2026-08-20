@@ -13,6 +13,23 @@ created: '2026-08-10'
 modified: '2026-08-11'
 specificationVersion: '0.23'
 tags:
+- Developer Tools
+- Utility APIs
+- AI Agents
+- agent-native
+- x402
+- pay-per-call
+- Web3
+- Crypto Payments
+- DNS
+- Domains
+- Email Security
+- Network Security
+- SEO
+- OCR
+- Data
+- fintech-calculators
+tags_raw:
 - developer-tools
 - utility-apis
 - ai-agents
@@ -39,6 +56,13 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - API Catalog
+  - agent-native
+  - llms-txt
+  - x402
+  - Discovery
+  - pay-per-call
+  tags_raw:
   - api-catalog
   - agent-native
   - llms-txt
@@ -61,6 +85,22 @@ apis:
   humanURL: https://underscoredone.com/asn_lookup/
   baseURL: https://asn-lookup.underscoredone.com
   tags:
+  - Network
+  - ASN
+  - Lookup
+  - IP Address
+  - autonomous-system
+  - Threat Intel
+  - abuse-reporting
+  - infrastructure-mapping
+  - WHOIS
+  - cidr
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - asn
   - lookup
@@ -98,6 +138,22 @@ apis:
   humanURL: https://underscoredone.com/bimi_checker/
   baseURL: https://bimi-checker.underscoredone.com
   tags:
+  - BIMI
+  - bimi-checker
+  - email-branding
+  - DMARC
+  - vmc-certificate
+  - Email Authentication
+  - brand-indicators-for-message-identification
+  - logo-validation
+  - Email Deliverability
+  - svg-validation
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - bimi
   - bimi-checker
   - email-branding
@@ -135,6 +191,22 @@ apis:
   humanURL: https://underscoredone.com/cors_header_checker/
   baseURL: https://cors-header-checker.underscoredone.com
   tags:
+  - Network
+  - CORS
+  - Header
+  - Checker
+  - cross-origin
+  - Access Control
+  - cors-debug
+  - browser-blocked
+  - Preflight
+  - origin-allowed
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - cors
   - header
@@ -184,6 +256,22 @@ apis:
   - x402
   - pay-per-call
   - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
+  - cpi-report
+  - cpi-consumer-price-index
+  - consumer-index-number
+  - consumer-index-price
+  - consumer-index-rate
+  - consumer-price-index-figures
+  - cpi-index-report
+  - cpi-price-index
+  - current-price-index
+  - price-index-consumer
+  - x402
+  - pay-per-call
+  - agent-native
   - utility-apis
   - developer-tools
   properties:
@@ -207,6 +295,22 @@ apis:
   humanURL: https://underscoredone.com/curl_http_request/
   baseURL: https://curl-http-request.underscoredone.com
   tags:
+  - Network
+  - cURL
+  - http-request
+  - fetch-url
+  - check-endpoint
+  - status-code
+  - response-headers
+  - redirect-follow
+  - api-tester
+  - debug-server
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - curl
   - http-request
@@ -241,6 +345,22 @@ apis:
   humanURL: https://underscoredone.com/directory_submission_lite/
   baseURL: https://directory-submission-lite.underscoredone.com
   tags:
+  - Network
+  - directory-submission
+  - Backlinks
+  - SEO
+  - Indexing
+  - link-building
+  - new-website
+  - search-engine-discovery
+  - site-submission
+  - Order
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - directory-submission
   - backlinks
@@ -281,6 +401,12 @@ apis:
   - x402
   - pay-per-call
   - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
+  - x402
+  - pay-per-call
+  - agent-native
   - utility-apis
   - developer-tools
   properties:
@@ -305,6 +431,22 @@ apis:
   humanURL: https://underscoredone.com/dns_whois_lookup/
   baseURL: https://dns-whois-lookup.underscoredone.com
   tags:
+  - Network
+  - DNS
+  - WHOIS
+  - Domain Lookup
+  - DNS Records
+  - domain-audit
+  - mx-record
+  - spf-dkim-dmarc
+  - domain-expiry
+  - migration-verification
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - dns
   - whois
@@ -344,6 +486,12 @@ apis:
   - x402
   - pay-per-call
   - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
+  - x402
+  - pay-per-call
+  - agent-native
   - utility-apis
   - developer-tools
   properties:
@@ -370,6 +518,22 @@ apis:
   humanURL: https://underscoredone.com/domain_availability_checker/
   baseURL: https://domain-availability-checker.underscoredone.com
   tags:
+  - Network
+  - Domain
+  - Availability
+  - Checker
+  - rdap
+  - WHOIS
+  - Domain Lookup
+  - tld
+  - registration-status
+  - name-search
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - domain
   - availability
@@ -403,6 +567,20 @@ apis:
   humanURL: https://underscoredone.com/ens_resolver/
   baseURL: https://ens-resolver.underscoredone.com
   tags:
+  - Network
+  - ENS
+  - Resolver
+  - Ethereum
+  - wallet-address
+  - ens-name-lookup
+  - Blockchain Identity
+  - reverse-resolve
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - ens
   - resolver
@@ -438,6 +616,21 @@ apis:
   humanURL: https://underscoredone.com/hackernews_data/
   baseURL: https://hackernews-data.underscoredone.com
   tags:
+  - Network
+  - hacker-news
+  - hn-api
+  - Stories
+  - Comments
+  - Job
+  - Polls
+  - date-scan
+  - Developer News
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - hackernews
   - hacker-news
@@ -477,6 +670,22 @@ apis:
   humanURL: https://underscoredone.com/hash_hmac/
   baseURL: https://hash-hmac.underscoredone.com
   tags:
+  - Security
+  - hash
+  - HMAC
+  - checksum
+  - sha256
+  - webhook-verification
+  - content-fingerprint
+  - idempotency-key
+  - signature-verify
+  - blake2
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - security
   - hash
   - hmac
@@ -511,6 +720,21 @@ apis:
   humanURL: https://underscoredone.com/http_header_checker/
   baseURL: https://http-header-checker.underscoredone.com
   tags:
+  - Network
+  - http-header-checker
+  - Headers
+  - url-lookup
+  - redirect-check
+  - Security Headers
+  - cache-control
+  - status-code
+  - web-debugging
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - http-header-checker
   - headers
@@ -546,6 +770,22 @@ apis:
   humanURL: https://underscoredone.com/http_status_checker/
   baseURL: https://http-status-checker.underscoredone.com
   tags:
+  - Network
+  - HTTP
+  - Status
+  - Checker
+  - Redirect
+  - broken-links
+  - seo-audit
+  - link-validation
+  - Website Migration
+  - url-health
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - http
   - status
@@ -584,6 +824,22 @@ apis:
   humanURL: https://underscoredone.com/json_suite/
   baseURL: https://json-suite.underscoredone.com
   tags:
+  - Parsing
+  - JSON
+  - Validate
+  - Repair
+  - JSONPath
+  - Diff
+  - canonicalize
+  - Convert
+  - YAML
+  - CSV
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - parsing
   - json
   - validate
@@ -619,6 +875,20 @@ apis:
   humanURL: https://underscoredone.com/leetspeak_translator/
   baseURL: https://leetspeak-translator.underscoredone.com
   tags:
+  - Text
+  - leetspeak
+  - Translator
+  - leet
+  - encode-text
+  - decode-text
+  - text-obfuscation
+  - character-substitution
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - text
   - leetspeak
   - translator
@@ -656,6 +926,22 @@ apis:
   humanURL: https://underscoredone.com/mortgage_amortization/
   baseURL: https://mortgage-amortization.underscoredone.com
   tags:
+  - Math
+  - Mortgage
+  - Amortization
+  - Loan
+  - monthly-payment
+  - repayment-schedule
+  - interest-calculation
+  - extra-payment
+  - lump-sum
+  - Real-Estate
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - math
   - mortgage
   - amortization
@@ -689,6 +975,19 @@ apis:
   humanURL: https://underscoredone.com/ocr/
   baseURL: https://ocr.underscoredone.com
   tags:
+  - Text
+  - OCR
+  - image-to-text
+  - extract-text
+  - screenshot-reader
+  - document-scan
+  - receipt-reader
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - text
   - ocr
   - read
@@ -724,6 +1023,22 @@ apis:
   humanURL: https://underscoredone.com/port_scanner/
   baseURL: https://port-scanner.underscoredone.com
   tags:
+  - Network
+  - Port
+  - Scanner
+  - TCP
+  - open-ports
+  - service-detection
+  - nmap
+  - Infrastructure
+  - Security Audit
+  - firewall-check
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - port
   - scanner
@@ -764,6 +1079,12 @@ apis:
   - x402
   - pay-per-call
   - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
+  - x402
+  - pay-per-call
+  - agent-native
   - utility-apis
   - developer-tools
   properties:
@@ -786,6 +1107,22 @@ apis:
   humanURL: https://underscoredone.com/screenshots/
   baseURL: https://screenshots.underscoredone.com
   tags:
+  - Network
+  - Screenshots
+  - url-to-screenshot
+  - url-to-secreenshot
+  - webpage-capture
+  - browser-rendering
+  - full-page-screenshot
+  - website-image
+  - Puppeteer
+  - Headless Browser
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - screenshots
   - url-to-screenshot
@@ -822,6 +1159,22 @@ apis:
   humanURL: https://underscoredone.com/seo_data_extractor/
   baseURL: https://seo-data-extractor.underscoredone.com
   tags:
+  - Parsing
+  - SEO
+  - Data
+  - Extractor
+  - Meta Tags
+  - title-tag
+  - Canonical
+  - headings
+  - seo-audit
+  - Competitor Analysis
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - parsing
   - seo
   - data
@@ -857,6 +1210,21 @@ apis:
   humanURL: https://underscoredone.com/shopify_ai_rank_checker/
   baseURL: https://shopify-ai-rank-checker.underscoredone.com
   tags:
+  - Network
+  - shopify-rank-checker
+  - ai-shopping-visibility
+  - chatgpt-product-rank
+  - gemini-shopping-search
+  - shopify-seo
+  - global-catalog
+  - ucp-mcp
+  - product-rank-tracker
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - shopify-rank-checker
   - ai-shopping-visibility
@@ -893,6 +1261,22 @@ apis:
   humanURL: https://underscoredone.com/sitemap_url_extractor/
   baseURL: https://sitemap-url-extractor.underscoredone.com
   tags:
+  - Parsing
+  - Sitemap
+  - url-extractor
+  - seo-audit
+  - content-inventory
+  - site-crawl
+  - sitemap-index
+  - XML Parsing
+  - broken-link-check
+  - competitive-analysis
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - parsing
   - sitemap
   - url-extractor
@@ -926,6 +1310,20 @@ apis:
   humanURL: https://underscoredone.com/url_uptime_checker/
   baseURL: https://url-uptime-checker.underscoredone.com
   tags:
+  - Network
+  - url-uptime-checker
+  - Website Status
+  - reachability-check
+  - uptime-monitor
+  - url-validator
+  - site-down-detector
+  - http-status-check
+  - x402
+  - pay-per-call
+  - agent-native
+  - Utility APIs
+  - Developer Tools
+  tags_raw:
   - network
   - url-uptime-checker
   - website-status
