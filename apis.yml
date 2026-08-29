@@ -3054,6 +3054,9 @@ apis:
   - type: APIReference
     url: https://underscoredone.com/url_uptime_checker/
 common:
+- type: CapabilityMap
+  url: capabilities/done-capability-edges.yml
+  name: _done Business Capability Map
 - type: Overlay
   url: overlays/done-asn-lookup-overlay.yaml
 - type: Overlay
