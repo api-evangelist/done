@@ -7,6 +7,18 @@ description: '_done is an agent-native catalog of 26 single-purpose utility REST
   OpenAPI 3.1.0 spec annotated for AI agents with x-ai-instructions, x-guidance, x-pricing and x-402 payment metadata.
   Discovery is served from /.well-known/x402.json, /llms.txt, robots.txt and sitemap.xml. There is no MCP server,
   no A2A agent card, no SDK, no changelog, no status page and no published terms of service.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://underscoredone.com/logo.png
 url: https://raw.githubusercontent.com/api-evangelist/done/refs/heads/main/apis.yml
 created: '2026-08-10'
