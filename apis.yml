@@ -26,17 +26,17 @@ modified: '2026-08-11'
 specificationVersion: '0.23'
 tags:
 - Developer Tools
-- Utility APIs
+- utility-apis
 - AI Agents
 - agent-native
 - x402
 - pay-per-call
 - Web3
-- Crypto Payments
-- DNS
+- crypto-payments
+- dns
 - Domains
-- Email Security
-- Network Security
+- email-security
+- network-security
 - SEO
 - OCR
 - Data
@@ -69,7 +69,7 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
-  - API Catalog
+  - api-catalog
   - agent-native
   - llms-txt
   - x402
@@ -95,6 +95,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - ASN Lookup
+  tags_raw:
   - asn lookup
   properties:
   - type: OpenAPI
@@ -323,6 +325,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - Data
+  tags_raw:
   - data
   properties:
   - type: OpenAPI
@@ -551,6 +555,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - DMARC
+  tags_raw:
   - dmarc
   properties:
   - type: OpenAPI
@@ -665,6 +671,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - dns-lookup
+  tags_raw:
   - dns lookup
   properties:
   - type: OpenAPI
@@ -893,6 +901,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - Domain Availability
+  tags_raw:
   - domain availability
   properties:
   - type: OpenAPI
@@ -1007,6 +1017,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - ENS
+  tags_raw:
   - ens
   properties:
   - type: OpenAPI
@@ -1235,6 +1247,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - HTTP Headers
+  tags_raw:
   - http headers
   properties:
   - type: OpenAPI
@@ -1577,6 +1591,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - JSON
+  tags_raw:
   - json
   properties:
   - type: OpenAPI
@@ -1919,6 +1935,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - OCR
+  tags_raw:
   - ocr
   properties:
   - type: OpenAPI
@@ -2147,6 +2165,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - QR Code
+  tags_raw:
   - qr code
   properties:
   - type: OpenAPI
@@ -2261,6 +2281,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - SEO
+  tags_raw:
   - seo
   properties:
   - type: OpenAPI
@@ -2603,6 +2625,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - Sitemap
+  tags_raw:
   - sitemap
   properties:
   - type: OpenAPI
