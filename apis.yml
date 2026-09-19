@@ -688,6 +688,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - Hacker News
+  tags_raw:
   - hacker news
   properties:
   - type: OpenAPI
@@ -1490,7 +1492,7 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
-  - QR Code
+  - QR Codes
   tags_raw:
   - qr code
   properties:
@@ -2178,6 +2180,8 @@ apis:
   humanURL: https://underscoredone.com
   baseURL: https://underscoredone.com
   tags:
+  - Networks
+  tags_raw:
   - Network
   properties:
   - type: OpenAPI
