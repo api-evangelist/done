@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: Hashing, HMAC & Checksum Suite sha256 hash API
-  description: 'Give this API any text or binary data and it instantly returns its fingerprint under whichever hash algorithms you choose — SHA-256, SHA-512, MD5, BLAKE2, CRC32, and more. It also signs data with a secret key (HMAC) and, most importantly, safely verifies whether an incoming signature matches — using a timing-safe comparison that prevents secret-leaking attacks. Language models cannot perform hashing: they produce a string of the right length and character set that looks correct but is simply wrong. Every webhook verification, idempotency key, cache fingerprint, or integrity check that relies on a hallucinated hash is silently broken. This API is the cure.'
+  description: Give this API any text or binary data and it instantly returns its fingerprint under whichever hash algorithms you choose — SHA-256, SHA-512, MD5, BLAKE2, CRC32, and more.
   version: 1.0.0
   contact:
     name: _done
@@ -181,37 +181,32 @@ components:
         input: '{"order_id":"A-1029","amount":4200}'
         input_encoding: utf-8
         output_encoding: hex
-    HmacConfig:
+    HmacResult:
       properties:
         mode:
           type: string
           title: Mode
-          description: 'What to do: ''sign'' to create a signature, or ''verify'' to check one.'
+          description: Whether this was a 'sign' or 'verify' operation.
         algorithm:
           type: string
           title: Algorithm
-          description: 'Which signing method to use: md5, sha1, sha256, or sha512.'
-        key:
+          description: The signing method that was used.
+        computed_signature:
           type: string
-          title: Key
-          description: Your secret key used to sign or verify. Never sent in a URL — only in the request body.
-        expected_signature:
+          title: Computed Signature
+          description: The signature this API computed for your data and key.
+        matches:
           anyOf:
-          - type: string
+          - type: boolean
           - type: 'null'
-          title: Expected Signature
-          description: The signature you received and want to verify. Only needed when mode is 'verify'.
+          title: Matches
+          description: True if the computed signature matches the one you provided. Only present when mode is 'verify'.
       type: object
       required:
       - mode
       - algorithm
-      - key
-      title: HmacConfig
-      example:
-        algorithm: sha256
-        expected_signature: 088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b
-        key: my-secret-key
-        mode: verify
+      - computed_signature
+      title: HmacResult
     Response:
       properties:
         api_version:
@@ -245,32 +240,37 @@ components:
           sha256: 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
           sha512: 9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673ca72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043
         input_bytes: 35
-    HmacResult:
+    HmacConfig:
       properties:
         mode:
           type: string
           title: Mode
-          description: Whether this was a 'sign' or 'verify' operation.
+          description: 'What to do: ''sign'' to create a signature, or ''verify'' to check one.'
         algorithm:
           type: string
           title: Algorithm
-          description: The signing method that was used.
-        computed_signature:
+          description: 'Which signing method to use: md5, sha1, sha256, or sha512.'
+        key:
           type: string
-          title: Computed Signature
-          description: The signature this API computed for your data and key.
-        matches:
+          title: Key
+          description: Your secret key used to sign or verify. Never sent in a URL — only in the request body.
+        expected_signature:
           anyOf:
-          - type: boolean
+          - type: string
           - type: 'null'
-          title: Matches
-          description: True if the computed signature matches the one you provided. Only present when mode is 'verify'.
+          title: Expected Signature
+          description: The signature you received and want to verify. Only needed when mode is 'verify'.
       type: object
       required:
       - mode
       - algorithm
-      - computed_signature
-      title: HmacResult
+      - key
+      title: HmacConfig
+      example:
+        algorithm: sha256
+        expected_signature: 088aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b
+        key: my-secret-key
+        mode: verify
   securitySchemes:
     siwx:
       type: apiKey

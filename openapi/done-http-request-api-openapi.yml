@@ -66,7 +66,7 @@ paths:
     post:
       tags:
       - http request
-      summary: Fetch any URL from the cloud and return its full response.
+      summary: Fetch any URL from the cloud and return its full response
       description: Send an HTTP request to the given web address from our servers and return the full response including status, headers, and body.
       operationId: handler_curl_post
       requestBody:

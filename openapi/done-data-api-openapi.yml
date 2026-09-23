@@ -160,13 +160,13 @@ servers:
 - url: https://cpi-report-us.underscoredone.com
   description: Production
 tags:
-- name: data
+- name: Data
 paths:
   /cpi:
     post:
       tags:
-      - data
-      summary: Latest, single-month, or ranged US CPI inflation data from BLS with plain-English summary.
+      - Data
+      summary: Latest, single-month, or ranged US CPI inflation data from BLS with…
       description: Looks up official United States inflation figures from BLS. Send nothing for the newest month on record, a 'period' for one specific month, or a 'start'/'end' pair for a range of months.
       operationId: handler_cpi_post
       requestBody:
@@ -224,33 +224,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        period:
-          anyOf:
-          - type: string
-            maxLength: 7
-          - type: 'null'
-          title: Period
-          description: A single month to look up, written as year-month, like 2024-03. Leave this out if you want the newest data or a range instead.
-        start:
-          anyOf:
-          - type: string
-            maxLength: 7
-          - type: 'null'
-          title: Start
-          description: The first month of a historical range, written as year-month, like 2023-01. Leave out to start from the earliest available month.
-        end:
-          anyOf:
-          - type: string
-            maxLength: 7
-          - type: 'null'
-          title: End
-          description: The last month of a historical range, written as year-month, like 2024-12. Leave out to end at the newest available month.
-      type: object
-      title: Request
-      example:
-        period: 2024-03
     CpiRecord:
       properties:
         reference_period:
@@ -289,6 +262,33 @@ components:
         headline_index: 314.796
         headline_yoy_pct: 3.4
         reference_period: 2024-03
+    Request:
+      properties:
+        period:
+          anyOf:
+          - type: string
+            maxLength: 7
+          - type: 'null'
+          title: Period
+          description: A single month to look up, written as year-month, like 2024-03. Leave this out if you want the newest data or a range instead.
+        start:
+          anyOf:
+          - type: string
+            maxLength: 7
+          - type: 'null'
+          title: Start
+          description: The first month of a historical range, written as year-month, like 2023-01. Leave out to start from the earliest available month.
+        end:
+          anyOf:
+          - type: string
+            maxLength: 7
+          - type: 'null'
+          title: End
+          description: The last month of a historical range, written as year-month, like 2024-12. Leave out to end at the newest available month.
+      type: object
+      title: Request
+      example:
+        period: 2024-03
     Response:
       properties:
         api_version:

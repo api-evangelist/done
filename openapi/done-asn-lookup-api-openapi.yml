@@ -60,12 +60,12 @@ servers:
 - url: https://asn-lookup.underscoredone.com
   description: Production
 tags:
-- name: asn lookup
+- name: ASN Lookup
 paths:
   /lookup:
     post:
       tags:
-      - asn lookup
+      - ASN Lookup
       summary: Finds the network owner and details behind an IP address or ASN
       description: Find out who owns and runs the piece of the internet behind an address or network number.
       operationId: handler_lookup_post

@@ -50,7 +50,7 @@ paths:
     post:
       tags:
       - dmarc
-      summary: Look up DMARC email security records for one or many domains at once.
+      summary: Look up DMARC email security records for one or many domains at once
       description: Check the DMARC email security record for one or many domain names at once. Send a JSON body with a 'domains' array of bare domain names and get back the record status, policy, and full record text for each one.
       operationId: handler_dmarc_lookup_post
       requestBody:
@@ -145,42 +145,6 @@ components:
         - onescales.com
         - hillms.com
         - google.com
-    DomainResult:
-      properties:
-        domain:
-          type: string
-          title: Domain
-          description: The domain name that was checked.
-        recordStatus:
-          type: string
-          title: Recordstatus
-          description: Whether the DMARC record is 'Valid', 'Invalid', or 'Not Found'.
-        domainPolicy:
-          type: string
-          title: Domainpolicy
-          description: 'The email handling policy from the DMARC record: ''none'', ''quarantine'', ''reject'', or empty if not found.'
-        reportingEnabled:
-          type: boolean
-          title: Reportingenabled
-          description: True if the domain has reporting addresses set up (rua or ruf tags present).
-        rawRecord:
-          type: string
-          title: Rawrecord
-          description: The full raw DMARC record text, or empty string if no record was found.
-      type: object
-      required:
-      - domain
-      - recordStatus
-      - domainPolicy
-      - reportingEnabled
-      - rawRecord
-      title: DomainResult
-      example:
-        domain: onescales.com
-        domainPolicy: reject
-        rawRecord: v=DMARC1; p=reject; rua=mailto:dmarc@onescales.com;
-        recordStatus: Valid
-        reportingEnabled: true
     Response:
       properties:
         api_version:
@@ -235,6 +199,42 @@ components:
           reportingEnabled: false
         total: 2
         valid_count: 1
+    DomainResult:
+      properties:
+        domain:
+          type: string
+          title: Domain
+          description: The domain name that was checked.
+        recordStatus:
+          type: string
+          title: Recordstatus
+          description: Whether the DMARC record is 'Valid', 'Invalid', or 'Not Found'.
+        domainPolicy:
+          type: string
+          title: Domainpolicy
+          description: 'The email handling policy from the DMARC record: ''none'', ''quarantine'', ''reject'', or empty if not found.'
+        reportingEnabled:
+          type: boolean
+          title: Reportingenabled
+          description: True if the domain has reporting addresses set up (rua or ruf tags present).
+        rawRecord:
+          type: string
+          title: Rawrecord
+          description: The full raw DMARC record text, or empty string if no record was found.
+      type: object
+      required:
+      - domain
+      - recordStatus
+      - domainPolicy
+      - reportingEnabled
+      - rawRecord
+      title: DomainResult
+      example:
+        domain: onescales.com
+        domainPolicy: reject
+        rawRecord: v=DMARC1; p=reject; rua=mailto:dmarc@onescales.com;
+        recordStatus: Valid
+        reportingEnabled: true
   securitySchemes:
     siwx:
       type: apiKey

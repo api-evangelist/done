@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: Validate, Repair, Convert, Query & Diff JSON API
-  description: 'Every AI agent and developer runs into broken or confusing JSON constantly. This tool handles all the most common JSON headaches in one place: check if JSON is valid (with exact error location), fix near-JSON that has typos or formatting mistakes, pretty-print or minify, pull out specific values using a path expression, compare two JSON documents and see exactly what changed, convert to and from YAML or CSV, produce a byte-stable canonical form for hashing or signing, validate against a schema, and get size and structure statistics. Same input always gives the same output — fully predictable, no side effects.'
+  description: Every AI agent and developer runs into broken or confusing JSON constantly.
   version: 1.0.0
   contact:
     name: _done
@@ -62,13 +62,13 @@ servers:
 - url: https://json-suite.underscoredone.com
   description: Production
 tags:
-- name: json
+- name: Json
 paths:
   /json:
     post:
       tags:
-      - json
-      summary: Validate, repair, format, query, diff, convert, and canonicalize JSON in one call.
+      - Json
+      summary: Validate, repair, format, query, diff, convert, and canonicalize JSON in one…
       description: Process a JSON document using the chosen operation. Send op to pick what to do, data or data_raw for the input, and options for extra settings.
       operationId: handler_json_post
       requestBody:

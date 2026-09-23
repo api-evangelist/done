@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: BIMI Checker Validation API
-  description: Checks one or more website addresses to see if they are properly set up to show a brand logo next to emails in inboxes like Gmail, Apple Mail, and Yahoo. It looks up the special settings the domain has published, checks that the logo picture follows the required format, checks that a security certificate for the logo (if any) is valid and not expired, and confirms the domain has strict enough email protection rules turned on. It returns a clear pass or fail for each domain along with a plain list of what is broken if something fails.
+  description: Checks one or more website addresses to see if they are properly set up to show a brand logo next to emails in inboxes like Gmail, Apple Mail, and Yahoo.
   version: 1.0.0
   contact:
     name: _done
@@ -72,7 +72,7 @@ paths:
     post:
       tags:
       - Validation
-      summary: Checks if a domain's email logo branding setup is valid and ready to display.
+      summary: Checks if a domain's email logo branding setup is valid and ready to display
       description: Checks one or more website addresses to see if their email branding logo setup will work correctly, and explains what is wrong if it will not.
       operationId: handler_check_post
       requestBody:
@@ -158,6 +158,70 @@ components:
         - example.com
         - brand.co
         selector: default
+    DomainCheckDetail:
+      properties:
+        bimi_record_found:
+          type: boolean
+          title: Bimi Record Found
+          description: Whether the special branding settings were found for this website.
+        svg_valid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Svg Valid
+          description: Whether the logo picture follows the required format. Empty if it was not checked.
+        vmc_valid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Vmc Valid
+          description: Whether the logo's security certificate is valid and not expired. Empty if it was not checked.
+        dmarc_strict:
+          type: boolean
+          title: Dmarc Strict
+          description: Whether the domain has strict enough email protection rules turned on.
+      type: object
+      required:
+      - bimi_record_found
+      - dmarc_strict
+      title: DomainCheckDetail
+      example:
+        bimi_record_found: false
+        dmarc_strict: false
+    Response:
+      properties:
+        api_version:
+          type: string
+          title: Api Version
+          description: The version of this checking service.
+          default: 1.0.0
+        checked:
+          type: integer
+          title: Checked
+          description: How many website addresses were checked.
+        results:
+          items:
+            $ref: '#/components/schemas/DomainResult'
+          type: array
+          title: Results
+          description: The check results for each website address, in the order submitted.
+      type: object
+      required:
+      - checked
+      - results
+      title: Response
+      example:
+        api_version: 1.0.0
+        checked: 1
+        results:
+        - checks:
+            bimi_record_found: false
+            dmarc_strict: false
+          domain: example.com
+          issues:
+          - No BIMI TXT record found at default._bimi.example.com
+          selector: default
+          valid: false
     DomainResult:
       properties:
         domain:
@@ -198,70 +262,6 @@ components:
         - No BIMI TXT record found at default._bimi.example.com
         selector: default
         valid: false
-    Response:
-      properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: The version of this checking service.
-          default: 1.0.0
-        checked:
-          type: integer
-          title: Checked
-          description: How many website addresses were checked.
-        results:
-          items:
-            $ref: '#/components/schemas/DomainResult'
-          type: array
-          title: Results
-          description: The check results for each website address, in the order submitted.
-      type: object
-      required:
-      - checked
-      - results
-      title: Response
-      example:
-        api_version: 1.0.0
-        checked: 1
-        results:
-        - checks:
-            bimi_record_found: false
-            dmarc_strict: false
-          domain: example.com
-          issues:
-          - No BIMI TXT record found at default._bimi.example.com
-          selector: default
-          valid: false
-    DomainCheckDetail:
-      properties:
-        bimi_record_found:
-          type: boolean
-          title: Bimi Record Found
-          description: Whether the special branding settings were found for this website.
-        svg_valid:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Svg Valid
-          description: Whether the logo picture follows the required format. Empty if it was not checked.
-        vmc_valid:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Vmc Valid
-          description: Whether the logo's security certificate is valid and not expired. Empty if it was not checked.
-        dmarc_strict:
-          type: boolean
-          title: Dmarc Strict
-          description: Whether the domain has strict enough email protection rules turned on.
-      type: object
-      required:
-      - bimi_record_found
-      - dmarc_strict
-      title: DomainCheckDetail
-      example:
-        bimi_record_found: false
-        dmarc_strict: false
   securitySchemes:
     siwx:
       type: apiKey

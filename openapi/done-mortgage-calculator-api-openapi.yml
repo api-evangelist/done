@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Mortgage & Loan Amortization Calculator mortgage calculator API
-  description: Give this API a loan amount, an interest rate, and a repayment term, and it hands back the precise monthly payment plus a complete schedule showing — for every single month — how much goes to interest, how much reduces the balance, and what you still owe. You can also ask 'what if I pay an extra $300 a month?' or 'what if I make a $10,000 lump payment in month 24?' and it will tell you exactly how many months you save and how much interest you avoid. Every number is computed with banker's rounding and a pinned arithmetic rule so that two correct systems running the same inputs produce identical results, down to the cent. No rate lookups, no market data — you supply the rate, the API does the math.
+  title: Mortgage & Loan Amortization Calculator mortgage calculator…
+  description: Give this API a loan amount, an interest rate, and a repayment term, and it hands back the precise monthly payment plus a complete schedule showing — for every single month — how much goes to interest, how much reduces the balance, and what you still owe.
   version: 1.0.0
   contact:
     name: _done
@@ -167,23 +167,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    RoundingInfo:
-      properties:
-        mode:
-          type: string
-          title: Mode
-        decimals:
-          type: integer
-          title: Decimals
-        final_payment_adjusted:
-          type: boolean
-          title: Final Payment Adjusted
-      type: object
-      required:
-      - mode
-      - decimals
-      - final_payment_adjusted
-      title: RoundingInfo
     Response:
       properties:
         api_version:
@@ -243,24 +226,6 @@ components:
           scheduled_term_months: 360
           total_interest: 510179.81
           total_paid: 910179.81
-    OneTimePayment:
-      properties:
-        month:
-          type: integer
-          title: Month
-          description: Which payment number to apply this lump sum on, starting at 1.
-        amount:
-          type: number
-          title: Amount
-          description: The dollar amount of the one-time lump-sum principal payment. Must be greater than zero.
-      type: object
-      required:
-      - month
-      - amount
-      title: OneTimePayment
-      example:
-        amount: 10000
-        month: 24
     WithExtraPayments:
       properties:
         total_paid:
@@ -294,89 +259,6 @@ components:
       - interest_saved
       - months_saved
       title: WithExtraPayments
-    ScheduleRow:
-      properties:
-        payment_number:
-          type: integer
-          title: Payment Number
-        date:
-          type: string
-          title: Date
-        payment:
-          type: number
-          title: Payment
-        scheduled_payment:
-          type: number
-          title: Scheduled Payment
-        extra_applied:
-          type: number
-          title: Extra Applied
-        interest:
-          type: number
-          title: Interest
-        principal:
-          type: number
-          title: Principal
-        balance:
-          type: number
-          title: Balance
-      type: object
-      required:
-      - payment_number
-      - date
-      - payment
-      - scheduled_payment
-      - extra_applied
-      - interest
-      - principal
-      - balance
-      title: ScheduleRow
-    InputsEcho:
-      properties:
-        principal:
-          type: number
-          title: Principal
-        annual_rate_percent:
-          type: number
-          title: Annual Rate Percent
-        term_months:
-          type: integer
-          title: Term Months
-        start_date:
-          type: string
-          title: Start Date
-      type: object
-      required:
-      - principal
-      - annual_rate_percent
-      - term_months
-      - start_date
-      title: InputsEcho
-    Summary:
-      properties:
-        total_paid:
-          type: number
-          title: Total Paid
-        total_interest:
-          type: number
-          title: Total Interest
-        final_payment:
-          type: number
-          title: Final Payment
-        payoff_date:
-          type: string
-          title: Payoff Date
-        scheduled_term_months:
-          type: integer
-          title: Scheduled Term Months
-      type: object
-      required:
-      - total_paid
-      - total_interest
-      - final_payment
-      - payoff_date
-      - scheduled_term_months
-      title: Summary
     Request:
       properties:
         principal:
@@ -436,6 +318,124 @@ components:
         start_date: '2026-07-01'
         summary_only: false
         term_months: 360
+    OneTimePayment:
+      properties:
+        month:
+          type: integer
+          title: Month
+          description: Which payment number to apply this lump sum on, starting at 1.
+        amount:
+          type: number
+          title: Amount
+          description: The dollar amount of the one-time lump-sum principal payment. Must be greater than zero.
+      type: object
+      required:
+      - month
+      - amount
+      title: OneTimePayment
+      example:
+        amount: 10000
+        month: 24
+    Summary:
+      properties:
+        total_paid:
+          type: number
+          title: Total Paid
+        total_interest:
+          type: number
+          title: Total Interest
+        final_payment:
+          type: number
+          title: Final Payment
+        payoff_date:
+          type: string
+          title: Payoff Date
+        scheduled_term_months:
+          type: integer
+          title: Scheduled Term Months
+      type: object
+      required:
+      - total_paid
+      - total_interest
+      - final_payment
+      - payoff_date
+      - scheduled_term_months
+      title: Summary
+    RoundingInfo:
+      properties:
+        mode:
+          type: string
+          title: Mode
+        decimals:
+          type: integer
+          title: Decimals
+        final_payment_adjusted:
+          type: boolean
+          title: Final Payment Adjusted
+      type: object
+      required:
+      - mode
+      - decimals
+      - final_payment_adjusted
+      title: RoundingInfo
+    ScheduleRow:
+      properties:
+        payment_number:
+          type: integer
+          title: Payment Number
+        date:
+          type: string
+          title: Date
+        payment:
+          type: number
+          title: Payment
+        scheduled_payment:
+          type: number
+          title: Scheduled Payment
+        extra_applied:
+          type: number
+          title: Extra Applied
+        interest:
+          type: number
+          title: Interest
+        principal:
+          type: number
+          title: Principal
+        balance:
+          type: number
+          title: Balance
+      type: object
+      required:
+      - payment_number
+      - date
+      - payment
+      - scheduled_payment
+      - extra_applied
+      - interest
+      - principal
+      - balance
+      title: ScheduleRow
+    InputsEcho:
+      properties:
+        principal:
+          type: number
+          title: Principal
+        annual_rate_percent:
+          type: number
+          title: Annual Rate Percent
+        term_months:
+          type: integer
+          title: Term Months
+        start_date:
+          type: string
+          title: Start Date
+      type: object
+      required:
+      - principal
+      - annual_rate_percent
+      - term_months
+      - start_date
+      title: InputsEcho
   securitySchemes:
     siwx:
       type: apiKey

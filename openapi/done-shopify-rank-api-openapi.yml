@@ -65,7 +65,7 @@ paths:
     post:
       tags:
       - shopify rank
-      summary: Finds your Shopify product's rank in the AI shopping catalog for any search keywords.
+      summary: Finds your Shopify product's rank in the AI shopping catalog for any search…
       description: Look up where a Shopify store's products show up when AI shopping assistants search for the given phrases, and show which competitors rank ahead of it.
       operationId: handler_rank_post
       requestBody:
@@ -130,6 +130,45 @@ paths:
         - x402: {}
 components:
   schemas:
+    Request:
+      properties:
+        shop_domain:
+          type: string
+          title: Shop Domain
+          description: Your store's web address, for example legacybilliards.com or example-store.myshopify.com. You can paste it with or without https://.
+        keywords:
+          items:
+            type: string
+          type: array
+          maxItems: 10
+          minItems: 1
+          title: Keywords
+          description: A list of 1 to 10 search phrases you want to check your store's rank for. Split larger lists across multiple calls.
+        report_detail:
+          type: string
+          enum:
+          - simple
+          - full
+          title: Report Detail
+          description: Choose 'simple' for a quick rank summary or 'full' for complete competitor and data quality details.
+          default: simple
+        ships_to_country:
+          type: string
+          title: Ships To Country
+          description: A two-letter country code, such as US or DE, so results reflect what a shopper in that country would see.
+          default: US
+      type: object
+      required:
+      - shop_domain
+      - keywords
+      title: Request
+      example:
+        keywords:
+        - 7 foot pool table
+        - shuffleboard table
+        report_detail: simple
+        ships_to_country: US
+        shop_domain: legacybilliards.com
     CompetitorEntry:
       properties:
         position:
@@ -178,45 +217,33 @@ components:
       required:
       - position
       title: CompetitorEntry
-    Request:
+    Response:
       properties:
+        api_version:
+          type: string
+          title: Api Version
+          description: The version number of this tool.
+          default: 1.0.0
         shop_domain:
           type: string
           title: Shop Domain
-          description: Your store's web address, for example legacybilliards.com or example-store.myshopify.com. You can paste it with or without https://.
-        keywords:
-          items:
-            type: string
-          type: array
-          maxItems: 10
-          minItems: 1
-          title: Keywords
-          description: A list of 1 to 10 search phrases you want to check your store's rank for. Split larger lists across multiple calls.
-        report_detail:
-          type: string
-          enum:
-          - simple
-          - full
-          title: Report Detail
-          description: Choose 'simple' for a quick rank summary or 'full' for complete competitor and data quality details.
-          default: simple
+          description: The store address the results are for, after cleanup.
         ships_to_country:
           type: string
           title: Ships To Country
-          description: A two-letter country code, such as US or DE, so results reflect what a shopper in that country would see.
-          default: US
+          description: The shopper country the results reflect.
+        results:
+          items:
+            $ref: '#/components/schemas/RankResult'
+          type: array
+          title: Results
+          description: One result per search phrase you asked about, listed in the same order you provided them.
       type: object
       required:
       - shop_domain
-      - keywords
-      title: Request
-      example:
-        keywords:
-        - 7 foot pool table
-        - shuffleboard table
-        report_detail: simple
-        ships_to_country: US
-        shop_domain: legacybilliards.com
+      - ships_to_country
+      - results
+      title: Response
     RankResult:
       properties:
         keyword:
@@ -299,33 +326,6 @@ components:
       required:
       - keyword
       title: RankResult
-    Response:
-      properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: The version number of this tool.
-          default: 1.0.0
-        shop_domain:
-          type: string
-          title: Shop Domain
-          description: The store address the results are for, after cleanup.
-        ships_to_country:
-          type: string
-          title: Ships To Country
-          description: The shopper country the results reflect.
-        results:
-          items:
-            $ref: '#/components/schemas/RankResult'
-          type: array
-          title: Results
-          description: One result per search phrase you asked about, listed in the same order you provided them.
-      type: object
-      required:
-      - shop_domain
-      - ships_to_country
-      - results
-      title: Response
   securitySchemes:
     siwx:
       type: apiKey

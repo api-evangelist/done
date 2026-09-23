@@ -66,7 +66,7 @@ paths:
     post:
       tags:
       - website screenshot
-      summary: Takes a screenshot of any webpage after it fully loads.
+      summary: Takes a screenshot of any webpage after it fully loads
       description: Loads a webpage in a real browser, waits for it to be ready, and returns a link to a picture of it.
       operationId: handler_capture_post
       requestBody:

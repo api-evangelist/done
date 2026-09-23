@@ -58,13 +58,13 @@ servers:
 - url: https://ocr.underscoredone.com
   description: Production
 tags:
-- name: ocr
+- name: OCR
 paths:
   /read:
     post:
       tags:
-      - ocr
-      summary: Pulls readable text out of a picture.
+      - OCR
+      summary: Pulls readable text out of a picture
       description: Read a picture and give back the words found inside it, along with how sure the reader is.
       operationId: handler_read_post
       requestBody:
