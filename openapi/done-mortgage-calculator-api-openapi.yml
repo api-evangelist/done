@@ -167,98 +167,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Response:
-      properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: API version
-          default: 1.0.0
-        inputs_echo:
-          $ref: '#/components/schemas/InputsEcho'
-          description: The key inputs you sent, echoed back for confirmation.
-        rounding:
-          $ref: '#/components/schemas/RoundingInfo'
-          description: Details about how numbers were rounded.
-        scheduled_payment:
-          type: number
-          title: Scheduled Payment
-          description: The fixed monthly payment required to pay off the loan on schedule, not counting any extra payments.
-        summary:
-          $ref: '#/components/schemas/Summary'
-          description: Overall totals for the loan without any extra payments.
-        with_extra_payments:
-          anyOf:
-          - $ref: '#/components/schemas/WithExtraPayments'
-          - type: 'null'
-          description: How the loan changes if you make the extra payments you described. Only appears when extras were supplied.
-        schedule:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ScheduleRow'
-            type: array
-          - type: 'null'
-          title: Schedule
-          description: The full month-by-month payment table. Omitted when summary_only is true.
-      type: object
-      required:
-      - inputs_echo
-      - rounding
-      - scheduled_payment
-      - summary
-      title: Response
-      example:
-        api_version: 1.0.0
-        inputs_echo:
-          annual_rate_percent: 6.5
-          principal: 400000
-          start_date: '2026-07-01'
-          term_months: 360
-        rounding:
-          decimals: 2
-          final_payment_adjusted: true
-          mode: half_even
-        schedule: []
-        scheduled_payment: 2528.27
-        summary:
-          final_payment: 2530.88
-          payoff_date: '2056-06-01'
-          scheduled_term_months: 360
-          total_interest: 510179.81
-          total_paid: 910179.81
-    WithExtraPayments:
-      properties:
-        total_paid:
-          type: number
-          title: Total Paid
-        total_interest:
-          type: number
-          title: Total Interest
-        final_payment:
-          type: number
-          title: Final Payment
-        payoff_date:
-          type: string
-          title: Payoff Date
-        actual_term_months:
-          type: integer
-          title: Actual Term Months
-        interest_saved:
-          type: number
-          title: Interest Saved
-        months_saved:
-          type: integer
-          title: Months Saved
-      type: object
-      required:
-      - total_paid
-      - total_interest
-      - final_payment
-      - payoff_date
-      - actual_term_months
-      - interest_saved
-      - months_saved
-      title: WithExtraPayments
     Request:
       properties:
         principal:
@@ -318,6 +226,82 @@ components:
         start_date: '2026-07-01'
         summary_only: false
         term_months: 360
+    RoundingInfo:
+      properties:
+        mode:
+          type: string
+          title: Mode
+        decimals:
+          type: integer
+          title: Decimals
+        final_payment_adjusted:
+          type: boolean
+          title: Final Payment Adjusted
+      type: object
+      required:
+      - mode
+      - decimals
+      - final_payment_adjusted
+      title: RoundingInfo
+    Response:
+      properties:
+        api_version:
+          type: string
+          title: Api Version
+          description: API version
+          default: 1.0.0
+        inputs_echo:
+          $ref: '#/components/schemas/InputsEcho'
+          description: The key inputs you sent, echoed back for confirmation.
+        rounding:
+          $ref: '#/components/schemas/RoundingInfo'
+          description: Details about how numbers were rounded.
+        scheduled_payment:
+          type: number
+          title: Scheduled Payment
+          description: The fixed monthly payment required to pay off the loan on schedule, not counting any extra payments.
+        summary:
+          $ref: '#/components/schemas/Summary'
+          description: Overall totals for the loan without any extra payments.
+        with_extra_payments:
+          anyOf:
+          - $ref: '#/components/schemas/WithExtraPayments'
+          - type: 'null'
+          description: How the loan changes if you make the extra payments you described. Only appears when extras were supplied.
+        schedule:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ScheduleRow'
+            type: array
+          - type: 'null'
+          title: Schedule
+          description: The full month-by-month payment table. Omitted when summary_only is true.
+      type: object
+      required:
+      - inputs_echo
+      - rounding
+      - scheduled_payment
+      - summary
+      title: Response
+      example:
+        api_version: 1.0.0
+        inputs_echo:
+          annual_rate_percent: 6.5
+          principal: 400000
+          start_date: '2026-07-01'
+          term_months: 360
+        rounding:
+          decimals: 2
+          final_payment_adjusted: true
+          mode: half_even
+        schedule: []
+        scheduled_payment: 2528.27
+        summary:
+          final_payment: 2530.88
+          payoff_date: '2056-06-01'
+          scheduled_term_months: 360
+          total_interest: 510179.81
+          total_paid: 910179.81
     OneTimePayment:
       properties:
         month:
@@ -336,48 +320,6 @@ components:
       example:
         amount: 10000
         month: 24
-    Summary:
-      properties:
-        total_paid:
-          type: number
-          title: Total Paid
-        total_interest:
-          type: number
-          title: Total Interest
-        final_payment:
-          type: number
-          title: Final Payment
-        payoff_date:
-          type: string
-          title: Payoff Date
-        scheduled_term_months:
-          type: integer
-          title: Scheduled Term Months
-      type: object
-      required:
-      - total_paid
-      - total_interest
-      - final_payment
-      - payoff_date
-      - scheduled_term_months
-      title: Summary
-    RoundingInfo:
-      properties:
-        mode:
-          type: string
-          title: Mode
-        decimals:
-          type: integer
-          title: Decimals
-        final_payment_adjusted:
-          type: boolean
-          title: Final Payment Adjusted
-      type: object
-      required:
-      - mode
-      - decimals
-      - final_payment_adjusted
-      title: RoundingInfo
     ScheduleRow:
       properties:
         payment_number:
@@ -415,6 +357,31 @@ components:
       - principal
       - balance
       title: ScheduleRow
+    Summary:
+      properties:
+        total_paid:
+          type: number
+          title: Total Paid
+        total_interest:
+          type: number
+          title: Total Interest
+        final_payment:
+          type: number
+          title: Final Payment
+        payoff_date:
+          type: string
+          title: Payoff Date
+        scheduled_term_months:
+          type: integer
+          title: Scheduled Term Months
+      type: object
+      required:
+      - total_paid
+      - total_interest
+      - final_payment
+      - payoff_date
+      - scheduled_term_months
+      title: Summary
     InputsEcho:
       properties:
         principal:
@@ -436,6 +403,39 @@ components:
       - term_months
       - start_date
       title: InputsEcho
+    WithExtraPayments:
+      properties:
+        total_paid:
+          type: number
+          title: Total Paid
+        total_interest:
+          type: number
+          title: Total Interest
+        final_payment:
+          type: number
+          title: Final Payment
+        payoff_date:
+          type: string
+          title: Payoff Date
+        actual_term_months:
+          type: integer
+          title: Actual Term Months
+        interest_saved:
+          type: number
+          title: Interest Saved
+        months_saved:
+          type: integer
+          title: Months Saved
+      type: object
+      required:
+      - total_paid
+      - total_interest
+      - final_payment
+      - payoff_date
+      - actual_term_months
+      - interest_saved
+      - months_saved
+      title: WithExtraPayments
   securitySchemes:
     siwx:
       type: apiKey

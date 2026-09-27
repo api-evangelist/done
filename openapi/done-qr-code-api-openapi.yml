@@ -114,34 +114,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    QRResponse:
-      properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: API version
-          default: 1.0.0
-        count:
-          type: integer
-          title: Count
-          description: How many QR codes were generated — matches the number of non-empty entries you sent.
-        results:
-          items:
-            $ref: '#/components/schemas/QRResult'
-          type: array
-          title: Results
-          description: One entry for each non-empty text you sent, in the same order, each containing the original text and its QR code image.
-      type: object
-      required:
-      - count
-      - results
-      title: QRResponse
-      example:
-        api_version: 1.0.0
-        count: 1
-        results:
-        - qr_base64: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
-          text: https://example.com
     QRResult:
       properties:
         text:
@@ -189,6 +161,34 @@ components:
         texts:
         - https://example.com
         - https://example.com/product/42
+    QRResponse:
+      properties:
+        api_version:
+          type: string
+          title: Api Version
+          description: API version
+          default: 1.0.0
+        count:
+          type: integer
+          title: Count
+          description: How many QR codes were generated — matches the number of non-empty entries you sent.
+        results:
+          items:
+            $ref: '#/components/schemas/QRResult'
+          type: array
+          title: Results
+          description: One entry for each non-empty text you sent, in the same order, each containing the original text and its QR code image.
+      type: object
+      required:
+      - count
+      - results
+      title: QRResponse
+      example:
+        api_version: 1.0.0
+        count: 1
+        results:
+        - qr_base64: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
+          text: https://example.com
   securitySchemes:
     siwx:
       type: apiKey

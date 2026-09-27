@@ -184,6 +184,18 @@ paths:
         - x402: {}
 components:
   schemas:
+    Request:
+      properties:
+        url:
+          type: string
+          title: Url
+          description: The full web address of the site to submit, including the leading https://, for example https://example.com
+      type: object
+      required:
+      - url
+      title: Request
+      example:
+        url: https://example.com
     Response:
       properties:
         api_version:
@@ -208,6 +220,41 @@ components:
           status_url: https://directory-submission-lite.underscoredone.com/status
           submissionid: 3f2b1c4a-1234-4a1b-8c1d-abcdefabcdef
           url: https://example.com
+    StatusResponse:
+      properties:
+        api_version:
+          type: string
+          title: Api Version
+          description: The version of this service that answered
+          default: 1.0.0
+        data:
+          $ref: '#/components/schemas/StatusData'
+          description: The current state of the order
+      type: object
+      required:
+      - data
+      title: StatusResponse
+      example:
+        api_version: 1.0.0
+        data:
+          created_at: '2026-07-28T00:00:00.000Z'
+          notes: ''
+          status: received
+          submissionid: 3f2b1c4a-1234-4a1b-8c1d-abcdefabcdef
+          submitted_urls: []
+          url: https://example.com
+    StatusRequest:
+      properties:
+        submissionid:
+          type: string
+          title: Submissionid
+          description: The confirmation number returned when the order was placed
+      type: object
+      required:
+      - submissionid
+      title: StatusRequest
+      example:
+        submissionid: 3f2b1c4a-1234-4a1b-8c1d-abcdefabcdef
     StatusData:
       properties:
         submissionid:
@@ -250,18 +297,6 @@ components:
         status: received
         submissionid: 3f2b1c4a-1234-4a1b-8c1d-abcdefabcdef
         submitted_urls: []
-        url: https://example.com
-    Request:
-      properties:
-        url:
-          type: string
-          title: Url
-          description: The full web address of the site to submit, including the leading https://, for example https://example.com
-      type: object
-      required:
-      - url
-      title: Request
-      example:
         url: https://example.com
     OrderData:
       properties:
@@ -311,41 +346,6 @@ components:
         status_url: https://directory-submission-lite.underscoredone.com/status
         submissionid: 3f2b1c4a-1234-4a1b-8c1d-abcdefabcdef
         url: https://example.com
-    StatusResponse:
-      properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: The version of this service that answered
-          default: 1.0.0
-        data:
-          $ref: '#/components/schemas/StatusData'
-          description: The current state of the order
-      type: object
-      required:
-      - data
-      title: StatusResponse
-      example:
-        api_version: 1.0.0
-        data:
-          created_at: '2026-07-28T00:00:00.000Z'
-          notes: ''
-          status: received
-          submissionid: 3f2b1c4a-1234-4a1b-8c1d-abcdefabcdef
-          submitted_urls: []
-          url: https://example.com
-    StatusRequest:
-      properties:
-        submissionid:
-          type: string
-          title: Submissionid
-          description: The confirmation number returned when the order was placed
-      type: object
-      required:
-      - submissionid
-      title: StatusRequest
-      example:
-        submissionid: 3f2b1c4a-1234-4a1b-8c1d-abcdefabcdef
   securitySchemes:
     siwx:
       type: apiKey

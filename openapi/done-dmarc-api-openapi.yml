@@ -128,23 +128,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        domains:
-          items:
-            type: string
-          type: array
-          title: Domains
-          description: 'A list of one or more domain names to check. Use bare domain names only — no http://, https://, or www. Example: ["onescales.com", "hillms.com"]'
-      type: object
-      required:
-      - domains
-      title: Request
-      example:
-        domains:
-        - onescales.com
-        - hillms.com
-        - google.com
     Response:
       properties:
         api_version:
@@ -199,6 +182,23 @@ components:
           reportingEnabled: false
         total: 2
         valid_count: 1
+    Request:
+      properties:
+        domains:
+          items:
+            type: string
+          type: array
+          title: Domains
+          description: 'A list of one or more domain names to check. Use bare domain names only — no http://, https://, or www. Example: ["onescales.com", "hillms.com"]'
+      type: object
+      required:
+      - domains
+      title: Request
+      example:
+        domains:
+        - onescales.com
+        - hillms.com
+        - google.com
     DomainResult:
       properties:
         domain:

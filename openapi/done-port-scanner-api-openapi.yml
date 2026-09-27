@@ -230,6 +230,37 @@ components:
         resolved_ip: 45.33.32.156
         scan_type: tcp_connect
         target: scanme.nmap.org
+    OpenPort:
+      properties:
+        port:
+          type: integer
+          title: Port
+          description: The port number that is open.
+        protocol:
+          type: string
+          title: Protocol
+          description: The network protocol used (always 'tcp' for this scan type).
+        state:
+          type: string
+          title: State
+          description: Whether the port is 'open', 'closed', or 'filtered'.
+        service:
+          type: string
+          title: Service
+          description: The name of the service most likely running on this port, like 'ssh' or 'http'.
+        version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Version
+          description: The software version detected on this port, if any. May be empty if not detectable.
+      type: object
+      required:
+      - port
+      - protocol
+      - state
+      - service
+      title: OpenPort
     ScanRequest:
       properties:
         target:
@@ -267,37 +298,6 @@ components:
         scan_type: tcp_connect
         target: scanme.nmap.org
         timeout: 30
-    OpenPort:
-      properties:
-        port:
-          type: integer
-          title: Port
-          description: The port number that is open.
-        protocol:
-          type: string
-          title: Protocol
-          description: The network protocol used (always 'tcp' for this scan type).
-        state:
-          type: string
-          title: State
-          description: Whether the port is 'open', 'closed', or 'filtered'.
-        service:
-          type: string
-          title: Service
-          description: The name of the service most likely running on this port, like 'ssh' or 'http'.
-        version:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Version
-          description: The software version detected on this port, if any. May be empty if not detectable.
-      type: object
-      required:
-      - port
-      - protocol
-      - state
-      - service
-      title: OpenPort
   securitySchemes:
     siwx:
       type: apiKey

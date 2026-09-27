@@ -129,32 +129,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        image_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Image Url
-          description: A public web address pointing to the picture. Leave this out if you are sending the picture as text instead.
-        image_base64:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Image Base64
-          description: The picture encoded as text. Leave this out if you are sending a web address instead.
-        lang:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Lang
-          description: The language of the words in the picture. Only English ('eng') is supported right now.
-          default: eng
-      type: object
-      title: Request
-      example:
-        image_url: https://example.com/receipt.png
-        lang: eng
     Response:
       properties:
         api_version:
@@ -199,6 +173,32 @@ components:
 
           THANK YOU'
         word_count: 4
+    Request:
+      properties:
+        image_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Image Url
+          description: A public web address pointing to the picture. Leave this out if you are sending the picture as text instead.
+        image_base64:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Image Base64
+          description: The picture encoded as text. Leave this out if you are sending a web address instead.
+        lang:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Lang
+          description: The language of the words in the picture. Only English ('eng') is supported right now.
+          default: eng
+      type: object
+      title: Request
+      example:
+        image_url: https://example.com/receipt.png
+        lang: eng
   securitySchemes:
     siwx:
       type: apiKey

@@ -43,7 +43,7 @@ tags:
 - Developer Tools
 - Utility APIs
 - AI Agents
-- agent-native
+- Agent-Native
 - x402
 - pay-per-call
 - Web3
@@ -82,10 +82,9 @@ apis:
     aggregate https://underscoredone.com/openapi.json is a valid OpenAPI 3.1.0 document but its paths
     object is EMPTY — the real contracts are the 27 per-service specs on the service subdomains.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
   tags:
   - API Catalog
-  - agent-native
+  - Agent-Native
   - llms-txt
   - x402
   - Discovery
@@ -108,7 +107,7 @@ apis:
   name: _done asn lookup API
   description: The asn lookup API from _done — 1 operation(s) for asn lookup.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://asn-lookup.underscoredone.com
   tags:
   - ASN Lookup
   tags_raw:
@@ -224,7 +223,7 @@ apis:
   name: _done Data API
   description: The data API from _done — 1 operation(s) for data.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://cpi-report-us.underscoredone.com
   tags:
   - Data
   tags_raw:
@@ -340,7 +339,7 @@ apis:
   name: _done directory submission API
   description: The directory submission API from _done — 2 operation(s) for directory submission.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://directory-submission-lite.underscoredone.com
   tags:
   - directory submission
   properties:
@@ -454,7 +453,7 @@ apis:
   name: _done Dmarc API
   description: The dmarc API from _done — 1 operation(s) for dmarc.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://dmarc-lookup.underscoredone.com
   tags:
   - DMARC
   tags_raw:
@@ -570,7 +569,7 @@ apis:
   name: _done Ens API
   description: The ens API from _done — 1 operation(s) for ens.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://ens-resolver.underscoredone.com
   tags:
   - ENS
   tags_raw:
@@ -686,7 +685,7 @@ apis:
   name: _done hacker news API
   description: The hacker news API from _done — 1 operation(s) for hacker news.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://hackernews-data.underscoredone.com
   tags:
   - Hacker News
   tags_raw:
@@ -802,7 +801,7 @@ apis:
   name: _done http request API
   description: The http request API from _done — 1 operation(s) for http request.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://curl-http-request.underscoredone.com
   tags:
   - http request
   properties:
@@ -916,7 +915,7 @@ apis:
   name: _done JSON API
   description: The json API from _done — 1 operation(s) for json.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://json-suite.underscoredone.com
   tags:
   - JSON
   tags_raw:
@@ -1032,7 +1031,7 @@ apis:
   name: _done Leetspeak API
   description: The leetspeak API from _done — 1 operation(s) for leetspeak.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://leetspeak-translator.underscoredone.com
   tags:
   - leetspeak
   properties:
@@ -1146,7 +1145,7 @@ apis:
   name: _done mortgage calculator API
   description: The mortgage calculator API from _done — 1 operation(s) for mortgage calculator.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://mortgage-amortization.underscoredone.com
   tags:
   - mortgage calculator
   properties:
@@ -1260,7 +1259,7 @@ apis:
   name: _done Ocr API
   description: The ocr API from _done — 1 operation(s) for ocr.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://ocr.underscoredone.com
   tags:
   - OCR
   tags_raw:
@@ -1376,7 +1375,7 @@ apis:
   name: _done port scanner API
   description: The port scanner API from _done — 1 operation(s) for port scanner.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://port-scanner.underscoredone.com
   tags:
   - port scanner
   properties:
@@ -1490,7 +1489,7 @@ apis:
   name: _done qr code API
   description: The qr code API from _done — 1 operation(s) for qr code.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://qr-code-generator.underscoredone.com
   tags:
   - QR Codes
   tags_raw:
@@ -1606,7 +1605,7 @@ apis:
   name: _done Seo API
   description: The seo API from _done — 1 operation(s) for seo.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://seo-data-extractor.underscoredone.com
   tags:
   - SEO
   tags_raw:
@@ -1722,7 +1721,7 @@ apis:
   name: _done sha256 hash API
   description: The sha256 hash API from _done — 1 operation(s) for sha256 hash.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://hash-hmac.underscoredone.com
   tags:
   - sha256 hash
   properties:
@@ -1836,7 +1835,7 @@ apis:
   name: _done shopify rank API
   description: The shopify rank API from _done — 1 operation(s) for shopify rank.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://shopify-ai-rank-checker.underscoredone.com
   tags:
   - shopify rank
   properties:
@@ -1950,7 +1949,7 @@ apis:
   name: _done Validation API
   description: The Validation API from _done — 1 operation(s) for validation.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://bimi-checker.underscoredone.com
   tags:
   - Validation
   properties:
@@ -2064,7 +2063,7 @@ apis:
   name: _done website screenshot API
   description: The website screenshot API from _done — 1 operation(s) for website screenshot.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://screenshots.underscoredone.com
   tags:
   - website screenshot
   properties:
@@ -2178,7 +2177,7 @@ apis:
   name: _done Network API
   description: The Network API from _done — 1 operation(s) for network.
   humanURL: https://underscoredone.com
-  baseURL: https://underscoredone.com
+  baseURL: https://email-verifier.underscoredone.com
   tags:
   - Networks
   tags_raw:
@@ -2416,3 +2415,10 @@ x-coverage:
     service subdomain roots, plus llms.txt, /.well-known/x402.json and a live HTTP 402 x402 challenge. No wall was
     hit.
   checked: '2026-08-11'
+x-x402:
+  verified: true
+  probed: '2026-09-24'
+  url: "https://asn-lookup.underscoredone.com/lookup"
+  evidence:
+  - "header:payment-required"
+  control: 404

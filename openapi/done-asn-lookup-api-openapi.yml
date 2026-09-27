@@ -131,18 +131,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        query:
-          type: string
-          title: Query
-          description: An internet address such as 8.8.8.8 or 2001:4860:4860::8888, or a network reference such as AS15169 or 15169, that you want information about.
-      type: object
-      required:
-      - query
-      title: Request
-      example:
-        query: 8.8.8.8
     Response:
       properties:
         api_version:
@@ -201,6 +189,18 @@ components:
         prefix: 8.8.8.0/24
         query: 8.8.8.8
         registry: arin
+    Request:
+      properties:
+        query:
+          type: string
+          title: Query
+          description: An internet address such as 8.8.8.8 or 2001:4860:4860::8888, or a network reference such as AS15169 or 15169, that you want information about.
+      type: object
+      required:
+      - query
+      title: Request
+      example:
+        query: 8.8.8.8
   securitySchemes:
     siwx:
       type: apiKey

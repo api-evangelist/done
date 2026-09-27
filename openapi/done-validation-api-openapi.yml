@@ -130,64 +130,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        domains:
-          items:
-            type: string
-          type: array
-          title: Domains
-          description: List of website addresses to check, such as example.com. Up to 10 per request. Do not include http:// or https://.
-        selector:
-          type: string
-          title: Selector
-          description: The label used to find the branding settings, almost always 'default'. Only change this if the domain uses a custom label.
-          default: default
-        check_vmc:
-          type: boolean
-          title: Check Vmc
-          description: Whether to also verify the logo's security certificate. Turn off for a quicker check.
-          default: true
-      type: object
-      required:
-      - domains
-      title: Request
-      example:
-        check_vmc: true
-        domains:
-        - example.com
-        - brand.co
-        selector: default
-    DomainCheckDetail:
-      properties:
-        bimi_record_found:
-          type: boolean
-          title: Bimi Record Found
-          description: Whether the special branding settings were found for this website.
-        svg_valid:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Svg Valid
-          description: Whether the logo picture follows the required format. Empty if it was not checked.
-        vmc_valid:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Vmc Valid
-          description: Whether the logo's security certificate is valid and not expired. Empty if it was not checked.
-        dmarc_strict:
-          type: boolean
-          title: Dmarc Strict
-          description: Whether the domain has strict enough email protection rules turned on.
-      type: object
-      required:
-      - bimi_record_found
-      - dmarc_strict
-      title: DomainCheckDetail
-      example:
-        bimi_record_found: false
-        dmarc_strict: false
     Response:
       properties:
         api_version:
@@ -222,6 +164,64 @@ components:
           - No BIMI TXT record found at default._bimi.example.com
           selector: default
           valid: false
+    DomainCheckDetail:
+      properties:
+        bimi_record_found:
+          type: boolean
+          title: Bimi Record Found
+          description: Whether the special branding settings were found for this website.
+        svg_valid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Svg Valid
+          description: Whether the logo picture follows the required format. Empty if it was not checked.
+        vmc_valid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Vmc Valid
+          description: Whether the logo's security certificate is valid and not expired. Empty if it was not checked.
+        dmarc_strict:
+          type: boolean
+          title: Dmarc Strict
+          description: Whether the domain has strict enough email protection rules turned on.
+      type: object
+      required:
+      - bimi_record_found
+      - dmarc_strict
+      title: DomainCheckDetail
+      example:
+        bimi_record_found: false
+        dmarc_strict: false
+    Request:
+      properties:
+        domains:
+          items:
+            type: string
+          type: array
+          title: Domains
+          description: List of website addresses to check, such as example.com. Up to 10 per request. Do not include http:// or https://.
+        selector:
+          type: string
+          title: Selector
+          description: The label used to find the branding settings, almost always 'default'. Only change this if the domain uses a custom label.
+          default: default
+        check_vmc:
+          type: boolean
+          title: Check Vmc
+          description: Whether to also verify the logo's security certificate. Turn off for a quicker check.
+          default: true
+      type: object
+      required:
+      - domains
+      title: Request
+      example:
+        check_vmc: true
+        domains:
+        - example.com
+        - brand.co
+        selector: default
     DomainResult:
       properties:
         domain:

@@ -134,47 +134,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        op:
-          type: string
-          title: Op
-          description: 'What you want to do. Choose one of: validate, repair, format, canonicalize, convert, query, diff, patch, schema, stats.'
-        data:
-          anyOf:
-          - {}
-          - type: 'null'
-          title: Data
-          description: The JSON value you want to work with — can be an object, array, string, number, or anything valid. Required for all operations except validate and repair.
-        data_raw:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Data Raw
-          description: The raw text you want to validate or repair. Use this instead of data only for validate and repair, because those need to see the original broken text exactly as-is.
-        options:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Options
-          description: 'Extra settings for the chosen operation. For example: indent, sort_keys, jsonpath, pointer, to (for convert), schema, data_b (for diff/patch). All optional — sensible defaults are used.'
-      type: object
-      required:
-      - op
-      title: Request
-      example:
-        data:
-          order:
-            id: A-1029
-            items:
-            - qty: 2
-              sku: BIL-CUE-07
-            - qty: 5
-              sku: BIL-CHALK-01
-        op: query
-        options:
-          jsonpath: $.order.items[*].sku
     Response:
       properties:
         api_version:
@@ -300,6 +259,47 @@ components:
           value: BIL-CHALK-01
         op: query
         valid: true
+    Request:
+      properties:
+        op:
+          type: string
+          title: Op
+          description: 'What you want to do. Choose one of: validate, repair, format, canonicalize, convert, query, diff, patch, schema, stats.'
+        data:
+          anyOf:
+          - {}
+          - type: 'null'
+          title: Data
+          description: The JSON value you want to work with — can be an object, array, string, number, or anything valid. Required for all operations except validate and repair.
+        data_raw:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Data Raw
+          description: The raw text you want to validate or repair. Use this instead of data only for validate and repair, because those need to see the original broken text exactly as-is.
+        options:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Options
+          description: 'Extra settings for the chosen operation. For example: indent, sort_keys, jsonpath, pointer, to (for convert), schema, data_b (for diff/patch). All optional — sensible defaults are used.'
+      type: object
+      required:
+      - op
+      title: Request
+      example:
+        data:
+          order:
+            id: A-1029
+            items:
+            - qty: 2
+              sku: BIL-CUE-07
+            - qty: 5
+              sku: BIL-CHALK-01
+        op: query
+        options:
+          jsonpath: $.order.items[*].sku
   securitySchemes:
     siwx:
       type: apiKey

@@ -148,104 +148,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    CommentModel:
-      properties:
-        id:
-          type: integer
-          title: Id
-          description: The unique number identifying this comment.
-        author:
-          type: string
-          title: Author
-          description: The username of the person who wrote the comment.
-        posted_at:
-          type: integer
-          title: Posted At
-          description: The moment the comment was posted, shown as a plain number of seconds since 1970.
-        body:
-          type: string
-          title: Body
-          description: The text of the comment.
-        reply_count:
-          type: integer
-          title: Reply Count
-          description: How many direct replies this comment has.
-        replies:
-          items:
-            $ref: '#/components/schemas/CommentModel'
-          type: array
-          title: Replies
-          description: Nested replies underneath this comment, if any were requested.
-      type: object
-      required:
-      - id
-      - author
-      - posted_at
-      - body
-      - reply_count
-      title: CommentModel
-      example:
-        author: seizethecheese
-        body: I'm somewhat surprised that this is not open source...
-        id: 48752128
-        posted_at: 1782935074
-        replies: []
-        reply_count: 9
-    Request:
-      properties:
-        category:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Category
-          description: 'Which current list to pull from: top, new, best, ask, show, or job. Ignored if a date is given.'
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-          description: A calendar day in YYYY-MM-DD format (UTC). If given, the tool switches to scanning that whole day instead of using a category.
-        limit:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Limit
-          description: The largest number of results to return. Default is 30, maximum is 200.
-          default: 30
-        comment_limit:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Comment Limit
-          description: How many top-level comments to fetch per story. Default 10, maximum 100, 0 means none.
-          default: 10
-        reply_depth:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Reply Depth
-          description: How many levels of nested replies to fetch below each comment. Default 0, maximum 5.
-          default: 0
-        replies_per_comment:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Replies Per Comment
-          description: The largest number of replies fetched per comment at each level. Default 5, maximum 20.
-          default: 5
-        page_token:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Page Token
-          description: A resume point from a previous date-scan response, used to continue scanning the same day where it left off.
-      type: object
-      title: Request
-      example:
-        category: top
-        comment_limit: 3
-        limit: 5
-        reply_depth: 1
     Response:
       properties:
         api_version:
@@ -397,6 +299,104 @@ components:
         posted_at: 1782943416
         title: ZCode – Harness for GLM-5.2
         url: https://zcode.z.ai/en
+    Request:
+      properties:
+        category:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Category
+          description: 'Which current list to pull from: top, new, best, ask, show, or job. Ignored if a date is given.'
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+          description: A calendar day in YYYY-MM-DD format (UTC). If given, the tool switches to scanning that whole day instead of using a category.
+        limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Limit
+          description: The largest number of results to return. Default is 30, maximum is 200.
+          default: 30
+        comment_limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Comment Limit
+          description: How many top-level comments to fetch per story. Default 10, maximum 100, 0 means none.
+          default: 10
+        reply_depth:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Reply Depth
+          description: How many levels of nested replies to fetch below each comment. Default 0, maximum 5.
+          default: 0
+        replies_per_comment:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Replies Per Comment
+          description: The largest number of replies fetched per comment at each level. Default 5, maximum 20.
+          default: 5
+        page_token:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Page Token
+          description: A resume point from a previous date-scan response, used to continue scanning the same day where it left off.
+      type: object
+      title: Request
+      example:
+        category: top
+        comment_limit: 3
+        limit: 5
+        reply_depth: 1
+    CommentModel:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: The unique number identifying this comment.
+        author:
+          type: string
+          title: Author
+          description: The username of the person who wrote the comment.
+        posted_at:
+          type: integer
+          title: Posted At
+          description: The moment the comment was posted, shown as a plain number of seconds since 1970.
+        body:
+          type: string
+          title: Body
+          description: The text of the comment.
+        reply_count:
+          type: integer
+          title: Reply Count
+          description: How many direct replies this comment has.
+        replies:
+          items:
+            $ref: '#/components/schemas/CommentModel'
+          type: array
+          title: Replies
+          description: Nested replies underneath this comment, if any were requested.
+      type: object
+      required:
+      - id
+      - author
+      - posted_at
+      - body
+      - reply_count
+      title: CommentModel
+      example:
+        author: seizethecheese
+        body: I'm somewhat surprised that this is not open source...
+        id: 48752128
+        posted_at: 1782935074
+        replies: []
+        reply_count: 9
   securitySchemes:
     siwx:
       type: apiKey

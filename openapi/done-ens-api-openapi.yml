@@ -122,18 +122,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        query:
-          type: string
-          title: Query
-          description: An ENS name like vitalik.eth, or an Ethereum address starting with 0x. The service automatically figures out which one you gave it.
-      type: object
-      required:
-      - query
-      title: Request
-      example:
-        query: vitalik.eth
     Response:
       properties:
         api_version:
@@ -178,6 +166,18 @@ components:
         name: vitalik.eth
         query: vitalik.eth
         resolved: true
+    Request:
+      properties:
+        query:
+          type: string
+          title: Query
+          description: An ENS name like vitalik.eth, or an Ethereum address starting with 0x. The service automatically figures out which one you gave it.
+      type: object
+      required:
+      - query
+      title: Request
+      example:
+        query: vitalik.eth
   securitySchemes:
     siwx:
       type: apiKey
