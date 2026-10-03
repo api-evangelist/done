@@ -114,21 +114,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    QRResult:
-      properties:
-        text:
-          type: string
-          title: Text
-          description: The original text that was turned into this QR code.
-        qr_base64:
-          type: string
-          title: Qr Base64
-          description: The QR code image as a data URI string starting with 'data:image/png;base64,' — paste it straight into an HTML img src or decode it to save as a PNG file.
-      type: object
-      required:
-      - text
-      - qr_base64
-      title: QRResult
     QRRequest:
       properties:
         texts:
@@ -161,6 +146,21 @@ components:
         texts:
         - https://example.com
         - https://example.com/product/42
+    QRResult:
+      properties:
+        text:
+          type: string
+          title: Text
+          description: The original text that was turned into this QR code.
+        qr_base64:
+          type: string
+          title: Qr Base64
+          description: The QR code image as a data URI string starting with 'data:image/png;base64,' — paste it straight into an HTML img src or decode it to save as a PNG file.
+      type: object
+      required:
+      - text
+      - qr_base64
+      title: QRResult
     QRResponse:
       properties:
         api_version:

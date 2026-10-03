@@ -167,65 +167,49 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
+    OneTimePayment:
       properties:
-        principal:
-          type: number
-          title: Principal
-          description: The total amount borrowed, in dollars. Must be greater than zero.
-        annual_rate_percent:
-          type: number
-          title: Annual Rate Percent
-          description: The yearly interest rate as a plain percentage — enter 6.5 for 6.5%. Enter 0 for an interest-free loan. Must be zero or above.
-        term_months:
+        month:
           type: integer
-          title: Term Months
-          description: How many monthly payments the loan spans. A 30-year mortgage is 360; a 5-year car loan is 60. Must be at least 1.
-        start_date:
-          type: string
-          title: Start Date
-          description: The date of the very first payment, written as YYYY-MM-DD (for example, 2026-07-01).
-        extra_monthly_payment:
+          title: Month
+          description: Which payment number to apply this lump sum on, starting at 1.
+        amount:
           type: number
-          title: Extra Monthly Payment
-          description: An optional extra amount you put toward principal every single month, on top of the required payment. Defaults to 0.
-          default: 0.0
-        one_time_payments:
-          items:
-            $ref: '#/components/schemas/OneTimePayment'
-          type: array
-          title: One Time Payments
-          description: An optional list of one-time lump-sum principal payments. Each item needs a 'month' and an 'amount'.
-        summary_only:
-          type: boolean
-          title: Summary Only
-          description: Set to true if you only want the totals and scheduled payment — no row-by-row schedule.
-          default: false
-        rounding:
-          type: integer
-          maximum: 6.0
-          minimum: 2.0
-          title: Rounding
-          description: How many decimal places to round every money value to. Default is 2 (cents). Valid range is 2 to 6.
-          default: 2
+          title: Amount
+          description: The dollar amount of the one-time lump-sum principal payment. Must be greater than zero.
       type: object
       required:
-      - principal
-      - annual_rate_percent
-      - term_months
-      - start_date
-      title: Request
+      - month
+      - amount
+      title: OneTimePayment
       example:
-        annual_rate_percent: 6.5
-        extra_monthly_payment: 300
-        one_time_payments:
-        - amount: 10000
-          month: 24
-        principal: 400000
-        rounding: 2
-        start_date: '2026-07-01'
-        summary_only: false
-        term_months: 360
+        amount: 10000
+        month: 24
+    Summary:
+      properties:
+        total_paid:
+          type: number
+          title: Total Paid
+        total_interest:
+          type: number
+          title: Total Interest
+        final_payment:
+          type: number
+          title: Final Payment
+        payoff_date:
+          type: string
+          title: Payoff Date
+        scheduled_term_months:
+          type: integer
+          title: Scheduled Term Months
+      type: object
+      required:
+      - total_paid
+      - total_interest
+      - final_payment
+      - payoff_date
+      - scheduled_term_months
+      title: Summary
     RoundingInfo:
       properties:
         mode:
@@ -243,6 +227,39 @@ components:
       - decimals
       - final_payment_adjusted
       title: RoundingInfo
+    WithExtraPayments:
+      properties:
+        total_paid:
+          type: number
+          title: Total Paid
+        total_interest:
+          type: number
+          title: Total Interest
+        final_payment:
+          type: number
+          title: Final Payment
+        payoff_date:
+          type: string
+          title: Payoff Date
+        actual_term_months:
+          type: integer
+          title: Actual Term Months
+        interest_saved:
+          type: number
+          title: Interest Saved
+        months_saved:
+          type: integer
+          title: Months Saved
+      type: object
+      required:
+      - total_paid
+      - total_interest
+      - final_payment
+      - payoff_date
+      - actual_term_months
+      - interest_saved
+      - months_saved
+      title: WithExtraPayments
     Response:
       properties:
         api_version:
@@ -302,24 +319,65 @@ components:
           scheduled_term_months: 360
           total_interest: 510179.81
           total_paid: 910179.81
-    OneTimePayment:
+    Request:
       properties:
-        month:
-          type: integer
-          title: Month
-          description: Which payment number to apply this lump sum on, starting at 1.
-        amount:
+        principal:
           type: number
-          title: Amount
-          description: The dollar amount of the one-time lump-sum principal payment. Must be greater than zero.
+          title: Principal
+          description: The total amount borrowed, in dollars. Must be greater than zero.
+        annual_rate_percent:
+          type: number
+          title: Annual Rate Percent
+          description: The yearly interest rate as a plain percentage — enter 6.5 for 6.5%. Enter 0 for an interest-free loan. Must be zero or above.
+        term_months:
+          type: integer
+          title: Term Months
+          description: How many monthly payments the loan spans. A 30-year mortgage is 360; a 5-year car loan is 60. Must be at least 1.
+        start_date:
+          type: string
+          title: Start Date
+          description: The date of the very first payment, written as YYYY-MM-DD (for example, 2026-07-01).
+        extra_monthly_payment:
+          type: number
+          title: Extra Monthly Payment
+          description: An optional extra amount you put toward principal every single month, on top of the required payment. Defaults to 0.
+          default: 0.0
+        one_time_payments:
+          items:
+            $ref: '#/components/schemas/OneTimePayment'
+          type: array
+          title: One Time Payments
+          description: An optional list of one-time lump-sum principal payments. Each item needs a 'month' and an 'amount'.
+        summary_only:
+          type: boolean
+          title: Summary Only
+          description: Set to true if you only want the totals and scheduled payment — no row-by-row schedule.
+          default: false
+        rounding:
+          type: integer
+          maximum: 6.0
+          minimum: 2.0
+          title: Rounding
+          description: How many decimal places to round every money value to. Default is 2 (cents). Valid range is 2 to 6.
+          default: 2
       type: object
       required:
-      - month
-      - amount
-      title: OneTimePayment
+      - principal
+      - annual_rate_percent
+      - term_months
+      - start_date
+      title: Request
       example:
-        amount: 10000
-        month: 24
+        annual_rate_percent: 6.5
+        extra_monthly_payment: 300
+        one_time_payments:
+        - amount: 10000
+          month: 24
+        principal: 400000
+        rounding: 2
+        start_date: '2026-07-01'
+        summary_only: false
+        term_months: 360
     ScheduleRow:
       properties:
         payment_number:
@@ -357,31 +415,6 @@ components:
       - principal
       - balance
       title: ScheduleRow
-    Summary:
-      properties:
-        total_paid:
-          type: number
-          title: Total Paid
-        total_interest:
-          type: number
-          title: Total Interest
-        final_payment:
-          type: number
-          title: Final Payment
-        payoff_date:
-          type: string
-          title: Payoff Date
-        scheduled_term_months:
-          type: integer
-          title: Scheduled Term Months
-      type: object
-      required:
-      - total_paid
-      - total_interest
-      - final_payment
-      - payoff_date
-      - scheduled_term_months
-      title: Summary
     InputsEcho:
       properties:
         principal:
@@ -403,39 +436,6 @@ components:
       - term_months
       - start_date
       title: InputsEcho
-    WithExtraPayments:
-      properties:
-        total_paid:
-          type: number
-          title: Total Paid
-        total_interest:
-          type: number
-          title: Total Interest
-        final_payment:
-          type: number
-          title: Final Payment
-        payoff_date:
-          type: string
-          title: Payoff Date
-        actual_term_months:
-          type: integer
-          title: Actual Term Months
-        interest_saved:
-          type: number
-          title: Interest Saved
-        months_saved:
-          type: integer
-          title: Months Saved
-      type: object
-      required:
-      - total_paid
-      - total_interest
-      - final_payment
-      - payoff_date
-      - actual_term_months
-      - interest_saved
-      - months_saved
-      title: WithExtraPayments
   securitySchemes:
     siwx:
       type: apiKey

@@ -128,6 +128,59 @@ paths:
         - x402: {}
 components:
   schemas:
+    Request:
+      properties:
+        domains:
+          items:
+            type: string
+          type: array
+          title: Domains
+          description: 'A list of one or more domain names to check. Use bare domain names only — no http://, https://, or www. Example: ["onescales.com", "hillms.com"]'
+      type: object
+      required:
+      - domains
+      title: Request
+      example:
+        domains:
+        - onescales.com
+        - hillms.com
+        - google.com
+    DomainResult:
+      properties:
+        domain:
+          type: string
+          title: Domain
+          description: The domain name that was checked.
+        recordStatus:
+          type: string
+          title: Recordstatus
+          description: Whether the DMARC record is 'Valid', 'Invalid', or 'Not Found'.
+        domainPolicy:
+          type: string
+          title: Domainpolicy
+          description: 'The email handling policy from the DMARC record: ''none'', ''quarantine'', ''reject'', or empty if not found.'
+        reportingEnabled:
+          type: boolean
+          title: Reportingenabled
+          description: True if the domain has reporting addresses set up (rua or ruf tags present).
+        rawRecord:
+          type: string
+          title: Rawrecord
+          description: The full raw DMARC record text, or empty string if no record was found.
+      type: object
+      required:
+      - domain
+      - recordStatus
+      - domainPolicy
+      - reportingEnabled
+      - rawRecord
+      title: DomainResult
+      example:
+        domain: onescales.com
+        domainPolicy: reject
+        rawRecord: v=DMARC1; p=reject; rua=mailto:dmarc@onescales.com;
+        recordStatus: Valid
+        reportingEnabled: true
     Response:
       properties:
         api_version:
@@ -182,59 +235,6 @@ components:
           reportingEnabled: false
         total: 2
         valid_count: 1
-    Request:
-      properties:
-        domains:
-          items:
-            type: string
-          type: array
-          title: Domains
-          description: 'A list of one or more domain names to check. Use bare domain names only — no http://, https://, or www. Example: ["onescales.com", "hillms.com"]'
-      type: object
-      required:
-      - domains
-      title: Request
-      example:
-        domains:
-        - onescales.com
-        - hillms.com
-        - google.com
-    DomainResult:
-      properties:
-        domain:
-          type: string
-          title: Domain
-          description: The domain name that was checked.
-        recordStatus:
-          type: string
-          title: Recordstatus
-          description: Whether the DMARC record is 'Valid', 'Invalid', or 'Not Found'.
-        domainPolicy:
-          type: string
-          title: Domainpolicy
-          description: 'The email handling policy from the DMARC record: ''none'', ''quarantine'', ''reject'', or empty if not found.'
-        reportingEnabled:
-          type: boolean
-          title: Reportingenabled
-          description: True if the domain has reporting addresses set up (rua or ruf tags present).
-        rawRecord:
-          type: string
-          title: Rawrecord
-          description: The full raw DMARC record text, or empty string if no record was found.
-      type: object
-      required:
-      - domain
-      - recordStatus
-      - domainPolicy
-      - reportingEnabled
-      - rawRecord
-      title: DomainResult
-      example:
-        domain: onescales.com
-        domainPolicy: reject
-        rawRecord: v=DMARC1; p=reject; rua=mailto:dmarc@onescales.com;
-        recordStatus: Valid
-        reportingEnabled: true
   securitySchemes:
     siwx:
       type: apiKey

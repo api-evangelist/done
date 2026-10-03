@@ -144,6 +144,26 @@ paths:
         - x402: {}
 components:
   schemas:
+    Request:
+      properties:
+        url:
+          type: string
+          maxLength: 2048
+          title: Url
+          description: 'The full web address of the page you want to analyse, including http:// or https://. Example: https://www.example.com'
+        timeout_seconds:
+          type: integer
+          maximum: 15.0
+          minimum: 1.0
+          title: Timeout Seconds
+          description: How many seconds to wait for the page to respond before giving up. Must be between 1 and 15. Defaults to 10 if not provided.
+          default: 10
+      type: object
+      required:
+      - url
+      title: Request
+      example:
+        url: https://www.example.com
     Response:
       properties:
         api_version:
@@ -238,26 +258,6 @@ components:
         status_code: 200
         title_tag: One Scales - Ecommerce, Analytics, Tech, Shopify & Marketing Tutorials
         url: https://www.onescales.com
-    Request:
-      properties:
-        url:
-          type: string
-          maxLength: 2048
-          title: Url
-          description: 'The full web address of the page you want to analyse, including http:// or https://. Example: https://www.example.com'
-        timeout_seconds:
-          type: integer
-          maximum: 15.0
-          minimum: 1.0
-          title: Timeout Seconds
-          description: How many seconds to wait for the page to respond before giving up. Must be between 1 and 15. Defaults to 10 if not provided.
-          default: 10
-      type: object
-      required:
-      - url
-      title: Request
-      example:
-        url: https://www.example.com
   securitySchemes:
     siwx:
       type: apiKey

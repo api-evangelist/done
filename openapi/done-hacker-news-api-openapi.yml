@@ -148,157 +148,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Response:
-      properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: The version of this tool that produced the response.
-          default: 1.0.0
-        mode:
-          type: string
-          title: Mode
-          description: Whether the response came from a current list (get_stories) or a scan of one calendar day (find_by_date).
-        category:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Category
-          description: The list that was read from, when using list mode.
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-          description: The calendar day that was scanned, when using date mode.
-        count:
-          type: integer
-          title: Count
-          description: How many items are included in this response.
-        scanned:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Scanned
-          description: How many Hacker News items were examined while scanning a date. Empty in list mode.
-        next_page_token:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Next Page Token
-          description: A resume point to continue a date scan on a later call, or empty if the day is fully covered.
-        range_complete:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Range Complete
-          description: Whether the entire requested day has now been fully scanned. Empty in list mode.
-        results:
-          items:
-            $ref: '#/components/schemas/ItemModel'
-          type: array
-          title: Results
-          description: The stories, jobs, or polls that were found.
-      type: object
-      required:
-      - mode
-      - count
-      - results
-      title: Response
-      example:
-        api_version: 1.0.0
-        category: top
-        count: 5
-        mode: get_stories
-        results:
-        - author: chvid
-          category: top
-          comment_count: 223
-          comments:
-          - author: seizethecheese
-            body: I'm somewhat surprised that this is not open source...
-            id: 48752128
-            posted_at: 1782935074
-            replies: []
-            reply_count: 9
-          id: 48753715
-          item_type: story
-          points: 234
-          posted_at: 1782943416
-          title: ZCode – Harness for GLM-5.2
-          url: https://zcode.z.ai/en
-    ItemModel:
-      properties:
-        id:
-          type: integer
-          title: Id
-          description: The unique number identifying this story, job, or poll.
-        item_type:
-          type: string
-          title: Item Type
-          description: Whether this item is a story, a job posting, or a poll.
-        category:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Category
-          description: The list this item came from, when using list mode. Empty when scanning by date.
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-          description: The headline of the post.
-        author:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Author
-          description: The username of the person who posted it.
-        url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-          description: The web address the post links to, if it has one.
-        points:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Points
-          description: The number of upvotes the post has.
-        posted_at:
-          type: integer
-          title: Posted At
-          description: The moment the post was made, shown as a plain number of seconds since 1970.
-        comment_count:
-          type: integer
-          title: Comment Count
-          description: The total number of comments and replies on the post.
-        comments:
-          items:
-            $ref: '#/components/schemas/CommentModel'
-          type: array
-          title: Comments
-          description: Discussion comments under the post, if they were requested.
-      type: object
-      required:
-      - id
-      - item_type
-      - posted_at
-      - comment_count
-      title: ItemModel
-      example:
-        author: chvid
-        category: top
-        comment_count: 223
-        comments: []
-        id: 48753715
-        item_type: story
-        points: 234
-        posted_at: 1782943416
-        title: ZCode – Harness for GLM-5.2
-        url: https://zcode.z.ai/en
     Request:
       properties:
         category:
@@ -397,6 +246,157 @@ components:
         posted_at: 1782935074
         replies: []
         reply_count: 9
+    ItemModel:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: The unique number identifying this story, job, or poll.
+        item_type:
+          type: string
+          title: Item Type
+          description: Whether this item is a story, a job posting, or a poll.
+        category:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Category
+          description: The list this item came from, when using list mode. Empty when scanning by date.
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+          description: The headline of the post.
+        author:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Author
+          description: The username of the person who posted it.
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+          description: The web address the post links to, if it has one.
+        points:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Points
+          description: The number of upvotes the post has.
+        posted_at:
+          type: integer
+          title: Posted At
+          description: The moment the post was made, shown as a plain number of seconds since 1970.
+        comment_count:
+          type: integer
+          title: Comment Count
+          description: The total number of comments and replies on the post.
+        comments:
+          items:
+            $ref: '#/components/schemas/CommentModel'
+          type: array
+          title: Comments
+          description: Discussion comments under the post, if they were requested.
+      type: object
+      required:
+      - id
+      - item_type
+      - posted_at
+      - comment_count
+      title: ItemModel
+      example:
+        author: chvid
+        category: top
+        comment_count: 223
+        comments: []
+        id: 48753715
+        item_type: story
+        points: 234
+        posted_at: 1782943416
+        title: ZCode – Harness for GLM-5.2
+        url: https://zcode.z.ai/en
+    Response:
+      properties:
+        api_version:
+          type: string
+          title: Api Version
+          description: The version of this tool that produced the response.
+          default: 1.0.0
+        mode:
+          type: string
+          title: Mode
+          description: Whether the response came from a current list (get_stories) or a scan of one calendar day (find_by_date).
+        category:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Category
+          description: The list that was read from, when using list mode.
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+          description: The calendar day that was scanned, when using date mode.
+        count:
+          type: integer
+          title: Count
+          description: How many items are included in this response.
+        scanned:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Scanned
+          description: How many Hacker News items were examined while scanning a date. Empty in list mode.
+        next_page_token:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Next Page Token
+          description: A resume point to continue a date scan on a later call, or empty if the day is fully covered.
+        range_complete:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Range Complete
+          description: Whether the entire requested day has now been fully scanned. Empty in list mode.
+        results:
+          items:
+            $ref: '#/components/schemas/ItemModel'
+          type: array
+          title: Results
+          description: The stories, jobs, or polls that were found.
+      type: object
+      required:
+      - mode
+      - count
+      - results
+      title: Response
+      example:
+        api_version: 1.0.0
+        category: top
+        count: 5
+        mode: get_stories
+        results:
+        - author: chvid
+          category: top
+          comment_count: 223
+          comments:
+          - author: seizethecheese
+            body: I'm somewhat surprised that this is not open source...
+            id: 48752128
+            posted_at: 1782935074
+            replies: []
+            reply_count: 9
+          id: 48753715
+          item_type: story
+          points: 234
+          posted_at: 1782943416
+          title: ZCode – Harness for GLM-5.2
+          url: https://zcode.z.ai/en
   securitySchemes:
     siwx:
       type: apiKey

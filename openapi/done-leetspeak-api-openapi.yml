@@ -126,6 +126,31 @@ paths:
         - x402: {}
 components:
   schemas:
+    Request:
+      properties:
+        text:
+          type: string
+          maxLength: 5000
+          title: Text
+          description: The words you want to convert, either everyday writing or leetspeak.
+        direction:
+          type: string
+          title: Direction
+          description: Choose 'to_leet' to turn normal words into leetspeak, or 'to_normal' to turn leetspeak back into everyday words.
+        level:
+          type: string
+          title: Level
+          description: Only used when turning words into leetspeak. Choose 'basic', 'intermediate', or 'advanced' for how many letters get changed.
+          default: basic
+      type: object
+      required:
+      - text
+      - direction
+      title: Request
+      example:
+        direction: to_leet
+        level: basic
+        text: hello world
     Response:
       properties:
         api_version:
@@ -162,31 +187,6 @@ components:
         level: basic
         original_text: hello world
         translated_text: h3110 w0r1d
-    Request:
-      properties:
-        text:
-          type: string
-          maxLength: 5000
-          title: Text
-          description: The words you want to convert, either everyday writing or leetspeak.
-        direction:
-          type: string
-          title: Direction
-          description: Choose 'to_leet' to turn normal words into leetspeak, or 'to_normal' to turn leetspeak back into everyday words.
-        level:
-          type: string
-          title: Level
-          description: Only used when turning words into leetspeak. Choose 'basic', 'intermediate', or 'advanced' for how many letters get changed.
-          default: basic
-      type: object
-      required:
-      - text
-      - direction
-      title: Request
-      example:
-        direction: to_leet
-        level: basic
-        text: hello world
   securitySchemes:
     siwx:
       type: apiKey

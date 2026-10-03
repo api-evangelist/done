@@ -130,70 +130,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Response:
-      properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: The version of this checking service.
-          default: 1.0.0
-        checked:
-          type: integer
-          title: Checked
-          description: How many website addresses were checked.
-        results:
-          items:
-            $ref: '#/components/schemas/DomainResult'
-          type: array
-          title: Results
-          description: The check results for each website address, in the order submitted.
-      type: object
-      required:
-      - checked
-      - results
-      title: Response
-      example:
-        api_version: 1.0.0
-        checked: 1
-        results:
-        - checks:
-            bimi_record_found: false
-            dmarc_strict: false
-          domain: example.com
-          issues:
-          - No BIMI TXT record found at default._bimi.example.com
-          selector: default
-          valid: false
-    DomainCheckDetail:
-      properties:
-        bimi_record_found:
-          type: boolean
-          title: Bimi Record Found
-          description: Whether the special branding settings were found for this website.
-        svg_valid:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Svg Valid
-          description: Whether the logo picture follows the required format. Empty if it was not checked.
-        vmc_valid:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Vmc Valid
-          description: Whether the logo's security certificate is valid and not expired. Empty if it was not checked.
-        dmarc_strict:
-          type: boolean
-          title: Dmarc Strict
-          description: Whether the domain has strict enough email protection rules turned on.
-      type: object
-      required:
-      - bimi_record_found
-      - dmarc_strict
-      title: DomainCheckDetail
-      example:
-        bimi_record_found: false
-        dmarc_strict: false
     Request:
       properties:
         domains:
@@ -262,6 +198,70 @@ components:
         - No BIMI TXT record found at default._bimi.example.com
         selector: default
         valid: false
+    Response:
+      properties:
+        api_version:
+          type: string
+          title: Api Version
+          description: The version of this checking service.
+          default: 1.0.0
+        checked:
+          type: integer
+          title: Checked
+          description: How many website addresses were checked.
+        results:
+          items:
+            $ref: '#/components/schemas/DomainResult'
+          type: array
+          title: Results
+          description: The check results for each website address, in the order submitted.
+      type: object
+      required:
+      - checked
+      - results
+      title: Response
+      example:
+        api_version: 1.0.0
+        checked: 1
+        results:
+        - checks:
+            bimi_record_found: false
+            dmarc_strict: false
+          domain: example.com
+          issues:
+          - No BIMI TXT record found at default._bimi.example.com
+          selector: default
+          valid: false
+    DomainCheckDetail:
+      properties:
+        bimi_record_found:
+          type: boolean
+          title: Bimi Record Found
+          description: Whether the special branding settings were found for this website.
+        svg_valid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Svg Valid
+          description: Whether the logo picture follows the required format. Empty if it was not checked.
+        vmc_valid:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Vmc Valid
+          description: Whether the logo's security certificate is valid and not expired. Empty if it was not checked.
+        dmarc_strict:
+          type: boolean
+          title: Dmarc Strict
+          description: Whether the domain has strict enough email protection rules turned on.
+      type: object
+      required:
+      - bimi_record_found
+      - dmarc_strict
+      title: DomainCheckDetail
+      example:
+        bimi_record_found: false
+        dmarc_strict: false
   securitySchemes:
     siwx:
       type: apiKey
