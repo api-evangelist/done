@@ -135,25 +135,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        url:
-          type: string
-          maxLength: 8192
-          title: Url
-          description: The full web address you want to send a request to. Must start with http:// or https://.
-        method:
-          type: string
-          title: Method
-          description: The type of request to make. Choose from GET, POST, PUT, PATCH, DELETE, or HEAD. Defaults to GET if not provided.
-          default: GET
-      type: object
-      required:
-      - url
-      title: Request
-      example:
-        method: GET
-        url: https://httpbin.org/get
     Response:
       properties:
         api_version:
@@ -220,6 +201,25 @@ components:
         method: GET
         redirectChain: []
         statusCode: 200
+        url: https://httpbin.org/get
+    Request:
+      properties:
+        url:
+          type: string
+          maxLength: 8192
+          title: Url
+          description: The full web address you want to send a request to. Must start with http:// or https://.
+        method:
+          type: string
+          title: Method
+          description: The type of request to make. Choose from GET, POST, PUT, PATCH, DELETE, or HEAD. Defaults to GET if not provided.
+          default: GET
+      type: object
+      required:
+      - url
+      title: Request
+      example:
+        method: GET
         url: https://httpbin.org/get
   securitySchemes:
     siwx:

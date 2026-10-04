@@ -114,38 +114,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    QRRequest:
-      properties:
-        texts:
-          items:
-            type: string
-          type: array
-          title: Texts
-          description: The list of things you want turned into QR codes — website addresses, phone numbers, plain text, WiFi credentials, anything you like. Each entry must be 700 characters or fewer. Empty entries are skipped. At least one real entry is required.
-        size:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Size
-          description: How wide (and tall — QR codes are square) the output image should be, measured in pixels. Must be between 100 and 1200. Defaults to 600 if you leave it out.
-          default: 600
-        error_correction:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Error Correction
-          description: How much damage or dirt the QR code can survive and still scan correctly. Choose L (least tough, smallest code), M, Q, or H (most tough, slightly larger code). Defaults to H, which is best for printed labels or stickers.
-          default: H
-      type: object
-      required:
-      - texts
-      title: QRRequest
-      example:
-        error_correction: H
-        size: 600
-        texts:
-        - https://example.com
-        - https://example.com/product/42
     QRResult:
       properties:
         text:
@@ -189,6 +157,38 @@ components:
         results:
         - qr_base64: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...
           text: https://example.com
+    QRRequest:
+      properties:
+        texts:
+          items:
+            type: string
+          type: array
+          title: Texts
+          description: The list of things you want turned into QR codes — website addresses, phone numbers, plain text, WiFi credentials, anything you like. Each entry must be 700 characters or fewer. Empty entries are skipped. At least one real entry is required.
+        size:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Size
+          description: How wide (and tall — QR codes are square) the output image should be, measured in pixels. Must be between 100 and 1200. Defaults to 600 if you leave it out.
+          default: 600
+        error_correction:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error Correction
+          description: How much damage or dirt the QR code can survive and still scan correctly. Choose L (least tough, smallest code), M, Q, or H (most tough, slightly larger code). Defaults to H, which is best for printed labels or stickers.
+          default: H
+      type: object
+      required:
+      - texts
+      title: QRRequest
+      example:
+        error_correction: H
+        size: 600
+        texts:
+        - https://example.com
+        - https://example.com/product/42
   securitySchemes:
     siwx:
       type: apiKey

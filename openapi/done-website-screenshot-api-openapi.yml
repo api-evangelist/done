@@ -130,6 +130,54 @@ paths:
         - x402: {}
 components:
   schemas:
+    Response:
+      properties:
+        api_version:
+          type: string
+          title: Api Version
+          description: The version of this service that answered the request.
+          default: 1.0.0
+        url:
+          type: string
+          title: Url
+          description: The web address that was captured.
+        image:
+          type: string
+          title: Image
+          description: A short-lived link to the captured picture. Download it promptly if you need to keep it.
+        format:
+          type: string
+          title: Format
+          description: The picture file type, such as png.
+        width:
+          type: integer
+          title: Width
+          description: The width of the captured picture, in pixels.
+        height:
+          type: integer
+          title: Height
+          description: The height of the captured picture, in pixels.
+        captured_at:
+          type: string
+          title: Captured At
+          description: The date and time the picture was taken.
+      type: object
+      required:
+      - url
+      - image
+      - format
+      - width
+      - height
+      - captured_at
+      title: Response
+      example:
+        api_version: 1.0.0
+        captured_at: '2026-07-20T04:12:33Z'
+        format: png
+        height: 1080
+        image: https://r2.example.com/shot-abc123.png
+        url: https://example.com
+        width: 1920
     Request:
       properties:
         url:
@@ -201,54 +249,6 @@ components:
       title: Viewport
       example:
         height: 1080
-        width: 1920
-    Response:
-      properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: The version of this service that answered the request.
-          default: 1.0.0
-        url:
-          type: string
-          title: Url
-          description: The web address that was captured.
-        image:
-          type: string
-          title: Image
-          description: A short-lived link to the captured picture. Download it promptly if you need to keep it.
-        format:
-          type: string
-          title: Format
-          description: The picture file type, such as png.
-        width:
-          type: integer
-          title: Width
-          description: The width of the captured picture, in pixels.
-        height:
-          type: integer
-          title: Height
-          description: The height of the captured picture, in pixels.
-        captured_at:
-          type: string
-          title: Captured At
-          description: The date and time the picture was taken.
-      type: object
-      required:
-      - url
-      - image
-      - format
-      - width
-      - height
-      - captured_at
-      title: Response
-      example:
-        api_version: 1.0.0
-        captured_at: '2026-07-20T04:12:33Z'
-        format: png
-        height: 1080
-        image: https://r2.example.com/shot-abc123.png
-        url: https://example.com
         width: 1920
   securitySchemes:
     siwx:

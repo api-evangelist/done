@@ -128,18 +128,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        email:
-          type: string
-          title: Email
-          description: The single email address to check, such as alpha@gmail.com. Maximum 320 characters.
-      type: object
-      required:
-      - email
-      title: Request
-      example:
-        email: alpha@gmail.com
     Response:
       properties:
         api_version:
@@ -188,6 +176,18 @@ components:
         quality: valid
         role: false
         username: alpha
+    Request:
+      properties:
+        email:
+          type: string
+          title: Email
+          description: The single email address to check, such as alpha@gmail.com. Maximum 320 characters.
+      type: object
+      required:
+      - email
+      title: Request
+      example:
+        email: alpha@gmail.com
   securitySchemes:
     siwx:
       type: apiKey

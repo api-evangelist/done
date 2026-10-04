@@ -224,33 +224,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    Request:
-      properties:
-        period:
-          anyOf:
-          - type: string
-            maxLength: 7
-          - type: 'null'
-          title: Period
-          description: A single month to look up, written as year-month, like 2024-03. Leave this out if you want the newest data or a range instead.
-        start:
-          anyOf:
-          - type: string
-            maxLength: 7
-          - type: 'null'
-          title: Start
-          description: The first month of a historical range, written as year-month, like 2023-01. Leave out to start from the earliest available month.
-        end:
-          anyOf:
-          - type: string
-            maxLength: 7
-          - type: 'null'
-          title: End
-          description: The last month of a historical range, written as year-month, like 2024-12. Leave out to end at the newest available month.
-      type: object
-      title: Request
-      example:
-        period: 2024-03
     CpiRecord:
       properties:
         reference_period:
@@ -356,6 +329,33 @@ components:
         headline_yoy_pct: 3.4
         reference_period: 2024-03
         summary: In 2024-03, prices overall were up 3.4% compared to a year earlier, and core prices (excluding food and energy) were up 3.3% compared to a year earlier.
+    Request:
+      properties:
+        period:
+          anyOf:
+          - type: string
+            maxLength: 7
+          - type: 'null'
+          title: Period
+          description: A single month to look up, written as year-month, like 2024-03. Leave this out if you want the newest data or a range instead.
+        start:
+          anyOf:
+          - type: string
+            maxLength: 7
+          - type: 'null'
+          title: Start
+          description: The first month of a historical range, written as year-month, like 2023-01. Leave out to start from the earliest available month.
+        end:
+          anyOf:
+          - type: string
+            maxLength: 7
+          - type: 'null'
+          title: End
+          description: The last month of a historical range, written as year-month, like 2024-12. Leave out to end at the newest available month.
+      type: object
+      title: Request
+      example:
+        period: 2024-03
   securitySchemes:
     siwx:
       type: apiKey
