@@ -1,0 +1,12 @@
+{
+ "url": "https://dmarc-lookup.underscoredone.com/openapi.json",
+ "requested_url": "https://dmarc-lookup.underscoredone.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 13276,
+ "sha256": "87726ea8c8a11403b05c1918e1a987a6c689123698da2ebeec5db155b1f9ba79",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}

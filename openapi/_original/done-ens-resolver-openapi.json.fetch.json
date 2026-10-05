@@ -1,0 +1,12 @@
+{
+ "url": "https://ens-resolver.underscoredone.com/openapi.json",
+ "requested_url": "https://ens-resolver.underscoredone.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 8073,
+ "sha256": "c538cf60c941317b287036e32ab8828259bac2abf0094ab7e1ae551f4ceb2953",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}

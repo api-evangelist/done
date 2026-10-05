@@ -1,0 +1,12 @@
+{
+ "url": "https://shopify-ai-rank-checker.underscoredone.com/openapi.json",
+ "requested_url": "https://shopify-ai-rank-checker.underscoredone.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 12967,
+ "sha256": "9f6adea4b600f946ce12d4cc29ca575f4d48242e99f54056d69e50100a2e8b4e",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

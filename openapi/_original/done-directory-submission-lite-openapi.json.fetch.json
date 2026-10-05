@@ -1,0 +1,12 @@
+{
+ "url": "https://directory-submission-lite.underscoredone.com/openapi.json",
+ "requested_url": "https://directory-submission-lite.underscoredone.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 13359,
+ "sha256": "afbfb345279db2aa613ed9ecfabb0fefe0c3b650c088516187adbe9d1047dd82",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}

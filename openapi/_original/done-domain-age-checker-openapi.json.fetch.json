@@ -1,0 +1,12 @@
+{
+ "url": "https://asn-lookup.underscoredone.com/openapi.json",
+ "requested_url": "https://asn-lookup.underscoredone.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 8717,
+ "sha256": "30ed37fd5abf610dd12e3088e1e566320b6c6e22cc6661584e06258a53e483b2",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

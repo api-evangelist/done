@@ -1,0 +1,12 @@
+{
+ "url": "https://mortgage-amortization.underscoredone.com/openapi.json",
+ "requested_url": "https://mortgage-amortization.underscoredone.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 20394,
+ "sha256": "3e0495e863a04a1c9246779449f47ecd6c6e94fa8358acf77350462e7946b3b1",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
