@@ -130,54 +130,72 @@ paths:
         - x402: {}
 components:
   schemas:
-    CompetitorEntry:
+    Response:
       properties:
-        position:
-          type: integer
-          title: Position
-          description: Where this product sits in the search results, starting at 1.
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-          description: The product's name as shown in the catalog.
-        price:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Price
-          description: The product's price, if listed.
-        productUrl:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Producturl
-          description: The product's web address.
-        shopName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Shopname
-          description: The name of the store selling this product.
-        shopDomain:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Shopdomain
-          description: The store's web address.
-        rating:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Rating
-          description: The product's customer rating, if it has one.
+        api_version:
+          type: string
+          title: Api Version
+          description: The version number of this tool.
+          default: 1.0.0
+        shop_domain:
+          type: string
+          title: Shop Domain
+          description: The store address the results are for, after cleanup.
+        ships_to_country:
+          type: string
+          title: Ships To Country
+          description: The shopper country the results reflect.
+        results:
+          items:
+            $ref: '#/components/schemas/RankResult'
+          type: array
+          title: Results
+          description: One result per search phrase you asked about, listed in the same order you provided them.
       type: object
       required:
-      - position
-      title: CompetitorEntry
+      - shop_domain
+      - ships_to_country
+      - results
+      title: Response
+    Request:
+      properties:
+        shop_domain:
+          type: string
+          title: Shop Domain
+          description: Your store's web address, for example legacybilliards.com or example-store.myshopify.com. You can paste it with or without https://.
+        keywords:
+          items:
+            type: string
+          type: array
+          maxItems: 10
+          minItems: 1
+          title: Keywords
+          description: A list of 1 to 10 search phrases you want to check your store's rank for. Split larger lists across multiple calls.
+        report_detail:
+          type: string
+          enum:
+          - simple
+          - full
+          title: Report Detail
+          description: Choose 'simple' for a quick rank summary or 'full' for complete competitor and data quality details.
+          default: simple
+        ships_to_country:
+          type: string
+          title: Ships To Country
+          description: A two-letter country code, such as US or DE, so results reflect what a shopper in that country would see.
+          default: US
+      type: object
+      required:
+      - shop_domain
+      - keywords
+      title: Request
+      example:
+        keywords:
+        - 7 foot pool table
+        - shuffleboard table
+        report_detail: simple
+        ships_to_country: US
+        shop_domain: legacybilliards.com
     RankResult:
       properties:
         keyword:
@@ -260,72 +278,54 @@ components:
       required:
       - keyword
       title: RankResult
-    Response:
+    CompetitorEntry:
       properties:
-        api_version:
-          type: string
-          title: Api Version
-          description: The version number of this tool.
-          default: 1.0.0
-        shop_domain:
-          type: string
-          title: Shop Domain
-          description: The store address the results are for, after cleanup.
-        ships_to_country:
-          type: string
-          title: Ships To Country
-          description: The shopper country the results reflect.
-        results:
-          items:
-            $ref: '#/components/schemas/RankResult'
-          type: array
-          title: Results
-          description: One result per search phrase you asked about, listed in the same order you provided them.
+        position:
+          type: integer
+          title: Position
+          description: Where this product sits in the search results, starting at 1.
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+          description: The product's name as shown in the catalog.
+        price:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Price
+          description: The product's price, if listed.
+        productUrl:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Producturl
+          description: The product's web address.
+        shopName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Shopname
+          description: The name of the store selling this product.
+        shopDomain:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Shopdomain
+          description: The store's web address.
+        rating:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Rating
+          description: The product's customer rating, if it has one.
       type: object
       required:
-      - shop_domain
-      - ships_to_country
-      - results
-      title: Response
-    Request:
-      properties:
-        shop_domain:
-          type: string
-          title: Shop Domain
-          description: Your store's web address, for example legacybilliards.com or example-store.myshopify.com. You can paste it with or without https://.
-        keywords:
-          items:
-            type: string
-          type: array
-          maxItems: 10
-          minItems: 1
-          title: Keywords
-          description: A list of 1 to 10 search phrases you want to check your store's rank for. Split larger lists across multiple calls.
-        report_detail:
-          type: string
-          enum:
-          - simple
-          - full
-          title: Report Detail
-          description: Choose 'simple' for a quick rank summary or 'full' for complete competitor and data quality details.
-          default: simple
-        ships_to_country:
-          type: string
-          title: Ships To Country
-          description: A two-letter country code, such as US or DE, so results reflect what a shopper in that country would see.
-          default: US
-      type: object
-      required:
-      - shop_domain
-      - keywords
-      title: Request
-      example:
-        keywords:
-        - 7 foot pool table
-        - shuffleboard table
-        report_detail: simple
-        ships_to_country: US
-        shop_domain: legacybilliards.com
+      - position
+      title: CompetitorEntry
   securitySchemes:
     siwx:
       type: apiKey

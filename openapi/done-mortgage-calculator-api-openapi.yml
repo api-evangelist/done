@@ -167,27 +167,68 @@ paths:
         - x402: {}
 components:
   schemas:
-    InputsEcho:
+    ScheduleRow:
       properties:
+        payment_number:
+          type: integer
+          title: Payment Number
+        date:
+          type: string
+          title: Date
+        payment:
+          type: number
+          title: Payment
+        scheduled_payment:
+          type: number
+          title: Scheduled Payment
+        extra_applied:
+          type: number
+          title: Extra Applied
+        interest:
+          type: number
+          title: Interest
         principal:
           type: number
           title: Principal
-        annual_rate_percent:
+        balance:
           type: number
-          title: Annual Rate Percent
-        term_months:
-          type: integer
-          title: Term Months
-        start_date:
-          type: string
-          title: Start Date
+          title: Balance
       type: object
       required:
+      - payment_number
+      - date
+      - payment
+      - scheduled_payment
+      - extra_applied
+      - interest
       - principal
-      - annual_rate_percent
-      - term_months
-      - start_date
-      title: InputsEcho
+      - balance
+      title: ScheduleRow
+    Summary:
+      properties:
+        total_paid:
+          type: number
+          title: Total Paid
+        total_interest:
+          type: number
+          title: Total Interest
+        final_payment:
+          type: number
+          title: Final Payment
+        payoff_date:
+          type: string
+          title: Payoff Date
+        scheduled_term_months:
+          type: integer
+          title: Scheduled Term Months
+      type: object
+      required:
+      - total_paid
+      - total_interest
+      - final_payment
+      - payoff_date
+      - scheduled_term_months
+      title: Summary
     Response:
       properties:
         api_version:
@@ -247,6 +288,27 @@ components:
           scheduled_term_months: 360
           total_interest: 510179.81
           total_paid: 910179.81
+    InputsEcho:
+      properties:
+        principal:
+          type: number
+          title: Principal
+        annual_rate_percent:
+          type: number
+          title: Annual Rate Percent
+        term_months:
+          type: integer
+          title: Term Months
+        start_date:
+          type: string
+          title: Start Date
+      type: object
+      required:
+      - principal
+      - annual_rate_percent
+      - term_months
+      - start_date
+      title: InputsEcho
     Request:
       properties:
         principal:
@@ -306,48 +368,6 @@ components:
         start_date: '2026-07-01'
         summary_only: false
         term_months: 360
-    Summary:
-      properties:
-        total_paid:
-          type: number
-          title: Total Paid
-        total_interest:
-          type: number
-          title: Total Interest
-        final_payment:
-          type: number
-          title: Final Payment
-        payoff_date:
-          type: string
-          title: Payoff Date
-        scheduled_term_months:
-          type: integer
-          title: Scheduled Term Months
-      type: object
-      required:
-      - total_paid
-      - total_interest
-      - final_payment
-      - payoff_date
-      - scheduled_term_months
-      title: Summary
-    RoundingInfo:
-      properties:
-        mode:
-          type: string
-          title: Mode
-        decimals:
-          type: integer
-          title: Decimals
-        final_payment_adjusted:
-          type: boolean
-          title: Final Payment Adjusted
-      type: object
-      required:
-      - mode
-      - decimals
-      - final_payment_adjusted
-      title: RoundingInfo
     WithExtraPayments:
       properties:
         total_paid:
@@ -399,43 +419,23 @@ components:
       example:
         amount: 10000
         month: 24
-    ScheduleRow:
+    RoundingInfo:
       properties:
-        payment_number:
-          type: integer
-          title: Payment Number
-        date:
+        mode:
           type: string
-          title: Date
-        payment:
-          type: number
-          title: Payment
-        scheduled_payment:
-          type: number
-          title: Scheduled Payment
-        extra_applied:
-          type: number
-          title: Extra Applied
-        interest:
-          type: number
-          title: Interest
-        principal:
-          type: number
-          title: Principal
-        balance:
-          type: number
-          title: Balance
+          title: Mode
+        decimals:
+          type: integer
+          title: Decimals
+        final_payment_adjusted:
+          type: boolean
+          title: Final Payment Adjusted
       type: object
       required:
-      - payment_number
-      - date
-      - payment
-      - scheduled_payment
-      - extra_applied
-      - interest
-      - principal
-      - balance
-      title: ScheduleRow
+      - mode
+      - decimals
+      - final_payment_adjusted
+      title: RoundingInfo
   securitySchemes:
     siwx:
       type: apiKey

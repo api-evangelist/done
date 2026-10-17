@@ -144,6 +144,74 @@ paths:
         - x402: {}
 components:
   schemas:
+    ScanRequest:
+      properties:
+        target:
+          type: string
+          title: Target
+          description: The hostname (like 'example.com') or numeric IP address (like '93.184.216.34') you want to scan. Must be a real, reachable address.
+        ports:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Ports
+          description: Which ports to check. Use a range like '1-1000', a comma-separated list like '22,80,443', or leave this out to automatically check the 1000 most commonly used ports.
+        scan_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Scan Type
+          description: How to probe each port. The only supported value right now is 'tcp_connect'. Defaults to 'tcp_connect' if left out.
+          default: tcp_connect
+        timeout:
+          anyOf:
+          - type: integer
+            maximum: 60.0
+            minimum: 5.0
+          - type: 'null'
+          title: Timeout
+          description: How many seconds the scan is allowed to run before giving up. Must be between 5 and 60. Defaults to 30 if left out.
+          default: 30
+      type: object
+      required:
+      - target
+      title: ScanRequest
+      example:
+        ports: 1-1000
+        scan_type: tcp_connect
+        target: scanme.nmap.org
+        timeout: 30
+    OpenPort:
+      properties:
+        port:
+          type: integer
+          title: Port
+          description: The port number that is open.
+        protocol:
+          type: string
+          title: Protocol
+          description: The network protocol used (always 'tcp' for this scan type).
+        state:
+          type: string
+          title: State
+          description: Whether the port is 'open', 'closed', or 'filtered'.
+        service:
+          type: string
+          title: Service
+          description: The name of the service most likely running on this port, like 'ssh' or 'http'.
+        version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Version
+          description: The software version detected on this port, if any. May be empty if not detectable.
+      type: object
+      required:
+      - port
+      - protocol
+      - state
+      - service
+      title: OpenPort
     ScanResponse:
       properties:
         api_version:
@@ -230,74 +298,6 @@ components:
         resolved_ip: 45.33.32.156
         scan_type: tcp_connect
         target: scanme.nmap.org
-    OpenPort:
-      properties:
-        port:
-          type: integer
-          title: Port
-          description: The port number that is open.
-        protocol:
-          type: string
-          title: Protocol
-          description: The network protocol used (always 'tcp' for this scan type).
-        state:
-          type: string
-          title: State
-          description: Whether the port is 'open', 'closed', or 'filtered'.
-        service:
-          type: string
-          title: Service
-          description: The name of the service most likely running on this port, like 'ssh' or 'http'.
-        version:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Version
-          description: The software version detected on this port, if any. May be empty if not detectable.
-      type: object
-      required:
-      - port
-      - protocol
-      - state
-      - service
-      title: OpenPort
-    ScanRequest:
-      properties:
-        target:
-          type: string
-          title: Target
-          description: The hostname (like 'example.com') or numeric IP address (like '93.184.216.34') you want to scan. Must be a real, reachable address.
-        ports:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Ports
-          description: Which ports to check. Use a range like '1-1000', a comma-separated list like '22,80,443', or leave this out to automatically check the 1000 most commonly used ports.
-        scan_type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Scan Type
-          description: How to probe each port. The only supported value right now is 'tcp_connect'. Defaults to 'tcp_connect' if left out.
-          default: tcp_connect
-        timeout:
-          anyOf:
-          - type: integer
-            maximum: 60.0
-            minimum: 5.0
-          - type: 'null'
-          title: Timeout
-          description: How many seconds the scan is allowed to run before giving up. Must be between 5 and 60. Defaults to 30 if left out.
-          default: 30
-      type: object
-      required:
-      - target
-      title: ScanRequest
-      example:
-        ports: 1-1000
-        scan_type: tcp_connect
-        target: scanme.nmap.org
-        timeout: 30
   securitySchemes:
     siwx:
       type: apiKey

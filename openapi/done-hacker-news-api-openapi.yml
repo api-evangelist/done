@@ -148,121 +148,6 @@ paths:
         - x402: {}
 components:
   schemas:
-    CommentModel:
-      properties:
-        id:
-          type: integer
-          title: Id
-          description: The unique number identifying this comment.
-        author:
-          type: string
-          title: Author
-          description: The username of the person who wrote the comment.
-        posted_at:
-          type: integer
-          title: Posted At
-          description: The moment the comment was posted, shown as a plain number of seconds since 1970.
-        body:
-          type: string
-          title: Body
-          description: The text of the comment.
-        reply_count:
-          type: integer
-          title: Reply Count
-          description: How many direct replies this comment has.
-        replies:
-          items:
-            $ref: '#/components/schemas/CommentModel'
-          type: array
-          title: Replies
-          description: Nested replies underneath this comment, if any were requested.
-      type: object
-      required:
-      - id
-      - author
-      - posted_at
-      - body
-      - reply_count
-      title: CommentModel
-      example:
-        author: seizethecheese
-        body: I'm somewhat surprised that this is not open source...
-        id: 48752128
-        posted_at: 1782935074
-        replies: []
-        reply_count: 9
-    ItemModel:
-      properties:
-        id:
-          type: integer
-          title: Id
-          description: The unique number identifying this story, job, or poll.
-        item_type:
-          type: string
-          title: Item Type
-          description: Whether this item is a story, a job posting, or a poll.
-        category:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Category
-          description: The list this item came from, when using list mode. Empty when scanning by date.
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-          description: The headline of the post.
-        author:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Author
-          description: The username of the person who posted it.
-        url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-          description: The web address the post links to, if it has one.
-        points:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Points
-          description: The number of upvotes the post has.
-        posted_at:
-          type: integer
-          title: Posted At
-          description: The moment the post was made, shown as a plain number of seconds since 1970.
-        comment_count:
-          type: integer
-          title: Comment Count
-          description: The total number of comments and replies on the post.
-        comments:
-          items:
-            $ref: '#/components/schemas/CommentModel'
-          type: array
-          title: Comments
-          description: Discussion comments under the post, if they were requested.
-      type: object
-      required:
-      - id
-      - item_type
-      - posted_at
-      - comment_count
-      title: ItemModel
-      example:
-        author: chvid
-        category: top
-        comment_count: 223
-        comments: []
-        id: 48753715
-        item_type: story
-        points: 234
-        posted_at: 1782943416
-        title: ZCode – Harness for GLM-5.2
-        url: https://zcode.z.ai/en
     Response:
       properties:
         api_version:
@@ -397,6 +282,121 @@ components:
         comment_limit: 3
         limit: 5
         reply_depth: 1
+    ItemModel:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: The unique number identifying this story, job, or poll.
+        item_type:
+          type: string
+          title: Item Type
+          description: Whether this item is a story, a job posting, or a poll.
+        category:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Category
+          description: The list this item came from, when using list mode. Empty when scanning by date.
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+          description: The headline of the post.
+        author:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Author
+          description: The username of the person who posted it.
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+          description: The web address the post links to, if it has one.
+        points:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Points
+          description: The number of upvotes the post has.
+        posted_at:
+          type: integer
+          title: Posted At
+          description: The moment the post was made, shown as a plain number of seconds since 1970.
+        comment_count:
+          type: integer
+          title: Comment Count
+          description: The total number of comments and replies on the post.
+        comments:
+          items:
+            $ref: '#/components/schemas/CommentModel'
+          type: array
+          title: Comments
+          description: Discussion comments under the post, if they were requested.
+      type: object
+      required:
+      - id
+      - item_type
+      - posted_at
+      - comment_count
+      title: ItemModel
+      example:
+        author: chvid
+        category: top
+        comment_count: 223
+        comments: []
+        id: 48753715
+        item_type: story
+        points: 234
+        posted_at: 1782943416
+        title: ZCode – Harness for GLM-5.2
+        url: https://zcode.z.ai/en
+    CommentModel:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: The unique number identifying this comment.
+        author:
+          type: string
+          title: Author
+          description: The username of the person who wrote the comment.
+        posted_at:
+          type: integer
+          title: Posted At
+          description: The moment the comment was posted, shown as a plain number of seconds since 1970.
+        body:
+          type: string
+          title: Body
+          description: The text of the comment.
+        reply_count:
+          type: integer
+          title: Reply Count
+          description: How many direct replies this comment has.
+        replies:
+          items:
+            $ref: '#/components/schemas/CommentModel'
+          type: array
+          title: Replies
+          description: Nested replies underneath this comment, if any were requested.
+      type: object
+      required:
+      - id
+      - author
+      - posted_at
+      - body
+      - reply_count
+      title: CommentModel
+      example:
+        author: seizethecheese
+        body: I'm somewhat surprised that this is not open source...
+        id: 48752128
+        posted_at: 1782935074
+        replies: []
+        reply_count: 9
   securitySchemes:
     siwx:
       type: apiKey
