@@ -1,0 +1,12 @@
+{
+ "url": "https://port-scanner.underscoredone.com/openapi.json",
+ "requested_url": "https://port-scanner.underscoredone.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 12909,
+ "sha256": "f72854f9b9cbc8b6dfca360fb7ee32ba3678ee8e2af7d7d5803394f015b422ec",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

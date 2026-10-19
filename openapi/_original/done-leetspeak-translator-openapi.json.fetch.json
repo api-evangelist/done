@@ -1,0 +1,12 @@
+{
+ "url": "https://leetspeak-translator.underscoredone.com/openapi.json",
+ "requested_url": "https://leetspeak-translator.underscoredone.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 8325,
+ "sha256": "3a21f0f63483e8487c2d30685d28242f7b04b6003dc0b00123fe57e2237707e1",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
